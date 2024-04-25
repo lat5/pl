@@ -1,0 +1,13 @@
+IPTV - https://lat5.github.io/pl/IPTV
+HotKeys - https://lat5.github.io/pl/HotKeys
+Categories - https://lat5.github.io/pl/Categories
+Collections - https://lat5.github.io/pl/Collections
+Rating - https://lat5.github.io/pl/Rating
+Interface - https://lat5.github.io/pl/Interface
+Exit - https://lat5.github.io/pl/Exit
+Trailers - https://lat5.github.io/pl/Trailers
+CUBTorrent - https://lat5.github.io/pl/CUBTorrent
+Reviews - https://lat5.github.io/pl/Reviews
+SkazTV - https://lat5.github.io/pl/SkazTV
+Store - https://lat5.github.io/pl/Store
+TMDBProxy - https://lat5.github.io/pl/TMDBProxy
