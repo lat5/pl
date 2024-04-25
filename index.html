@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Плагины Lampa</title>
+    <script>
+        function copyToClipboard(url) {
+            var textField = document.createElement('textarea');
+            textField.innerText = url;
+            document.body.appendChild(textField);
+            textField.select();
+            document.execCommand('copy');
+            textField.remove();
+            alert('Ссылка скопирована: ' + url);
+        }
+    </script>
 </head>
 <body>
 
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/IPTV'">IPTV</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/HotKeys'">HotKeys</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Categories'">Categories</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Collections'">Collections</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Rating'">Rating</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Interface'">Interface</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Exit'">Exit</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Trailers'">Trailers</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/CUBTorrent'">CUBTorrent</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Reviews'">Reviews</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/SkazTV'">SkazTV</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/Store'">Store</button>
-<button onclick="window.location.href='https://lat5.github.io/pl.github.io/TMDBProxy'">TMDBProxy</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/IPTV')">IPTV</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/HotKeys')">HotKeys</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Categories')">Categories</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Collections')">Collections</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Rating')">Rating</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Interface')">Interface</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Exit')">Exit</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Trailers')">Trailers</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/CUBTorrent')">CUBTorrent</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Reviews')">Reviews</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/SkazTV')">SkazTV</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Store')">Store</button>
+<button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/TMDBProxy')">TMDBProxy</button>
 
 </body>
 </html>
