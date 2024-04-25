@@ -11,3 +11,4 @@ Reviews - https://lat5.github.io/pl/Reviews
 SkazTV - https://lat5.github.io/pl/SkazTV
 Store - https://lat5.github.io/pl/Store
 TMDBProxy - https://lat5.github.io/pl/TMDBProxy
+Tracks - https://lat5.github.io/pl/Tracks
