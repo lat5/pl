@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Плагины Lampa</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .plugin-name {
+            flex: 1;
+        }
+        .button-container {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .button-container button {
+            margin-bottom: 5px;
+        }
+        .link-container {
+            flex: 1;
+            text-align: right;
+        }
+    </style>
     <script>
         function copyToClipboard(url) {
             var textField = document.createElement('textarea');
@@ -18,19 +40,109 @@
 </head>
 <body>
 
-<p>IPTV <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/IPTV')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/IPTV">https://lat5.github.io/pl.github.io/IPTV</a></p>
-<p>HotKeys <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/HotKeys')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/HotKeys">https://lat5.github.io/pl.github.io/HotKeys</a></p>
-<p>Categories <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Categories')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Categories">https://lat5.github.io/pl.github.io/Categories</a></p>
-<p>Collections <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Collections')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Collections">https://lat5.github.io/pl.github.io/Collections</a></p>
-<p>Rating <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Rating')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Rating">https://lat5.github.io/pl.github.io/Rating</a></p>
-<p>Interface <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Interface')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Interface">https://lat5.github.io/pl.github.io/Interface</a></p>
-<p>Exit <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Exit')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Exit">https://lat5.github.io/pl.github.io/Exit</a></p>
-<p>Trailers <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Trailers')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Trailers">https://lat5.github.io/pl.github.io/Trailers</a></p>
-<p>CUBTorrent <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/CUBTorrent')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/CUBTorrent">https://lat5.github.io/pl.github.io/CUBTorrent</a></p>
-<p>Reviews <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Reviews')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Reviews">https://lat5.github.io/pl.github.io/Reviews</a></p>
-<p>SkazTV <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/SkazTV')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/SkazTV">https://lat5.github.io/pl.github.io/SkazTV</a></p>
-<p>Store <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Store')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/Store">https://lat5.github.io/pl.github.io/Store</a></p>
-<p>TMDBProxy <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/TMDBProxy')">Копировать ссылку</button> <a href="https://lat5.github.io/pl.github.io/TMDBProxy">https://lat5.github.io/pl.github.io/TMDBProxy</a></p>
+<div class="container">
+    <div class="plugin-name">IPTV</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/IPTV')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/IPTV">https://lat5.github.io/pl.github.io/IPTV</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">HotKeys</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/HotKeys')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/HotKeys">https://lat5.github.io/pl.github.io/HotKeys</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Categories</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Categories')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Categories">https://lat5.github.io/pl.github.io/Categories</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Collections</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Collections')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Collections">https://lat5.github.io/pl.github.io/Collections</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Rating</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Rating')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Rating">https://lat5.github.io/pl.github.io/Rating</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Interface</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Interface')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Interface">https://lat5.github.io/pl.github.io/Interface</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Exit</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Exit')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Exit">https://lat5.github.io/pl.github.io/Exit</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Trailers</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Trailers')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Trailers">https://lat5.github.io/pl.github.io/Trailers</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">CUBTorrent</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/CUBTorrent')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/CUBTorrent">https://lat5.github.io/pl.github.io/CUBTorrent</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Reviews</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Reviews')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Reviews">https://lat5.github.io/pl.github.io/Reviews</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">SkazTV</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/SkazTV')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/SkazTV">https://lat5.github.io/pl.github.io/SkazTV</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">Store</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/Store')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/Store">https://lat5.github.io/pl.github.io/Store</a></div>
+</div>
+
+<div class="container">
+    <div class="plugin-name">TMDBProxy</div>
+    <div class="button-container">
+        <button onclick="copyToClipboard('https://lat5.github.io/pl.github.io/TMDBProxy')">Копировать ссылку</button>
+    </div>
+    <div class="link-container"><a href="https://lat5.github.io/pl.github.io/TMDBProxy">https://lat5.github.io/pl.github.io/TMDBProxy</a></div>
+</div>
 
 </body>
 </html>
