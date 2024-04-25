@@ -7,15 +7,7 @@
     function get(url, page, resolve, reject) {
       var account = Lampa.Storage.get('account', '{}');
 
-      if (account.token) {
-        network.silent(api_url + url + '/' + page, resolve, reject, false, {
-          headers: {
-            token: account.token
-          }
-        });
-      } else {
-        reject();
-      }
+      
     }
 
     function main(oncomplite, onerror) {
