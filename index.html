@@ -46,7 +46,7 @@
                     descriptionCell.innerText = description === '-' ? '-' : description;
                     
                     // Центрирование дефиса во всех столбцах
-                    var cells = [nameCell, copyCell, urlCell, downloadCell];
+                    var cells = [nameCell, copyCell, urlCell, sourceCell, downloadCell, descriptionCell];
                     cells.forEach(function(cell) {
                         if (cell.innerText === '-') {
                             cell.style.textAlign = 'center';
