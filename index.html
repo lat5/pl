@@ -38,7 +38,7 @@
                             var spacerRow = table.insertRow();
                             var spacerCell = spacerRow.insertCell(0);
                             spacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
-                            spacerCell.style.height = '3.5em'; // Устанавливаем высоту отступа
+                            spacerCell.style.height = '3em'; // Устанавливаем высоту отступа
                         } else {
                             isFirstCategory = false; // Первая категория обработана
                         }
@@ -50,12 +50,6 @@
                         categoryCell.colSpan = 6; // Распространяем ячейку на все столбцы
                         categoryCell.style.fontWeight = 'bold'; // Жирный шрифт для названия категории
                         categoryCell.innerText = currentCategory;
-
-                        // Добавляем одну строку отступа после названия категории
-                        var afterCategorySpacerRow = table.insertRow();
-                        var afterCategorySpacerCell = afterCategorySpacerRow.insertCell(0);
-                        afterCategorySpacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
-                        afterCategorySpacerCell.style.height = '0.0em'; // Устанавливаем высоту отступа
                     } else {
                         var pluginParts = plugin.split(' - ');
                         var name = pluginParts[0];
