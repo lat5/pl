@@ -21,15 +21,27 @@
             xhr.send();
         }
 
-        function parsePlugins(data) {
+    function parsePlugins(data) {
     var plugins = data.split('\n');
     var table = document.getElementById('pluginsTable');
     var currentCategory = ''; // Переменная для хранения текущей категории
+    var isFirstCategory = true; // Переменная для отслеживания первой категории
 
     plugins.forEach(function(plugin) {
         if (plugin.trim() !== '') {
             // Если строка начинается с квадратной скобки, то это новая категория
             if (plugin.trim().startsWith('[')) {
+                // Если это не первая категория, добавляем три строки отступа
+                if (!isFirstCategory) {
+                    for (var i = 0; i < 3; i++) {
+                        var spacerRow = table.insertRow();
+                        var spacerCell = spacerRow.insertCell(0);
+                        spacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
+                    }
+                } else {
+                    isFirstCategory = false; // Первая категория обработана
+                }
+
                 currentCategory = plugin.trim().slice(1, -1); // Убираем скобки и обновляем текущую категорию
                 // Добавляем строку для отображения названия категории
                 var categoryRow = table.insertRow();
@@ -37,6 +49,11 @@
                 categoryCell.colSpan = 6; // Распространяем ячейку на все столбцы
                 categoryCell.style.fontWeight = 'bold'; // Жирный шрифт для названия категории
                 categoryCell.innerText = currentCategory;
+
+                // Добавляем одну строку отступа после названия категории
+                var afterCategorySpacerRow = table.insertRow();
+                var afterCategorySpacerCell = afterCategorySpacerRow.insertCell(0);
+                afterCategorySpacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
             } else {
                 var pluginParts = plugin.split(' - ');
                 var name = pluginParts[0];
@@ -69,6 +86,7 @@
         }
     });
 }
+
 
 
         function copyToClipboard(url) {
