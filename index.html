@@ -41,11 +41,22 @@
                     nameCell.innerText = name;
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                     descriptionCell.innerText = description === '-' ? '-' : description;
-                    descriptionCell.style.textAlign = 'center';
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '">' + source + '</a>';
-                    sourceCell.style.textAlign = 'center';
+                    if (source === '-') {
+                        sourceCell.innerText = '-';
+                        sourceCell.style.textAlign = 'center';
+                    } else {
+                        sourceCell.innerHTML = '<a href="' + source + '">' + source + '</a>';
+                        sourceCell.style.textAlign = 'left';
+                    }
+                    if (description === '-') {
+                        descriptionCell.innerText = '-';
+                        descriptionCell.style.textAlign = 'center';
+                    } else {
+                        descriptionCell.innerText = description;
+                        descriptionCell.style.textAlign = 'left';
+                    }
                 }
             });
         }
@@ -92,14 +103,17 @@
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            vertical-align: top; /* выравнивание содержимого ячейки по верхнему краю */
         }
 
         th {
             background-color: #f2f2f2;
         }
 
-        td {
-            vertical-align: middle;
+        /* Центрирование ячейки со значением "-" */
+        td[data-value="-"] {
+            text-align: center;
+            vertical-align: middle; /* центрирование по вертикали */
         }
     </style>
 </head>
