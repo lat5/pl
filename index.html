@@ -37,11 +37,14 @@
                     var descriptionCell = row.insertCell(2);
                     var downloadCell = row.insertCell(3);
                     var urlCell = row.insertCell(4);
+                    var sourceCell = row.insertCell(5);
                     nameCell.innerText = name;
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                    descriptionCell.innerText = description;
+                    descriptionCell.innerText = description === '-' ? '-' : description;
+                    descriptionCell.style.textAlign = 'center';
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
+                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '">' + source + '</a>';
                 }
             });
         }
@@ -92,6 +95,10 @@
 
         th {
             background-color: #f2f2f2;
+        }
+
+        td {
+            vertical-align: middle;
         }
     </style>
 </head>
