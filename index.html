@@ -23,7 +23,7 @@
 
         function parsePlugins(data) {
             var table = document.getElementById('pluginsTable');
-            var categoryRegex = /\[(.*?)\]/g; // Регулярное выражение для поиска категорий
+            var categoryRegex = /\[(.*?)\][\r\n]+/g; // Регулярное выражение для поиска категорий
 
             // Парсим данные и формируем плагины по категориям
             var categories = data.split(categoryRegex);
