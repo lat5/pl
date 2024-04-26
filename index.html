@@ -1,10 +1,46 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Плагины Lampa</title>
     <script>
+        // Функция для загрузки данных из файла
+        function loadPlugins() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var pluginsData = xhr.responseText;
+                        parsePlugins(pluginsData);
+                    } else {
+                        console.error('Не удалось загрузить данные из файла plugins.txt');
+                    }
+                }
+            };
+            xhr.open('GET', 'plugins.txt', true);
+            xhr.send();
+        }
+
+        // Функция для разбора данных и создания таблицы
+        function parsePlugins(data) {
+            var plugins = data.split('\n');
+            var table = document.getElementById('pluginsTable');
+            plugins.forEach(function(plugin) {
+                var pluginParts = plugin.split(' - ');
+                var name = pluginParts[0];
+                var url = pluginParts[1];
+                var row = table.insertRow();
+                var nameCell = row.insertCell(0);
+                var copyCell = row.insertCell(1);
+                var urlCell = row.insertCell(2);
+                nameCell.innerText = name;
+                copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
+                urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
+            });
+        }
+
+        // Функция для копирования ссылки в буфер обмена
         function copyToClipboard(url) {
             var textField = document.createElement('textarea');
             textField.innerText = url;
@@ -14,6 +50,9 @@
             textField.remove();
             //alert('Ссылка скопирована: ' + url);
         }
+        
+        // Загрузить плагины при загрузке страницы
+        window.onload = loadPlugins;
     </script>
     <style>
         table {
@@ -34,96 +73,11 @@
 </head>
 <body>
 
-<table>
+<table id="pluginsTable">
     <tr>
         <th>Название</th>
         <th>Скопировать</th>
         <th>Ссылка</th>
-    </tr>
-    <tr>
-        <td>IPTV</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/IPTV')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/IPTV">https://lat5.github.io/pl/IPTV</a></td>
-    </tr>
-    <tr>
-        <td>HotKeys</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/HotKeys')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/HotKeys">https://lat5.github.io/pl/HotKeys</a></td>
-    </tr>
-    <tr>
-        <td>Categories</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Categories')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Categories">https://lat5.github.io/pl/Categories</a></td>
-    </tr>
-    <tr>
-        <td>Collections</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Collections')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Collections">https://lat5.github.io/pl/Collections</a></td>
-    </tr>
-    <tr>
-        <td>Rating</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Rating')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Rating">https://lat5.github.io/pl/Rating</a></td>
-    </tr>
-    <tr>
-        <td>Interface</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Interface')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Interface">https://lat5.github.io/pl/Interface</a></td>
-    </tr>
-    <tr>
-        <td>Exit</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Exit')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Exit">https://lat5.github.io/pl/Exit</a></td>
-    </tr>
-    <tr>
-        <td>Trailers</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Trailers')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Trailers">https://lat5.github.io/pl/Trailers</a></td>
-    </tr>
-    <tr>
-        <td>CUBTorrent</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/CUBTorrent')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/CUBTorrent">https://lat5.github.io/pl/CUBTorrent</a></td>
-    </tr>
-    <tr>
-        <td>Reviews</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Reviews')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Reviews">https://lat5.github.io/pl/Reviews</a></td>
-    </tr>
-    <tr>
-        <td>SkazTV</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/SkazTV')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/SkazTV">https://lat5.github.io/pl/SkazTV</a></td>
-    </tr>
-    <tr>
-        <td>Store</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Store')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Store">https://lat5.github.io/pl/Store</a></td>
-    </tr>
-    <tr>
-        <td>TMDBProxy</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/TMDBProxy')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/TMDBProxy">https://lat5.github.io/pl/TMDBProxy</a></td>
-    </tr>
-    <tr>
-        <td>Tracks</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Tracks')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Tracks">https://lat5.github.io/pl/Tracks</a></td>
-    </tr>
-    <tr>
-        <td>Tricks</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Tricks')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Tricks">https://lat5.github.io/pl/Tricks</a></td>
-    </tr>
-    <tr>
-        <td>PubParsers</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Tricks')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/PubParsers">https://lat5.github.io/pl/PubParsers</a></td>
-    </tr>
-    <tr>
-        <td>OnlineStream</td>
-        <td><button onclick="copyToClipboard('https://lat5.github.io/pl/Tricks')">Копировать ссылку</button></td>
-        <td><a href="https://lat5.github.io/pl/Stream">https://lat5.github.io/pl/Stream</a></td>
     </tr>
 </table>
 
