@@ -1,4 +1,4 @@
-IPTV - https://lat5.github.io/pl/IPTV - Плагин для просмотра IPTV - http://cub.red/plugin/iptv
+IPTV - https://lat5.github.io/pl/IPTV - Плагин для просмотра IPTV - 
 HotKeys - https://lat5.github.io/pl/HotKeys
 Categories - https://lat5.github.io/pl/Categories
 Collections - https://lat5.github.io/pl/Collections
