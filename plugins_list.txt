@@ -14,4 +14,5 @@ TMDBProxy - https://lat5.github.io/pl/TMDBProxy - - Проксирование �
 Tracks - https://lat5.github.io/pl/Tracks - - Аудиодорожки в торрентах
 Tricks - https://lat5.github.io/pl/Tricks - - "Приятные мелочи" в настройках
 PubParsers - https://lat5.github.io/pl/PubParsers - - Отображение публичных парсеров
-Stream - https://lat5.github.io/pl/Stream - - Доп для просмотра онлайн
+OnlineMod - https://lat5.github.io/pl/online_mod - - Плагин для просмотра фильмов 
+Stream - https://lat5.github.io/pl/Stream - - Доп для просмотра фильмов
