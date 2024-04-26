@@ -14,7 +14,7 @@ Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interfac
 Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
 
 [Торрент]
-CUBTorrent - https://lat5.github.io/pl/CUBTorrent -  - Парсер торрентов от CUB
+CUBTorrent - https://lat5.github.io/pl/CUBTorrent - http://cub.red/plugin/etor - Парсер торрентов от CUB
 Tracks - https://lat5.github.io/pl/Tracks - http://cub.red/plugin/tracks - Аудиодорожки в торрентах
 PubParsers - https://lat5.github.io/pl/PubParsers -  - Отображение публичных парсеров
 
