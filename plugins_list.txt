@@ -3,7 +3,7 @@ IPTV - https://lat5.github.io/pl/IPTV - http://cub.red/plugin/iptv - Плаги�
 Categories - https://lat5.github.io/pl/Categories - ссылканаисточник - Категории в главном меню
 Collections - https://lat5.github.io/pl/Collections - https://cub.red/plugin/collections - Коллекции фильмов
 Rating - https://lat5.github.io/pl/Rating - https://nb557.github.io/plugins/rating.js - Рейтинг из IMDB и Кинопоиск
-Reviews - https://lat5.github.io/pl/Reviews -  - Рецензии из КиноПоиска
+Reviews - https://lat5.github.io/pl/Reviews - http://newtv.mail66.org/o.js - Рецензии из КиноПоиска
 TMDBProxy - https://lat5.github.io/pl/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
 
 [Настройки]
