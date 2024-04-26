@@ -34,30 +34,22 @@
                     var row = table.insertRow();
                     var nameCell = row.insertCell(0);
                     var copyCell = row.insertCell(1);
-                    var downloadCell = row.insertCell(2);
-                    var urlCell = row.insertCell(3);
-                    var sourceCell = row.insertCell(4);
-                    var descriptionCell = row.insertCell(5);
+                    var sourceCell = row.insertCell(2);
+                    var downloadCell = row.insertCell(3);
+                    var descriptionCell = row.insertCell(4);
                     nameCell.innerText = name;
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
-                    urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
                     if (source === '-') {
                         sourceCell.innerText = '-';
-                        sourceCell.style.textAlign = 'center';
                     } else {
                         sourceCell.innerHTML = '<a href="' + source + '">' + source + '</a>';
-                        sourceCell.style.textAlign = 'left';
                     }
-                    if (description === '-') {
-                        descriptionCell.innerText = '-';
-                        descriptionCell.style.textAlign = 'center';
-                    } else {
-                        descriptionCell.innerText = description;
-                        descriptionCell.style.textAlign = 'left';
-                        descriptionCell.style.maxHeight = '2em'; // максимальная высота в две строки
-                        descriptionCell.style.overflow = 'hidden'; // скрытие текста, если превышено две строки
-                        descriptionCell.style.wordWrap = 'break-word'; // перенос слов на следующую строку, если превышено две строки
+                    downloadCell.innerHTML = url ? '<button style="width: 100%;" onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
+                    descriptionCell.innerText = description === '-' ? '-' : description;
+                    if (description !== '-') {
+                        descriptionCell.style.maxHeight = '2em';
+                        descriptionCell.style.overflow = 'hidden';
+                        descriptionCell.style.wordWrap = 'break-word';
                     }
                 }
             });
@@ -80,7 +72,7 @@
                         var blob = new Blob([xhr.responseText], {type: 'text/plain'});
                         var link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
-                        link.download = name + '.js'; // изменено расширение файла на .js
+                        link.download = name + '.js';
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
@@ -125,9 +117,8 @@
     <tr>
         <th>Название</th>
         <th>Скопировать</th>
-        <th>Скачать</th>
-        <th>Ссылка</th>
         <th>Источник</th>
+        <th>Скачать</th>
         <th>Описание</th>
     </tr>
 </table>
