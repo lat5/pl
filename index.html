@@ -44,6 +44,9 @@
                     sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" style="width: 100%;">Скачать</button>' : '-';
                     descriptionCell.innerText = description === '-' ? '-' : description;
+                    if (source === '-') {
+                        sourceCell.style.textAlign = 'center'; // центрирование ячейки если в ней дефис
+                    }
                 }
             });
         }
@@ -106,6 +109,7 @@
         /* Стиль кнопки для скачивания */
         .download-button {
             width: 100%;
+            height: 100%;
             text-align: center;
         }
     </style>
