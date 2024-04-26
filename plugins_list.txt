@@ -1,17 +1,17 @@
+[Фильмотека]
 IPTV - https://lat5.github.io/pl/IPTV - http://cub.red/plugin/iptv - Плагин для просмотра IPTV
-HotKeys - https://lat5.github.io/pl/HotKeys
-Categories - https://lat5.github.io/pl/Categories
-Collections - https://lat5.github.io/pl/Collections
-Rating - https://lat5.github.io/pl/Rating
-Interface - https://lat5.github.io/pl/Interface
-Exit - https://lat5.github.io/pl/Exit
-Trailers - https://lat5.github.io/pl/Trailers
-CUBTorrent - https://lat5.github.io/pl/CUBTorrent
-Reviews - https://lat5.github.io/pl/Reviews
-SkazTV - https://lat5.github.io/pl/SkazTV
-Store - https://lat5.github.io/pl/Store
-TMDBProxy - https://lat5.github.io/pl/TMDBProxy
-Tracks - https://lat5.github.io/pl/Tracks
-Tricks - https://lat5.github.io/pl/Tricks
-PubParsers - https://lat5.github.io/pl/PubParsers
-Stream - https://lat5.github.io/pl/Stream
+HotKeys - https://lat5.github.io/pl/HotKeys - - Горячие клавиши 8, 5, 0
+Categories - https://lat5.github.io/pl/Categories - - Категории в главном меню
+Collections - https://lat5.github.io/pl/Collections - - Коллекции фильмов
+Rating - https://lat5.github.io/pl/Rating - - Рейтинг из IMDB и Кинопоиск
+Interface - https://lat5.github.io/pl/Interface - - Стильный интерфейс
+Exit - https://lat5.github.io/pl/Exit - - Кнопка выхода в главном меню
+CUBTorrent - https://lat5.github.io/pl/CUBTorrent - - Парсер торрентов от CUB
+Reviews - https://lat5.github.io/pl/Reviews - - Рецензии из КиноПоиска
+SkazTV - https://lat5.github.io/pl/SkazTV - - Телевидение by Skaz
+Store - https://lat5.github.io/pl/Store - - Магазин пиратских плагинов
+TMDBProxy - https://lat5.github.io/pl/TMDBProxy - - Проксирование для TMDB
+Tracks - https://lat5.github.io/pl/Tracks - - Аудиодорожки в торрентах
+Tricks - https://lat5.github.io/pl/Tricks - - "Приятные мелочи" в настройках
+PubParsers - https://lat5.github.io/pl/PubParsers - - Отображение публичных парсеров
+Stream - https://lat5.github.io/pl/Stream - - Доп для просмотра онлайн
