@@ -41,7 +41,7 @@
                     nameCell.innerText = name;
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '">' + source + '</a>';
+                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
                     descriptionCell.innerText = description === '-' ? '-' : description;
                 }
@@ -62,7 +62,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        var blob = new Blob([xhr.responseText], {type: 'application/javascript'}); // Указываем тип MIME
+                        var blob = new Blob([xhr.responseText], {type: 'application/javascript'});
                         var link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
                         link.download = name + '.js';
