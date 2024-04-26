@@ -4,14 +4,14 @@ Categories - https://lat5.github.io/pl/Categories - ссылканаисточн
 Collections - https://lat5.github.io/pl/Collections - https://cub.red/plugin/collections - Коллекции фильмов
 Rating - https://lat5.github.io/pl/Rating - https://nb557.github.io/plugins/rating.js - Рейтинг из IMDB и Кинопоиск
 Reviews - https://lat5.github.io/pl/Reviews -  - Рецензии из КиноПоиска
-TMDBProxy - https://lat5.github.io/pl/TMDBProxy -  - Проксирование для TMDB
+TMDBProxy - https://lat5.github.io/pl/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
 
 [Настройки]
-Tricks - https://lat5.github.io/pl/Tricks -  - "Приятные мелочи" в настройках
+Tricks - https://lat5.github.io/pl/Tricks - https://andreyurl54.github.io/diesel5/tricks.js - "Приятные мелочи" в настройках
 Store - https://lat5.github.io/pl/Store - https://skaztv.online/store.js - Магазин пиратских плагинов
 HotKeys - https://lat5.github.io/pl/HotKeys - https://nnmdd.github.io/lampa_hotkeys/hotkeys.js - Горячие клавиши 8, 5, 0
-Interface - https://lat5.github.io/pl/Interface -  - Стильный интерфейс
-Exit - https://lat5.github.io/pl/Exit -  - Кнопка выхода в главном меню
+Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
+Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
 
 [Торрент]
 CUBTorrent - https://lat5.github.io/pl/CUBTorrent -  - Парсер торрентов от CUB
