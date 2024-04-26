@@ -1,6 +1,6 @@
 [Фильмотека]
 IPTV - https://lat5.github.io/pl/IPTV - http://cub.red/plugin/iptv - Плагин для просмотра IPTV
-Categories - https://lat5.github.io/pl/Categories - ссылканаисточник - Категории в главном меню
+Categories - https://lat5.github.io/pl/Categories - https://lampame.github.io/main/newcategory.js - Категории в главном меню
 Collections - https://lat5.github.io/pl/Collections - https://cub.red/plugin/collections - Коллекции фильмов
 Rating - https://lat5.github.io/pl/Rating - https://nb557.github.io/plugins/rating.js - Рейтинг из IMDB и Кинопоиск
 Reviews - https://lat5.github.io/pl/Reviews - http://newtv.mail66.org/o.js - Рецензии из КиноПоиска
