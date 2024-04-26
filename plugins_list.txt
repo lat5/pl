@@ -1,17 +1,17 @@
 [Фильмотека]
 IPTV - https://lat5.github.io/pl/IPTV - http://cub.red/plugin/iptv - Плагин для просмотра IPTV
 Categories - https://lat5.github.io/pl/Categories - ссылканаисточник - Категории в главном меню
-Collections - https://lat5.github.io/pl/Collections -  - Коллекции фильмов
-Rating - https://lat5.github.io/pl/Rating -  - Рейтинг из IMDB и Кинопоиск
-Reviews - https://lat5.github.io/pl/Reviews -  - Рецензии из КиноПоиска
-TMDBProxy - https://lat5.github.io/pl/TMDBProxy -  - Проксирование для TMDB
+Collections - https://lat5.github.io/pl/Collections - n - Коллекции фильмов
+Rating - https://lat5.github.io/pl/Rating - n - Рейтинг из IMDB и Кинопоиск
+Reviews - https://lat5.github.io/pl/Reviews - n - Рецензии из КиноПоиска
+TMDBProxy - https://lat5.github.io/pl/TMDBProxy - n - Проксирование для TMDB
 
 [Настройки]
-Tricks - https://lat5.github.io/pl/Tricks -  - "Приятные мелочи" в настройках
-Store - https://lat5.github.io/pl/Store -  - Магазин пиратских плагинов
-HotKeys - https://lat5.github.io/pl/HotKeys -  - Горячие клавиши 8, 5, 0
-Interface - https://lat5.github.io/pl/Interface -  - Стильный интерфейс
-Exit - https://lat5.github.io/pl/Exit -  - Кнопка выхода в главном меню
+Tricks - https://lat5.github.io/pl/Tricks - n - "Приятные мелочи" в настройках
+Store - https://lat5.github.io/pl/Store - n - Магазин пиратских плагинов
+HotKeys - https://lat5.github.io/pl/HotKeys - n - Горячие клавиши 8, 5, 0
+Interface - https://lat5.github.io/pl/Interface - n - Стильный интерфейс
+Exit - https://lat5.github.io/pl/Exit - n - Кнопка выхода в главном меню
 
 [Торрент]
 CUBTorrent - https://lat5.github.io/pl/CUBTorrent -  - Парсер торрентов от CUB
