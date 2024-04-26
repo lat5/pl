@@ -42,11 +42,16 @@
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
                     sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
-                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" style="width: 100%;">Скачать</button>' : '-';
+                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" style="width: 100%; height: 100%;">Скачать</button>' : '-';
                     descriptionCell.innerText = description === '-' ? '-' : description;
-                    if (source === '-') {
-                        sourceCell.style.textAlign = 'center'; // центрирование ячейки если в ней дефис
-                    }
+                    
+                    // Центрирование дефиса во всех столбцах
+                    var cells = [nameCell, copyCell, urlCell, sourceCell, downloadCell, descriptionCell];
+                    cells.forEach(function(cell) {
+                        if (cell.innerText === '-') {
+                            cell.style.textAlign = 'center';
+                        }
+                    });
                 }
             });
         }
@@ -100,10 +105,9 @@
             background-color: #f2f2f2;
         }
 
-        /* Центрирование ячейки со значением "-" */
-        td[data-value="-"] {
+        /* Центрирование дефиса во всех столбцах */
+        td {
             text-align: center;
-            vertical-align: middle; /* центрирование по вертикали */
         }
 
         /* Стиль кнопки для скачивания */
