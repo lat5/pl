@@ -116,13 +116,17 @@
             justify-content: center;
         }
 
-        /* Ограничение текста в столбце "Описание" до двух строк */
-        td:last-child {
+        /* Ограничение текста в каждой ячейке каждого столбца до двух строк */
+        td {
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        }
+
+        /* Убираем ограничение по длине для столбца "Описание" */
+        td:last-child {
+            overflow: visible;
+            text-overflow: clip;
         }
 
         /* Выравнивание содержимого столбца "Название" */
