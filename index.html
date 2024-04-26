@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Это Плагины Lampa</title>
+    <title>Плагины Lampa</title>
     <script>
         function loadPlugins() {
             var xhr = new XMLHttpRequest();
@@ -46,7 +46,7 @@
                     descriptionCell.innerText = description === '-' ? '-' : description;
                     
                     // Центрирование дефиса во всех столбцах
-                    var cells = [nameCell, copyCell, urlCell, sourceCell, descriptionCell];
+                    var cells = [nameCell, copyCell, urlCell, downloadCell];
                     cells.forEach(function(cell) {
                         if (cell.innerText === '-') {
                             cell.style.textAlign = 'center';
@@ -126,8 +126,8 @@
         <th>Название</th>
         <th>Скопировать</th>
         <th>Ссылка</th>
-        <th>Источник</th>
         <th>Скачать</th>
+        <th>Источник</th>
         <th>Описание</th>
     </tr>
 </table>
