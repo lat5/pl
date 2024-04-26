@@ -42,7 +42,7 @@
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
                     sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
-                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
+                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" style="width: 100%;">Скачать</button>' : '-';
                     descriptionCell.innerText = description === '-' ? '-' : description;
                 }
             });
