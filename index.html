@@ -33,9 +33,12 @@
                 if (plugin.trim() !== '') {
                     // Если строка начинается с квадратной скобки, то это новая категория
                     if (plugin.trim().startsWith('[')) {
-                        // Если это не первая категория, добавляем ячейке названия категории отступ
+                        // Если это не первая категория, добавляем одну строку отступа
                         if (!isFirstCategory) {
-                            categoryCell.style.width = '50%'; // Устанавливаем ширину ячейки
+                            var spacerRow = table.insertRow();
+                            var spacerCell = spacerRow.insertCell(0);
+                            spacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
+                            spacerCell.style.height = '1em'; // Устанавливаем высоту отступа
                         } else {
                             isFirstCategory = false; // Первая категория обработана
                         }
@@ -48,11 +51,12 @@
                         categoryCell.style.fontWeight = 'bold'; // Жирный шрифт для названия категории
                         categoryCell.innerText = currentCategory;
 
-                        // Добавляем одну строку отступа после названия категории
-                        var afterCategorySpacerRow = table.insertRow();
-                        var afterCategorySpacerCell = afterCategorySpacerRow.insertCell(0);
-                        afterCategorySpacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
-                        afterCategorySpacerCell.style.height = '1em'; // Устанавливаем высоту отступа
+                        // Добавляем строку для увеличения высоты названия категории
+                        var categorySpacerRow = table.insertRow();
+                        var categorySpacerCell = categorySpacerRow.insertCell(0);
+                        categorySpacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
+                        categorySpacerCell.style.height = '0.5em'; // Устанавливаем высоту строки
+
                     } else {
                         var pluginParts = plugin.split(' - ');
                         var name = pluginParts[0];
