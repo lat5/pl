@@ -29,8 +29,8 @@
                     var pluginParts = plugin.split(' - ');
                     var name = pluginParts[0];
                     var url = pluginParts[1];
-                    var source = pluginParts[2];
-                    var description = pluginParts[3];
+                    var source = pluginParts[2] ? pluginParts[2] : '-';
+                    var description = pluginParts[3] ? pluginParts[3] : '-';
                     var row = table.insertRow();
                     var nameCell = row.insertCell(0);
                     var copyCell = row.insertCell(1);
@@ -42,11 +42,22 @@
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '">' + source + '</a>';
-                    descriptionCell.innerText = description === '-' ? '-' : description;
-                    if (source === '-' || description === '-') {
-                        sourceCell.setAttribute('data-value', '-'); // Устанавливаем атрибут для ячеек с дефисом
-                        descriptionCell.setAttribute('data-value', '-'); // Устанавливаем атрибут для ячеек с дефисом
+                    if (source === '-') {
+                        sourceCell.innerText = '-';
+                        sourceCell.style.textAlign = 'center';
+                    } else {
+                        sourceCell.innerHTML = '<a href="' + source + '">' + source + '</a>';
+                        sourceCell.style.textAlign = 'left';
+                    }
+                    if (description === '-') {
+                        descriptionCell.innerText = '-';
+                        descriptionCell.style.textAlign = 'center';
+                    } else {
+                        descriptionCell.innerText = description;
+                        descriptionCell.style.textAlign = 'left';
+                        descriptionCell.style.maxHeight = '2em'; // максимальная высота в две строки
+                        descriptionCell.style.overflow = 'hidden'; // скрытие текста, если превышено две строки
+                        descriptionCell.style.wordWrap = 'break-word'; // перенос слов на следующую строку, если превышено две строки
                     }
                 }
             });
@@ -69,7 +80,7 @@
                         var blob = new Blob([xhr.responseText], {type: 'text/plain'});
                         var link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
-                        link.download = name + '.js'; // Изменено расширение файла
+                        link.download = name + '.js'; // изменено расширение файла на .js
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
@@ -101,16 +112,10 @@
             background-color: #f2f2f2;
         }
 
-        /* Центрирование ячеек со значением "-" */
+        /* Центрирование ячейки со значением "-" */
         td[data-value="-"] {
             text-align: center;
             vertical-align: middle; /* центрирование по вертикали */
-        }
-
-        /* Ограничение текста описания в две строки */
-        td.description {
-            max-height: 40px;
-            overflow: hidden;
         }
     </style>
 </head>
