@@ -29,33 +29,24 @@
                     var pluginParts = plugin.split(' - ');
                     var name = pluginParts[0];
                     var url = pluginParts[1];
-                    var description = pluginParts[2] ? pluginParts[2] : '-';
-                    var source = pluginParts[3] ? pluginParts[3] : '-';
+                    var source = pluginParts[2];
+                    var description = pluginParts[3];
                     var row = table.insertRow();
                     var nameCell = row.insertCell(0);
                     var copyCell = row.insertCell(1);
-                    var descriptionCell = row.insertCell(2);
-                    var downloadCell = row.insertCell(3);
-                    var urlCell = row.insertCell(4);
-                    var sourceCell = row.insertCell(5);
+                    var downloadCell = row.insertCell(2);
+                    var urlCell = row.insertCell(3);
+                    var sourceCell = row.insertCell(4);
+                    var descriptionCell = row.insertCell(5);
                     nameCell.innerText = name;
                     copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                    descriptionCell.innerText = description === '-' ? '-' : description;
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                    if (source === '-') {
-                        sourceCell.innerText = '-';
-                        sourceCell.style.textAlign = 'center';
-                    } else {
-                        sourceCell.innerHTML = '<a href="' + source + '">' + source + '</a>';
-                        sourceCell.style.textAlign = 'left';
-                    }
-                    if (description === '-') {
-                        descriptionCell.innerText = '-';
-                        descriptionCell.style.textAlign = 'center';
-                    } else {
-                        descriptionCell.innerText = description;
-                        descriptionCell.style.textAlign = 'left';
+                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '">' + source + '</a>';
+                    descriptionCell.innerText = description === '-' ? '-' : description;
+                    if (source === '-' || description === '-') {
+                        sourceCell.setAttribute('data-value', '-'); // Устанавливаем атрибут для ячеек с дефисом
+                        descriptionCell.setAttribute('data-value', '-'); // Устанавливаем атрибут для ячеек с дефисом
                     }
                 }
             });
@@ -78,7 +69,7 @@
                         var blob = new Blob([xhr.responseText], {type: 'text/plain'});
                         var link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
-                        link.download = name + '.js';
+                        link.download = name + '.js'; // Изменено расширение файла
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
@@ -110,10 +101,16 @@
             background-color: #f2f2f2;
         }
 
-        /* Центрирование ячейки со значением "-" */
+        /* Центрирование ячеек со значением "-" */
         td[data-value="-"] {
             text-align: center;
             vertical-align: middle; /* центрирование по вертикали */
+        }
+
+        /* Ограничение текста описания в две строки */
+        td.description {
+            max-height: 40px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -123,10 +120,10 @@
     <tr>
         <th>Название</th>
         <th>Скопировать</th>
-        <th>Описание</th>
         <th>Скачать</th>
         <th>Ссылка</th>
         <th>Источник</th>
+        <th>Описание</th>
     </tr>
 </table>
 
