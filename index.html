@@ -22,40 +22,54 @@
         }
 
         function parsePlugins(data) {
-            var plugins = data.split('\n');
-            var table = document.getElementById('pluginsTable');
-            plugins.forEach(function(plugin) {
-                if (plugin.trim() !== '') {
-                    var pluginParts = plugin.split(' - ');
-                    var name = pluginParts[0];
-                    var url = pluginParts[1];
-                    var source = pluginParts[2] ? pluginParts[2] : '-';
-                    var description = pluginParts[3] ? pluginParts[3] : '-';
-                    var row = table.insertRow();
-                    var nameCell = row.insertCell(0);
-                    var copyCell = row.insertCell(1);
-                    var urlCell = row.insertCell(2);
-                    var sourceCell = row.insertCell(3);
-                    var downloadCell = row.insertCell(4);
-                    var descriptionCell = row.insertCell(5);
-                    nameCell.innerText = name;
-                    copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                    urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                    sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
-                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" class="download-button">Скачать</button>' : '-';
-                    descriptionCell.innerText = description === '-' ? '-' : description;
-                    
-                    // Центрирование дефиса во всех столбцах
-                    var cells = [nameCell, copyCell, urlCell, sourceCell, downloadCell, descriptionCell];
-                    cells.forEach(function(cell) {
-                        if (cell.innerText === '-') {
-                            cell.style.textAlign = 'center';
-                            cell.style.verticalAlign = 'middle';
-                        }
-                    });
-                }
-            });
+    var plugins = data.split('\n');
+    var table = document.getElementById('pluginsTable');
+    var currentCategory = ''; // Переменная для хранения текущей категории
+
+    plugins.forEach(function(plugin) {
+        if (plugin.trim() !== '') {
+            // Если строка начинается с квадратной скобки, то это новая категория
+            if (plugin.trim().startsWith('[')) {
+                currentCategory = plugin.trim().slice(1, -1); // Убираем скобки и обновляем текущую категорию
+                // Добавляем строку для отображения названия категории
+                var categoryRow = table.insertRow();
+                var categoryCell = categoryRow.insertCell(0);
+                categoryCell.colSpan = 6; // Распространяем ячейку на все столбцы
+                categoryCell.style.fontWeight = 'bold'; // Жирный шрифт для названия категории
+                categoryCell.innerText = currentCategory;
+            } else {
+                var pluginParts = plugin.split(' - ');
+                var name = pluginParts[0];
+                var url = pluginParts[1];
+                var source = pluginParts[2] ? pluginParts[2] : '-';
+                var description = pluginParts[3] ? pluginParts.slice(3).join(' - ') : '-';
+                var row = table.insertRow();
+                var nameCell = row.insertCell(0);
+                var copyCell = row.insertCell(1);
+                var urlCell = row.insertCell(2);
+                var sourceCell = row.insertCell(3);
+                var downloadCell = row.insertCell(4);
+                var descriptionCell = row.insertCell(5);
+                nameCell.innerText = name;
+                copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
+                urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
+                sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
+                downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" class="download-button">Скачать</button>' : '-';
+                descriptionCell.innerText = description === '-' ? '-' : description;
+                
+                // Центрирование дефиса во всех столбцах
+                var cells = [nameCell, copyCell, urlCell, sourceCell, downloadCell, descriptionCell];
+                cells.forEach(function(cell) {
+                    if (cell.innerText === '-') {
+                        cell.style.textAlign = 'center';
+                        cell.style.verticalAlign = 'middle';
+                    }
+                });
+            }
         }
+    });
+}
+
 
         function copyToClipboard(url) {
             var textField = document.createElement('textarea');
