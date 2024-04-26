@@ -62,7 +62,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        var blob = new Blob([xhr.responseText], {type: 'text/plain'});
+                        var blob = new Blob([xhr.responseText], {type: 'application/javascript'}); // Указываем тип MIME
                         var link = document.createElement('a');
                         link.href = URL.createObjectURL(blob);
                         link.download = name + '.js';
