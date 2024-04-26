@@ -13,11 +13,11 @@
                         var pluginsData = xhr.responseText;
                         parsePlugins(pluginsData);
                     } else {
-                        console.error('Не удалось загрузить данные из файла plugins.txt');
+                        console.error('Не удалось загрузить данные из файла plugins_list.txt');
                     }
                 }
             };
-            xhr.open('GET', 'plugins.txt', true);
+            xhr.open('GET', 'plugins_list.txt', true);
             xhr.send();
         }
 
@@ -45,6 +45,7 @@
                     downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
                     urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
                     sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '">' + source + '</a>';
+                    sourceCell.style.textAlign = 'center';
                 }
             });
         }
