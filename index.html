@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Плагины Lampa</title>
     <script>
-        // Функция для загрузки данных из файла
         function loadPlugins() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
@@ -22,25 +21,31 @@
             xhr.send();
         }
 
-        // Функция для разбора данных и создания таблицы
         function parsePlugins(data) {
             var plugins = data.split('\n');
             var table = document.getElementById('pluginsTable');
             plugins.forEach(function(plugin) {
-                var pluginParts = plugin.split(' - ');
-                var name = pluginParts[0];
-                var url = pluginParts[1];
-                var row = table.insertRow();
-                var nameCell = row.insertCell(0);
-                var copyCell = row.insertCell(1);
-                var urlCell = row.insertCell(2);
-                nameCell.innerText = name;
-                copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
+                if (plugin.trim() !== '') {
+                    var pluginParts = plugin.split(' - ');
+                    var name = pluginParts[0];
+                    var url = pluginParts[1];
+                    var description = pluginParts[2] ? pluginParts[2] : '-';
+                    var source = pluginParts[3] ? pluginParts[3] : '-';
+                    var row = table.insertRow();
+                    var nameCell = row.insertCell(0);
+                    var copyCell = row.insertCell(1);
+                    var descriptionCell = row.insertCell(2);
+                    var downloadCell = row.insertCell(3);
+                    var urlCell = row.insertCell(4);
+                    nameCell.innerText = name;
+                    copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
+                    descriptionCell.innerText = description;
+                    downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')">Скачать</button>' : '-';
+                    urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
+                }
             });
         }
 
-        // Функция для копирования ссылки в буфер обмена
         function copyToClipboard(url) {
             var textField = document.createElement('textarea');
             textField.innerText = url;
@@ -48,10 +53,29 @@
             textField.select();
             document.execCommand('copy');
             textField.remove();
-            //alert('Ссылка скопирована: ' + url);
         }
-        
-        // Загрузить плагины при загрузке страницы
+
+        function downloadFile(name, url) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var blob = new Blob([xhr.responseText], {type: 'text/plain'});
+                        var link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = name + '.js';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    } else {
+                        console.error('Не удалось загрузить файл: ' + url);
+                    }
+                }
+            };
+            xhr.open('GET', url, true);
+            xhr.send();
+        }
+
         window.onload = loadPlugins;
     </script>
     <style>
@@ -77,7 +101,10 @@
     <tr>
         <th>Название</th>
         <th>Скопировать</th>
+        <th>Описание</th>
+        <th>Скачать</th>
         <th>Ссылка</th>
+        <th>Источник</th>
     </tr>
 </table>
 
