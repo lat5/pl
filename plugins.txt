@@ -14,3 +14,4 @@ TMDBProxy - https://lat5.github.io/pl/TMDBProxy
 Tracks - https://lat5.github.io/pl/Tracks
 Tricks - https://lat5.github.io/pl/Tricks
 PubParsers - https://lat5.github.io/pl/PubParsers
+Stream - https://lat5.github.io/pl/Stream
