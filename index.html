@@ -33,12 +33,9 @@
                 if (plugin.trim() !== '') {
                     // Если строка начинается с квадратной скобки, то это новая категория
                     if (plugin.trim().startsWith('[')) {
-                        // Если это не первая категория, добавляем три строки отступа
+                        // Если это не первая категория, добавляем ячейке названия категории отступ
                         if (!isFirstCategory) {
-                            var spacerRow = table.insertRow();
-                            var spacerCell = spacerRow.insertCell(0);
-                            spacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
-                            spacerCell.style.height = '3em'; // Устанавливаем высоту отступа
+                            categoryCell.style.width = '50%'; // Устанавливаем ширину ячейки
                         } else {
                             isFirstCategory = false; // Первая категория обработана
                         }
@@ -55,7 +52,7 @@
                         var afterCategorySpacerRow = table.insertRow();
                         var afterCategorySpacerCell = afterCategorySpacerRow.insertCell(0);
                         afterCategorySpacerCell.colSpan = 6; // Распространяем ячейку на все столбцы
-                        afterCategorySpacerCell.style.height = '0.5em'; // Устанавливаем высоту отступа
+                        afterCategorySpacerCell.style.height = '1em'; // Устанавливаем высоту отступа
                     } else {
                         var pluginParts = plugin.split(' - ');
                         var name = pluginParts[0];
