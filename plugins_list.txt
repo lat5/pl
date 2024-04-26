@@ -1,4 +1,4 @@
-IPTV - https://lat5.github.io/pl/IPTV - описание тестовое задание и вы не можете дозвониться по указанному номеру - источник тест
+IPTV - https://lat5.github.io/pl/IPTV - Плагин для просмотра IPTV - http://cub.red/plugin/iptv
 HotKeys - https://lat5.github.io/pl/HotKeys
 Categories - https://lat5.github.io/pl/Categories
 Collections - https://lat5.github.io/pl/Collections
