@@ -13,3 +13,4 @@ Store - https://lat5.github.io/pl/Store
 TMDBProxy - https://lat5.github.io/pl/TMDBProxy
 Tracks - https://lat5.github.io/pl/Tracks
 Tricks - https://lat5.github.io/pl/Tricks
+PubParser - https://lat5.github.io/pl/PubParser
