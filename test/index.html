@@ -1,23 +1,16 @@
 (function () {
     'use strict';
 
-    function createPlugin() {
-        // Создаем HTML-элемент для отображения данных
-        var displayElement = $("<div class=\"plugin-display\"></div>");
-        $('body').append(displayElement);
-
-        // Получаем все переменные из Lampa.Storage и выводим их на экран
+    function displayStorageVariables() {
+        // Получаем все переменные из Lampa.Storage и выводим их в консоль
         for (var key in Lampa.Storage) {
             if (Lampa.Storage.hasOwnProperty(key)) {
                 var value = Lampa.Storage[key];
-                // Создаем HTML-элемент для каждой переменной и ее значения
-                var variableElement = $("<p>" + key + ": " + value + "</p>");
-                // Добавляем HTML-элемент на экран
-                displayElement.append(variableElement);
+                console.log(key + ": " + value);
             }
         }
     }
 
-    // Вызываем функцию создания плагина при запуске
-    createPlugin();
+    // Вызываем функцию для отображения переменных в консоли
+    displayStorageVariables();
 })();
