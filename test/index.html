@@ -1,25 +1,18 @@
 (function () {
     'use strict';
 
+    // Выводим сообщение о запуске скрипта
     console.log("test", "Скрипт запущен");
 
-    function findHasPremiumDefinition() {
-        var scripts = document.querySelectorAll('script');
-        var hasPremiumDefined = false;
-
-        for (var i = 0; i < scripts.length; i++) {
-            var scriptText = scripts[i].textContent;
-            if (scriptText.includes('Lampa.Account.hasPremium')) {
-                console.log("test", "Функция Lampa.Account.hasPremium() определена в:", scripts[i].src);
-                hasPremiumDefined = true;
-                break;
-            }
-        }
-
-        if (!hasPremiumDefined) {
-            console.log("test", "Функция Lampa.Account.hasPremium() не найдена");
-        }
+    // Функция для переопределения Lampa.Account.hasPremium() так, чтобы она всегда возвращала true
+    function overrideHasPremium() {
+        return true;
     }
 
-    findHasPremiumDefinition();
+    // Переопределяем функцию Lampa.Account.hasPremium() на новую функцию overrideHasPremium
+    Lampa.Account.hasPremium = overrideHasPremium;
+
+    // Выполняем тестовое получение значения и выводим его в консоль
+    var hasPremiumValue = Lampa.Account.hasPremium();
+    console.log("test", "Lampa.Account.hasPremium():", hasPremiumValue);
 })();
