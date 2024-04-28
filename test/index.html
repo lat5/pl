@@ -1,26 +1,13 @@
 (function () {
     'use strict';
 
-    function displayAccountHasPremium() {
-        // Выводим сообщение о поиске
-        console.log("test", "Поиск");
+    // Переопределяем функцию Lampa.Account.hasPremium() на глобальном уровне, чтобы она всегда возвращала true
+    window.Lampa = window.Lampa || {};
+    window.Lampa.Account = window.Lampa.Account || {};
+    window.Lampa.Account.hasPremium = function() {
+        return true;
+    };
 
-        // Сохраняем оригинальную функцию Lampa.Account.hasPremium()
-        var originalHasPremium = Lampa.Account.hasPremium;
-
-        // Переопределяем функцию Lampa.Account.hasPremium(), чтобы она всегда возвращала true
-        Lampa.Account.hasPremium = function() {
-            return true;
-        };
-
-        // Получаем значение переменной Lampa.Account.hasPremium() и выводим его в консоль
-        var hasPremium = Lampa.Account.hasPremium();
-        console.log("test", "Lampa.Account.hasPremium():", hasPremium);
-
-        // Восстанавливаем оригинальную функцию Lampa.Account.hasPremium()
-        Lampa.Account.hasPremium = originalHasPremium;
-    }
-
-    // Вызываем функцию для отображения значения переменной в консоли
-    displayAccountHasPremium();
+    // Выводим сообщение о переопределении
+    console.log("test", "Функция Lampa.Account.hasPremium() была переопределена для возвращения значения true");
 })();
