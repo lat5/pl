@@ -4,15 +4,20 @@
     // Выводим сообщение о запуске скрипта
     console.log("test", "Скрипт запущен");
 
-    // Функция для переопределения Lampa.Account.hasPremium() так, чтобы она всегда возвращала true
-    function overrideHasPremium() {
-        return true;
+    // Список переменных, значение которых нужно получить через Lampa.Storage.get
+    var variables = ['language', 'history', 'premium', 'isPremium', 'hasPremium'];
+
+    // Функция для получения и вывода значений переменных
+    function displayVariables() {
+        // Перебираем список переменных
+        variables.forEach(function(variable) {
+            // Получаем значение переменной через Lampa.Storage.get
+            var value = Lampa.Storage.get(variable);
+            // Выводим значение в консоль с префиксом "test"
+            console.log("test", variable + ":", value);
+        });
     }
 
-    // Переопределяем функцию Lampa.Account.hasPremium() на новую функцию overrideHasPremium
-    Lampa.Account.hasPremium = overrideHasPremium;
-
-    // Выполняем тестовое получение значения и выводим его в консоль
-    var hasPremiumValue = Lampa.Account.hasPremium();
-    console.log("test", "Lampa.Account.hasPremium():", hasPremiumValue);
+    // Вызываем функцию для отображения значений переменных в консоли
+    displayVariables();
 })();
