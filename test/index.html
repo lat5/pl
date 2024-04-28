@@ -5,10 +5,20 @@
         // Выводим сообщение о поиске
         console.log("test", "Поиск");
 
-        // Получаем значение переменной Lampa.Account.HasPremium()
+        // Сохраняем оригинальную функцию Lampa.Account.hasPremium()
+        var originalHasPremium = Lampa.Account.hasPremium;
+
+        // Переопределяем функцию Lampa.Account.hasPremium(), чтобы она всегда возвращала true
+        Lampa.Account.hasPremium = function() {
+            return true;
+        };
+
+        // Получаем значение переменной Lampa.Account.hasPremium() и выводим его в консоль
         var hasPremium = Lampa.Account.hasPremium();
-        // Выводим значение в консоль с префиксом "test"
-        console.log("test", "Lampa.Account.HasPremium():", hasPremium);
+        console.log("test", "Lampa.Account.hasPremium():", hasPremium);
+
+        // Восстанавливаем оригинальную функцию Lampa.Account.hasPremium()
+        Lampa.Account.hasPremium = originalHasPremium;
     }
 
     // Вызываем функцию для отображения значения переменной в консоли
