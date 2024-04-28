@@ -1,24 +1,37 @@
 (function () {
     'use strict';
 
-    function displayStorageVariables() {
-        // Получаем все ключи из Lampa.Storage
-        var keys = Object.keys(Lampa.Storage)
-        console.log("test", "Поиск");
-        console.log("test", keys);
+    // Функция для отображения переменной по заданному имени
+    function displayVariable(variableName) {
+        // Получаем значение переменной из хранилища
+        var value = Lampa.Storage.get(variableName);
 
-        // Перебираем ключи
-        keys.forEach(function(key) {
-            // Получаем значение для каждого ключа
-            var value = Lampa.Storage.get(key);
-            // Проверяем, не пустое ли значение
-            if (value !== null && value !== undefined && value !== '') {
-                // Если значение не пустое, выводим его в консоль с префиксом "test"
-                console.log("test", key + ":", value);
-            }
-        });
+        // Проверяем, не пустое ли значение
+        if (value !== null && value !== undefined && value !== '') {
+            // Если значение не пустое, выводим его в консоль с префиксом "test"
+            console.log("test", variableName + ":", value);
+        } else {
+            console.log("test", "Переменная не найдена или имеет пустое значение");
+        }
     }
 
-    // Вызываем функцию для отображения переменных в консоли
-    displayStorageVariables();
+    // Функция для добавления пункта меню и обработчика события
+    function addMenuItem() {
+        // Создаем новый пункт меню
+        var menuItem = $('<li><a href="#">test</a></li>');
+        
+        // Добавляем обработчик события при клике на пункт меню
+        menuItem.on('click', function() {
+            // Запрашиваем у пользователя имя переменной
+            var variableName = prompt("Введите имя переменной:");
+            // Отображаем значение переменной
+            displayVariable(variableName);
+        });
+
+        // Добавляем пункт меню в меню настроек
+        $('#settings_menu').append(menuItem);
+    }
+
+    // Вызываем функцию для добавления пункта меню
+    addMenuItem();
 })();
