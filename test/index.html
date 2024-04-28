@@ -2,13 +2,19 @@
     'use strict';
 
     function displayStorageVariables() {
-        // Получаем все переменные из Lampa.Storage и выводим их в консоль
-        for (var key in Lampa.Storage) {
-            if (Lampa.Storage.hasOwnProperty(key)) {
-                var value = Lampa.Storage[key];
-                console.log("test", key + ": " + value);
+        // Получаем все ключи из Lampa.Storage
+        var keys = Object.keys(Lampa.Storage);
+
+        // Перебираем ключи
+        keys.forEach(function(key) {
+            // Получаем значение для каждого ключа
+            var value = Lampa.Storage.get(key);
+            // Проверяем, не пустое ли значение
+            if (value !== null && value !== undefined && value !== '') {
+                // Если значение не пустое, выводим его в консоль с префиксом "test"
+                console.log("test", key + ":", value);
             }
-        }
+        });
     }
 
     // Вызываем функцию для отображения переменных в консоли
