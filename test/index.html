@@ -3,7 +3,9 @@
 
     function displayStorageVariables() {
         // Получаем все ключи из Lampa.Storage
-        var keys = Object.keys(Lampa.Storage);
+        var keys = Object.keys(Lampa.Storage)
+        console.log("test", "Поиск");
+        console.log("test", keys);
 
         // Перебираем ключи
         keys.forEach(function(key) {
