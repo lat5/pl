@@ -22,3 +22,6 @@ PubParsers - https://lat5.github.io/pl/PubParsers -  - Отображение п
 OnlineMod - https://lat5.github.io/pl/online_mod - https://nb557.github.io/plugins/online_mod.js - Плагин для просмотра фильмов 
 SkazTV - https://lat5.github.io/pl/SkazTV -  - Телевидение by Skaz
 Stream - https://lat5.github.io/pl/Stream - http://arkmv.ru/vod - Доп для просмотра фильмов
+
+[Тест]
+Вывод Lampa.Storage - https://lat5.github.io/pl/test - - Тестирование вывода данных
