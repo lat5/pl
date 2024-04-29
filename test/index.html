@@ -1,16 +1,19 @@
 (function() {
     'use strict';
 
-    // Создаем вспомогательную переменную, которая будет содержать значение 1
-    var hasPremiumValue = 1;
+    // Проверяем, существует ли уже переменная Lampa.Account.hasPremium
+    if (typeof Lampa.Account.hasPremium !== 'undefined') {
+        // Если переменная существует, удаляем ее
+        delete Lampa.Account.hasPremium;
+    }
 
-    // Переопределяем метод hasPremium, чтобы он возвращал значение переменной hasPremiumValue
+    // Переопределяем метод hasPremium, чтобы он всегда возвращал 1
     Object.defineProperty(Lampa.Account, 'hasPremium', {
-        get: function() {
-            return hasPremiumValue;
+        value: function() {
+            return 1;
         }
     });
 
-    // Выводим значение Lampa.Account.hasPremium в консоль
-    console.log("test", "Lampa.Account.hasPremium:", Lampa.Account.hasPremium);
+    // Выводим значение Lampa.Account.hasPremium() в консоль
+    console.log("test", "Lampa.Account.hasPremium():", Lampa.Account.hasPremium());
 })();
