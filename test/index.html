@@ -1,8 +1,8 @@
 (function() {
     'use strict';
+    console.log("test", "Lampa.Account.hasPremium():", Lampa.Account.hasPremium());
 
-    // Сохраняем оригинальную функцию hasPremium
-    var originalHasPremium = Lampa.Account.hasPremium;
+    
 
     // Переопределяем метод hasPremium, чтобы он всегда возвращал 1
     Object.defineProperty(Lampa.Account, 'hasPremium', {
