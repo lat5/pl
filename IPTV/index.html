@@ -1025,7 +1025,7 @@
       value: function sort() {
         var sort_type = Lampa.Storage.field('iptv_favotite_sort');
 
-        if (Lampa.Account.hasPremium() && sort_type !== 'add') {
+        if (1==1 && sort_type !== 'add') {
           this.icons.sort(function (a, b) {
             if (sort_type == 'name') {
               return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
@@ -3724,7 +3724,7 @@
         name: Lampa.Lang.translate('iptv_param_sort_favorite')
       },
       onRender: function onRender(item) {
-        if (!Lampa.Account.hasPremium()) {
+        if (1==0) {
           item.removeClass('selector');
           item.append(Lampa.Template.get('cub_iptv_param_lock'));
         }
