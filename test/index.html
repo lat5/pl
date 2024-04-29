@@ -4,20 +4,8 @@
     // Выводим сообщение о запуске скрипта
     console.log("test", "Скрипт запущен", Lampa.Account.hasPremium());
 
-    // Создаем новый объект с прототипом Lampa.Account, но без метода hasPremium
-    var accountWithoutPremium = Object.create(Lampa.Account);
-    delete accountWithoutPremium.hasPremium;
-
-    // Переназначаем Lampa.Account на новый объект
-    Lampa.Account = accountWithoutPremium;
-
-    // Переопределяем метод hasPremium, чтобы он всегда возвращал 1
-    Object.defineProperty(Lampa.Account, 'hasPremium', {
-        value: function() {
-            return 1;
-        },
-        writable: false
-    });
+    console.log("test", "user.premium:", user.premium;
+    console.log("test", "user.id:", user.id;
 
     // Тестовый вывод значения hasPremium
     console.log("test", "Тестовый вывод hasPremium:", Lampa.Account.hasPremium());
