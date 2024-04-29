@@ -2,7 +2,7 @@
     'use strict';
 
     // Выводим сообщение о запуске скрипта
-    console.log("Скрипт запущен");
+    console.log("Скрипт запущен", Lampa.Account.hasPremium());
 
     // Создаем новый объект с прототипом Lampa.Account, но без метода hasPremium
     var accountWithoutPremium = Object.create(Lampa.Account);
