@@ -1,13 +1,21 @@
-// Создаем новый класс CustomAccount, наследующий функциональность Lampa.Account
-class CustomAccount extends Lampa.Account {
-    // Переопределяем метод hasPremium(), чтобы он всегда возвращал 1
-    hasPremium() {
-        return 1;
-    }
-}
+(function () {
+    'use strict';
 
-// Теперь используем CustomAccount вместо оригинального Account
-const customUser = new CustomAccount();
+    // Выводим сообщение о запуске скрипта
+    console.log("Скрипт запущен");
 
-// Пример использования:
-console.log("Тестовый вывод hasPremium:", customUser.hasPremium());
+    // Создаем прокси для объекта Lampa.Account
+    const accountProxy = new Proxy(Lampa.Account, {
+        get(target, prop) {
+            if (prop === 'hasPremium') {
+                // Возвращаем всегда 1
+                return () => 1;
+            }
+            // Возвращаем оригинальное свойство
+            return target[prop];
+        }
+    });
+
+    // Тестовый вывод значения hasPremium
+    console.log("Тестовый вывод hasPremium:", accountProxy.hasPremium());
+})();
