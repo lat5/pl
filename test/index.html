@@ -1,16 +1,27 @@
-(function() {
+(function () {
     'use strict';
-    console.log("test", "Lampa.Account.hasPremium():", Lampa.Account.hasPremium());
 
-    
+    // Задаем новое содержимое файла
+    var newContent = `
+        // Новое содержимое файла scr/utils/account.js
+        console.log('Это новое содержимое файла account.js');
+        // Здесь вы можете вставить ваш новый код
+    `;
 
-    // Переопределяем метод hasPremium, чтобы он всегда возвращал 1
-    Object.defineProperty(Lampa.Account, 'hasPremium', {
-        value: function() {
-            return 1;
-        }
-    });
+    // Определяем функцию, которая будет заменять содержимое файла
+    function replaceFileContent() {
+        // Получаем путь к файлу scr/utils/account.js
+        var filePath = 'scr/utils/account.js';
 
-    // Выводим значение Lampa.Account.hasPremium() в консоль
-    console.log("test", "Lampa.Account.hasPremium():", Lampa.Account.hasPremium());
+        // Выполняем запрос на сервер для замены содержимого файла
+        // Здесь должен быть код для отправки запроса на сервер и замены содержимого файла
+        // Например, можно использовать fetch API или jQuery.ajax
+        // В данном примере я просто выведу содержимое файла в консоль
+        console.log('Заменяем содержимое файла ' + filePath + ' на:');
+        console.log(newContent);
+    }
+
+    // Вызываем функцию для замены содержимого файла
+    replaceFileContent();
+
 })();
