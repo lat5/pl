@@ -1,23 +1,16 @@
-(function () {
+(function() {
     'use strict';
 
-    // Выводим сообщение о запуске скрипта
-    console.log("test", "Скрипт запущен");
+    // Сохраняем оригинальную функцию hasPremium
+    var originalHasPremium = Lampa.Account.hasPremium;
 
-    // Список переменных, значение которых нужно получить через Lampa.Storage.get
-    var variables = ['language', 'history', 'premium', 'isPremium', 'hasPremium'];
+    // Переопределяем метод hasPremium, чтобы он всегда возвращал 1
+    Object.defineProperty(Lampa.Account, 'hasPremium', {
+        value: function() {
+            return 1;
+        }
+    });
 
-    // Функция для получения и вывода значений переменных
-    function displayVariables() {
-        // Перебираем список переменных
-        variables.forEach(function(variable) {
-            // Получаем значение переменной через Lampa.Storage.get
-            var value = Lampa.Storage.get(variable);
-            // Выводим значение в консоль с префиксом "test"
-            console.log("test", variable + ":", value);
-        });
-    }
-
-    // Вызываем функцию для отображения значений переменных в консоли
-    displayVariables();
+    // Выводим значение Lampa.Account.hasPremium() в консоль
+    console.log("test", "Lampa.Account.hasPremium():", Lampa.Account.hasPremium());
 })();
