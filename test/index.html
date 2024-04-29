@@ -1,13 +1,16 @@
 (function() {
     'use strict';
 
-    // Переопределяем метод hasPremiumOverride, чтобы он всегда возвращал 1
-    Object.defineProperty(Lampa.Account, 'hasPremiumOverride', {
-        value: function() {
-            return 1;
+    // Создаем вспомогательную переменную, которая будет содержать значение 1
+    var hasPremiumValue = 1;
+
+    // Переопределяем метод hasPremium, чтобы он возвращал значение переменной hasPremiumValue
+    Object.defineProperty(Lampa.Account, 'hasPremium', {
+        get: function() {
+            return hasPremiumValue;
         }
     });
 
-    // Выводим значение Lampa.Account.hasPremiumOverride() в консоль
-    console.log("test", "Lampa.Account.hasPremiumOverride():", Lampa.Account.hasPremiumOverride());
+    // Выводим значение Lampa.Account.hasPremium в консоль
+    console.log("test", "Lampa.Account.hasPremium:", Lampa.Account.hasPremium);
 })();
