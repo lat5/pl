@@ -1,19 +1,13 @@
-(function() {
-    'use strict';
-
-    // Проверяем, существует ли уже переменная Lampa.Account.hasPremium
-    if (typeof Lampa.Account.hasPremium !== 'undefined') {
-        // Если переменная существует, удаляем ее
-        delete Lampa.Account.hasPremium;
+// Создаем новый класс CustomAccount, наследующий функциональность Lampa.Account
+class CustomAccount extends Lampa.Account {
+    // Переопределяем метод hasPremium(), чтобы он всегда возвращал 1
+    hasPremium() {
+        return 1;
     }
+}
 
-    // Переопределяем метод hasPremium, чтобы он всегда возвращал 1
-    Object.defineProperty(Lampa.Account, 'hasPremium', {
-        value: function() {
-            return 1;
-        }
-    });
+// Теперь используем CustomAccount вместо оригинального Account
+const customUser = new CustomAccount();
 
-    // Выводим значение Lampa.Account.hasPremium() в консоль
-    console.log("test", "Lampa.Account.hasPremium():", Lampa.Account.hasPremium());
-})();
+// Пример использования:
+console.log("Тестовый вывод hasPremium:", customUser.hasPremium());
