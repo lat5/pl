@@ -5,6 +5,7 @@ Collections - https://lat5.github.io/pl/Collections - https://cub.red/plugin/col
 Rating - https://lat5.github.io/pl/Rating - https://nb557.github.io/plugins/rating.js - Рейтинг из IMDB и Кинопоиск
 Reviews - https://lat5.github.io/pl/Reviews - http://newtv.mail66.org/o.js - Рецензии из КиноПоиска
 TMDBProxy - https://lat5.github.io/pl/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
+Kinopoisk - https://lat5.github.io/pl/Kinopoisk - https://nb557.github.io/plugins/kp_source.js - Добавление Кинопоиска в источники
 
 [Настройки]
 Tricks - https://lat5.github.io/pl/Tricks - https://andreyurl54.github.io/diesel5/tricks.js - "Приятные мелочи" в настройках
