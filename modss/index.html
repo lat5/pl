@@ -7,7 +7,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		return window.location.protocol == 'https:' ? 'https://' : 'http://';
 	}
 	var TRASH_R = ['$$$####!!!!!!!', '^^^^^^##@', '@!^^!@#@@$$$$$', '^^#@@!!@#!$', '@#!@@@##$$@@'];
-	var version_modss = '3.1', API = Protocol() + 'api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = , leftVipD = '', user_id = '', uid = 'dcbee9ef84465be64feb69380', IP = '46.56.229.218', logged = true;
+	var version_modss = '3.1', API = Protocol() + 'api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, leftVipD = '', user_id = '', uid = 'dcbee9ef84465be64feb69380', IP = '46.56.229.218', logged = false;
 	console.log('App', 'protocol:', Protocol());
 	
 	var Modss = {
@@ -23,7 +23,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
         Lampa.Extensions.show();
         setTimeout(function (){
           $('.extensions__item-author', Lampa.Extensions.render()).map(function (i, e){
-            if(e.textContent == '@modss_group') $(e).html('💎').append('<span class="extensions__item-premium">VIP buy at @modssmy_bot</span>');
+            if(e.textContent == '@modss_group') $(e).html('馃拵').append('<span class="extensions__item-premium">VIP buy at @modssmy_bot</span>');
           });
         }, 500);
       });
@@ -51,7 +51,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   			};
   		}
   		if(!IP) this.getIp();
-  		var ads_4k = ['<div style="padding: 1.5em 2em; padding-top: 0;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="line-height: 1.4;">Надоело смотреть в плохом качестве?<br>Хочешь смотреть в FHD и 4K? Переходи в телеграм бот <span style="color: #24b4f9">@modssmy_bot</span> для подключения VIP</div>', '</div>', '</div>'].join('');
+  		var ads_4k = ['<div style="padding: 1.5em 2em; padding-top: 0;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="line-height: 1.4;">袧邪写芯械谢芯 褋屑芯褌褉械褌褜 胁 锌谢芯褏芯屑 泻邪褔械褋褌胁械?<br>啸芯褔械褕褜 褋屑芯褌褉械褌褜 胁 FHD 懈 4K? 袩械褉械褏芯写懈 胁 褌械谢械谐褉邪屑 斜芯褌 <span style="color: #24b4f9">@modssmy_bot</span> 写谢褟 锌芯写泻谢褞褔械薪懈褟 VIP</div>', '</div>', '</div>'].join('');
     	Lampa.Controller.listener.follow('toggle', function(e) {
     		if(e.name == 'select' && !vip) {
     			setTimeout(function() {
@@ -138,12 +138,12 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           Lampa.Controller.toggle(enabled);
         }
       });
-      //Lampa.Modal.render().find('.cub-premium__title').text("MODS's VIP");
-      //Lampa.Modal.render().find('.cub-premium__descr:eq(0)').text('Поздравляем вас с получением VIP-статуса! Теперь у вас есть возможность наслаждаться видео в высоком разрешении 4К. Кроме того, вас ожидают дополнительные балансеры, которые помогут найти подходящий контент');
-      //Lampa.Modal.render().find('.cub-premium__descr:eq(1)').text('У вас осталось ' + leftVipD);
-      //Lampa.Modal.render().find('.cub-premium__descr:eq(1)').after('👇 Кнопка для просмотра 👇<br><br><img src="http://lampa.stream/but_modss.jpg">');
-      //Lampa.Modal.render().find('.cub-premium__url').text('@modssmy_bot');
-      //Lampa.Modal.render().addClass('modal--cub-premium').find('.modal__content').before('<div class="modal__icon"><svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 32 32"><path d="m2.837 20.977q-.912-5.931-1.825-11.862a.99.99 0 0 1 1.572-.942l5.686 4.264a1.358 1.358 0 0 0 1.945-.333l4.734-7.104a1.263 1.263 0 0 1 2.1 0l4.734 7.1a1.358 1.358 0 0 0 1.945.333l5.686-4.264a.99.99 0 0 1 1.572.942q-.913 5.931-1.825 11.862z" fill="#D8C39A"></svg></div>');
+      Lampa.Modal.render().find('.cub-premium__title').text("MODS's VIP");
+      Lampa.Modal.render().find('.cub-premium__descr:eq(0)').text('袩芯蟹写褉邪胁谢褟械屑 胁邪褋 褋 锌芯谢褍褔械薪懈械屑 VIP-褋褌邪褌褍褋邪! 孝械锌械褉褜 褍 胁邪褋 械褋褌褜 胁芯蟹屑芯卸薪芯褋褌褜 薪邪褋谢邪卸写邪褌褜褋褟 胁懈写械芯 胁 胁褘褋芯泻芯屑 褉邪蟹褉械褕械薪懈懈 4袣. 袣褉芯屑械 褌芯谐芯, 胁邪褋 芯卸懈写邪褞褌 写芯锌芯谢薪懈褌械谢褜薪褘械 斜邪谢邪薪褋械褉褘, 泻芯褌芯褉褘械 锌芯屑芯谐褍褌 薪邪泄褌懈 锌芯写褏芯写褟褖懈泄 泻芯薪褌械薪褌');
+      Lampa.Modal.render().find('.cub-premium__descr:eq(1)').text('校 胁邪褋 芯褋褌邪谢芯褋褜 ' + leftVipD);
+      Lampa.Modal.render().find('.cub-premium__descr:eq(1)').after('馃憞 袣薪芯锌泻邪 写谢褟 锌褉芯褋屑芯褌褉邪 馃憞<br><br><img src="http://lampa.stream/but_modss.jpg">');
+      Lampa.Modal.render().find('.cub-premium__url').text('@modssmy_bot');
+      Lampa.Modal.render().addClass('modal--cub-premium').find('.modal__content').before('<div class="modal__icon"><svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 32 32"><path d="m2.837 20.977q-.912-5.931-1.825-11.862a.99.99 0 0 1 1.572-.942l5.686 4.264a1.358 1.358 0 0 0 1.945-.333l4.734-7.104a1.263 1.263 0 0 1 2.1 0l4.734 7.1a1.358 1.358 0 0 0 1.945.333l5.686-4.264a.99.99 0 0 1 1.572.942q-.913 5.931-1.825 11.862z" fill="#D8C39A"></svg></div>');
     },
 		online: function (back) {
       
@@ -405,7 +405,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				if(window.innerWidth > 585) $('.full-start__poster,.full-start-new__poster', Lampa.Activity.active().activity.render()).append("<div class='card--new_seria' style='right: -0.6em!important;position: absolute;background: #168FDF;color: #fff;bottom:.6em!important;padding: 0.4em 0.4em;font-size: 1.2em;-webkit-border-radius: 0.3em;-moz-border-radius: 0.3em;border-radius: 0.3em;'>" + Lampa.Lang.translate(new_ser) + "</div>");
   			  else {
   			    if($('.card--new_seria', Lampa.Activity.active().activity.render()).length)$('.full-start__tags', Lampa.Activity.active().activity.render()).append('<div class="full-start__tag card--new_seria"><img src="./img/icons/menu/movie.svg" /> <div>'+ Lampa.Lang.translate(new_ser) +'</div></div>');
-  			    else $('.full-start-new__details', Lampa.Activity.active().activity.render()).append('<span class="full-start-new__split">◄1�7</span><div class="card--new_seria"><div>'+ Lampa.Lang.translate(new_ser) +'</div></div>');
+  			    else $('.full-start-new__details', Lampa.Activity.active().activity.render()).append('<span class="full-start-new__split">鈼�</span><div class="card--new_seria"><div>'+ Lampa.Lang.translate(new_ser) +'</div></div>');
   			  }
   		  }
 			}
@@ -428,7 +428,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				var imdb = json.data && json.data.imdb_rating || 0;
   				var auth = json.data.auth;
   				
-          if((!vip && logged == 'true' && leftVipD !== json.data.leftDays && auth && json.data.vip) || (vip && logged == true && leftVipD !== json.data.leftDays && auth=='true' && !json.data.vip)) window.location.reload();
+          if((!vip && logged == 'false' && leftVipD !== json.data.leftDays && auth && json.data.vip) || (vip && logged == true && leftVipD !== json.data.leftDays && auth=='false' && !json.data.vip)) window.location.reload();
 
   				if(json.data.leftDays) leftVipD = json.data.leftDays;
   				if(!vip) Lampa.Storage.set('showModssVip', true);
@@ -446,7 +446,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				resolve();
   			}, function (a, c) {
   				resolve();
-  				Lampa.Noty.show('MODSs ОШИБКА Рейтинг KP   ' + Pub.network.errorDecode(a, c));
+  				Lampa.Noty.show('MODSs 袨楔袠袘袣袗 袪械泄褌懈薪谐 KP   ' + Pub.network.errorDecode(a, c));
   			}, {
   			  title: card && card.title || logged, 
   			  year: card && year || logged, 
@@ -476,15 +476,15 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           id: id,
           from: 'modss',
           title: card.name,
-          text: 'Переводы на балансерах где есть '+data.episode+' серия',
+          text: '袩械褉械胁芯写褘 薪邪 斜邪谢邪薪褋械褉邪褏 谐写械 械褋褌褜 '+data.episode+' 褋械褉懈褟',
           time: Date.now(), 
           poster: card.poster_path,
           card: card,
           labels: bals
         },function(){
-          console.log('Успешно');
+          console.log('校褋锌械褕薪芯');
         },function(e){
-          console.log('Чет пошло не так',e);
+          console.log('效械褌 锌芯褕谢芯 薪械 褌邪泻',e);
         });
       }, 1000);
       
@@ -509,7 +509,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
     
             if (auth === true || auth === 'true' && json.stop_auth === true) {
               if (json.block && json.stop_auth) {
-                logged = true;
+                logged = false;
                 Lampa.Account.logoff({email:Lampa.Storage.get('account_email')})
               }
               stopAuthInterval();
@@ -524,7 +524,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
             resolve(json);
           }, function(a, c) {
             resolve();
-            Lampa.Noty.show('MODSs ОШИБКА Авторизации   ' + Pub.network.errorDecode(a, c));
+            Lampa.Noty.show('MODSs 袨楔袠袘袣袗 袗胁褌芯褉懈蟹邪褑懈懈   ' + Pub.network.errorDecode(a, c));
           }, {
             user_id: user_id,
             uid: uid,
@@ -535,7 +535,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           });
         });
       }
-      Lampa.Storage.('pro_pub', true)
+      
       authFn(kp)
       .then(function(start) {
         setTimeout(function() {
@@ -553,7 +553,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       }
     
       return {
-        stop: stopAuthInterval // Возвращаем функцию остановки интервала
+        stop: stopAuthInterval // 袙芯蟹胁褉邪褖邪械屑 褎褍薪泻褑懈褞 芯褋褌邪薪芯胁泻懈 懈薪褌械褉胁邪谢邪
       };
     },    
 		balansers: function() {
@@ -633,10 +633,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
     CACHE_TIME: 1000 * 60 * 60 * 2,
     getCache: function(key, data) {
       var timestamp = new Date().getTime();
-			var cache = Lampa.Storage.cache(key, 1, {}); //500 это лимит ключей
+			var cache = Lampa.Storage.cache(key, 1, {}); //500 褝褌芯 谢懈屑懈褌 泻谢褞褔械泄
 			if (cache[key]) {
 				if ((timestamp - cache[key].timestamp) > this.CACHE_TIME) {
-					// Если кеш истёк, чистим его
+					// 袝褋谢懈 泻械褕 懈褋褌褢泻, 褔懈褋褌懈屑 械谐芯
 					delete cache[key];
 					Lampa.Storage.set(data, cache);
 					return false;
@@ -646,7 +646,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		}, 
     setCache: function(key, data) {
 			var timestamp = new Date().getTime();
-			var cache = Lampa.Storage.cache(key, 1, {}); //500 это лимит ключей
+			var cache = Lampa.Storage.cache(key, 1, {}); //500 褝褌芯 谢懈屑懈褌 泻谢褞褔械泄
 			if (!cache[key]) {
 				cache[key] = data;
 				Lampa.Storage.set(key, cache);
@@ -668,7 +668,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   	add_new: function () {
   		var user_code = '';
   		var user_token = '';
-  		var modal = $('<div><div class="broadcast__text">' + Lampa.Lang.translate('filmix_modal_text') + '</div><div class="broadcast__device selector" style="text-align: center">Ожидаем код...</div><br><div class="broadcast__scan"><div></div></div></div></div>');
+  		var modal = $('<div><div class="broadcast__text">' + Lampa.Lang.translate('filmix_modal_text') + '</div><div class="broadcast__device selector" style="text-align: center">袨卸懈写邪械屑 泻芯写...</div><br><div class="broadcast__scan"><div></div></div></div></div>');
   		Lampa.Modal.open({
   			title: '',
   			html: modal,
@@ -819,7 +819,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 			var get_cach = Lampa.Storage.get('ForkTv_cat', '');
 			if (!get_cach) {
 				json.forEach(function (itm, i) {
-				//	if (itm.title !== 'Новости' /* && itm.title !== 'IPTV'*/ ) {
+				//	if (itm.title !== '袧芯胁芯褋褌懈' /* && itm.title !== 'IPTV'*/ ) {
 						item.push({
 							title: itm.title,
 							url: itm.playlist_url,
@@ -931,8 +931,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					Lampa.Storage.set('forktv_auth', true);
 					status.removeClass('wait').addClass('active');
 					if (itm) {
-						if (itm.text().indexOf('код') == -1 || itm.text().indexOf('code') == -1) $('.settings-param__descr', itm).html('<img width="30em" src="./img/logo-icon.svg"> <b style="vertical-align: middle;font-size:1.4em;color:#FF8C00">' + Lampa.Lang.translate('account_authorized') + '</b>');
-						if (itm.find('.settings-param__name').text().indexOf('раздел') > -1 || itm.find('.settings-param__name').text().indexOf('Sections') > -1) ForkTV.cats_fork(json.channels);
+						if (itm.text().indexOf('泻芯写') == -1 || itm.text().indexOf('code') == -1) $('.settings-param__descr', itm).html('<img width="30em" src="./img/logo-icon.svg"> <b style="vertical-align: middle;font-size:1.4em;color:#FF8C00">' + Lampa.Lang.translate('account_authorized') + '</b>');
+						if (itm.find('.settings-param__name').text().indexOf('褉邪蟹写械谢') > -1 || itm.find('.settings-param__name').text().indexOf('Sections') > -1) ForkTV.cats_fork(json.channels);
 					}
 				}
 			}, function (e) {
@@ -1114,7 +1114,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   			Lampa.Storage.set('pub_access_token', json.access_token);
   			Lampa.Storage.set('pub_refresh_token', json.refresh_token);
   			Pub.token = Lampa.Storage.get('pub_access_token');
-  			Lampa.Noty.show('ТОКЕН обновлён');
+  			Lampa.Noty.show('孝袨袣袝袧 芯斜薪芯胁谢褢薪');
   		}, function (a, c) {
   			Lampa.Noty.show(Pub.network.errorDecode(a, c));
   		}, {
@@ -1153,36 +1153,36 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   			var opt = json.device.settings;
   			var subtitle = {
   				supportSsl: {
-  					title: 'Использовать SSL (https) для картинок и видео'
+  					title: '袠褋锌芯谢褜蟹芯胁邪褌褜 SSL (https) 写谢褟 泻邪褉褌懈薪芯泻 懈 胁懈写械芯'
   				},
   				supportHevc: {
-  					title: 'HEVC или H.265  1�7 формат Видеосжатия с применением более эффективных алгоритмов по сравнению с H.264/AVC. Убедитесь, что ваше устройство поддерживает Данный формат.'
+  					title: 'HEVC 懈谢懈 H.265 鈥� 褎芯褉屑邪褌 袙懈写械芯褋卸邪褌懈褟 褋 锌褉懈屑械薪械薪懈械屑 斜芯谢械械 褝褎褎械泻褌懈胁薪褘褏 邪谢谐芯褉懈褌屑芯胁 锌芯 褋褉邪胁薪械薪懈褞 褋 H.264/AVC. 校斜械写懈褌械褋褜, 褔褌芯 胁邪褕械 褍褋褌褉芯泄褋褌胁芯 锌芯写写械褉卸懈胁邪械褌 袛邪薪薪褘泄 褎芯褉屑邪褌.'
   				},
   				support4k: {
-  					title: '4K или Ultra HD - фильм в сверхвысокой чёткости 2160p. Убедитесь, что ваше устройство и ТВ, поддерживает данный формат.'
+  					title: '4K 懈谢懈 Ultra HD - 褎懈谢褜屑 胁 褋胁械褉褏胁褘褋芯泻芯泄 褔褢褌泻芯褋褌懈 2160p. 校斜械写懈褌械褋褜, 褔褌芯 胁邪褕械 褍褋褌褉芯泄褋褌胁芯 懈 孝袙, 锌芯写写械褉卸懈胁邪械褌 写邪薪薪褘泄 褎芯褉屑邪褌.'
   				},
   				mixedPlaylist: {
-  					title: 'Плейлист с AVC и HEVC потоками. В зависимости от настроек, устройство будет автоматически проигрывать нужный поток. Доступно только для 4К - фильмов. Убедитесь, что ваше устройство поддерживает данный формат плейлиста.'
+  					title: '袩谢械泄谢懈褋褌 褋 AVC 懈 HEVC 锌芯褌芯泻邪屑懈. 袙 蟹邪胁懈褋懈屑芯褋褌懈 芯褌 薪邪褋褌褉芯械泻, 褍褋褌褉芯泄褋褌胁芯 斜褍写械褌 邪胁褌芯屑邪褌懈褔械褋泻懈 锌褉芯懈谐褉褘胁邪褌褜 薪褍卸薪褘泄 锌芯褌芯泻. 袛芯褋褌褍锌薪芯 褌芯谢褜泻芯 写谢褟 4袣 - 褎懈谢褜屑芯胁. 校斜械写懈褌械褋褜, 褔褌芯 胁邪褕械 褍褋褌褉芯泄褋褌胁芯 锌芯写写械褉卸懈胁邪械褌 写邪薪薪褘泄 褎芯褉屑邪褌 锌谢械泄谢懈褋褌邪.'
   				},
   				HTTP: {
-  					title: 'Неадаптивный, качество через настройки (Настройки > плеер > качество видео), все аудио, нет сабов.'
+  					title: '袧械邪写邪锌褌懈胁薪褘泄, 泻邪褔械褋褌胁芯 褔械褉械蟹 薪邪褋褌褉芯泄泻懈 (袧邪褋褌褉芯泄泻懈 > 锌谢械械褉 > 泻邪褔械褋褌胁芯 胁懈写械芯), 胁褋械 邪褍写懈芯, 薪械褌 褋邪斜芯胁.'
   				},
   				HLS: {
-  					title: 'Неадаптивный, качество через настройки, одна аудиодорожка, нет сабов.'
+  					title: '袧械邪写邪锌褌懈胁薪褘泄, 泻邪褔械褋褌胁芯 褔械褉械蟹 薪邪褋褌褉芯泄泻懈, 芯写薪邪 邪褍写懈芯写芯褉芯卸泻邪, 薪械褌 褋邪斜芯胁.'
   				},
   				HLS2: {
-  					title: 'Адаптивный, качество автоматом, одна аудиодорожка, нет сабов.'
+  					title: '袗写邪锌褌懈胁薪褘泄, 泻邪褔械褋褌胁芯 邪胁褌芯屑邪褌芯屑, 芯写薪邪 邪褍写懈芯写芯褉芯卸泻邪, 薪械褌 褋邪斜芯胁.'
   				},
   				HLS4: {
-  					title: 'Рекомендуется! - Адаптивный, качество автоматом, все аудио, сабы.'
+  					title: '袪械泻芯屑械薪写褍械褌褋褟! - 袗写邪锌褌懈胁薪褘泄, 泻邪褔械褋褌胁芯 邪胁褌芯屑邪褌芯屑, 胁褋械 邪褍写懈芯, 褋邪斜褘.'
   				}
   			};
   			var item = [{
-  				title: 'Тип потока',
+  				title: '孝懈锌 锌芯褌芯泻邪',
   				value: opt.streamingType,
   				type: 'streamingType'
   		}, {
-  				title: 'Переключить сервер',
+  				title: '袩械褉械泻谢褞褔懈褌褜 褋械褉胁械褉',
   				value: opt.serverLocation,
   				type: 'serverLocation'
   		}];
@@ -1793,7 +1793,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
         if (extract.voice.length) call(getChoiceVoice().token);
         else component.doesNotAnswer(object.movie.title);
       }, function (a, c) {
-        component.doesNotAnswer(a.status == 404 && a.responseText && (a.responseText.indexOf('Видео не найдено') !== -1 ||  a.responseText.indexOf('Not Found') !== -1) ? object.movie.title : '');
+        component.doesNotAnswer(a.status == 404 && a.responseText && (a.responseText.indexOf('袙懈写械芯 薪械 薪邪泄写械薪芯') !== -1 ||  a.responseText.indexOf('Not Found') !== -1) ? object.movie.title : '');
       }, false, {
         dataType: 'text'
       });
@@ -2658,7 +2658,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				var items = extractItems(eps.file, filter_items.voice[choice.voice]);
   				if (items.length) {
   					var title = eps.title || eps.comment || '';
-  					var alt_voice = (eps.comment || eps.title).match(/\d+ серия (.*)$/i);
+  					var alt_voice = (eps.comment || eps.title).match(/\d+ 褋械褉懈褟 (.*)$/i);
   					var info = items[0].voice || (alt_voice && alt_voice[1].trim()) || translation;
   				
   					if (info == title) info = '';
@@ -2704,8 +2704,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   		return subtitles.length ? subtitles : false;
   	}
   	function extractData(str, page) {
-  		var quality_match = page.match(/<li><b>Качество:<\/b>([^<,]+)<\/li>/i);
-  		var translation_match = page.match(/<li><b>Перевод:<\/b>([^<,]+)<\/li>/i);
+  		var quality_match = page.match(/<li><b>袣邪褔械褋褌胁芯:<\/b>([^<,]+)<\/li>/i);
+  		var translation_match = page.match(/<li><b>袩械褉械胁芯写:<\/b>([^<,]+)<\/li>/i);
   		quality_type = quality_match ? quality_match[1].trim() : '';
   		translation = translation_match ? translation_match[1].trim() : '';
   		var vod = str.split('|');
@@ -2752,7 +2752,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 				str = str.replace(/\n/g, '');
 				var voices = str.match('<ul class="list-unstyled details">(.*?)</ul>');
 				$(voices, 'li').each(function (r, a) {
-					var vsrt = a.match('<li><b>Перевод:</b>(.*?)</li>');
+					var vsrt = a.match('<li><b>袩械褉械胁芯写:</b>(.*?)</li>');
 					voic = vsrt && vsrt[1];
 				});
 				var MOVIE_ID = str.match('var MOVIE_ID = ([^;]+);');
@@ -2963,7 +2963,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   			} else component.doesNotAnswer(select_title);
   			component.loading(false);
   		}, function (a, c) {
-  			component.doesNotAnswer(a.status == 404 && a.responseText && a.responseText.indexOf('видео недоступно') !== -1 ? select_title : '');
+  			component.doesNotAnswer(a.status == 404 && a.responseText && a.responseText.indexOf('胁懈写械芯 薪械写芯褋褌褍锌薪芯') !== -1 ? select_title : '');
   		}, false, {
   			dataType: 'text'
   		});
@@ -3173,7 +3173,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       };
 
       var call_error = function call_error(a, c) {
-        if ((a.status == 404 || a.status == 403) && a.responseText && (a.responseText.indexOf('<title>Not Found</title>') !== -1 || a.responseText.indexOf('Не найдено!') !== -1 || a.responseText.indexOf('Контент не найден или недоступен в вашем регионе!') !== -1) || a.status == 0 && a.statusText !== 'timeout') {
+        if ((a.status == 404 || a.status == 403) && a.responseText && (a.responseText.indexOf('<title>Not Found</title>') !== -1 || a.responseText.indexOf('袧械 薪邪泄写械薪芯!') !== -1 || a.responseText.indexOf('袣芯薪褌械薪褌 薪械 薪邪泄写械薪 懈谢懈 薪械写芯褋褌褍锌械薪 胁 胁邪褕械屑 褉械谐懈芯薪械!') !== -1) || a.status == 0 && a.statusText !== 'timeout') {
           if (callback) callback('');
         } else if (error) error(network.errorDecode(a, c));
       };
@@ -3863,10 +3863,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
         } else if (type == 'sort') {
           Lampa.Select.close();
           if (Lampa.Arrays.getKeys(sources).indexOf(a.source) !== -1) {
-            if (true || a.source == 'pub')
-            return Lampa.Noty.show('Доступно для VIP пользователей<br>Через бот @modssmy_bot');
+            if (!Lampa.Storage.get('pro_pub', false) && a.source == 'pub')
+            return Lampa.Noty.show('袛芯褋褌褍锌薪芯 写谢褟 VIP 锌芯谢褜蟹芯胁邪褌械谢械泄<br>效械褉械蟹 斜芯褌 @modssmy_bot');
             _this.changeBalanser(a.source);
-         } else Lampa.Noty.show('Доступно для VIP пользователей<br>Через бот @modssmy_bot');
+         } else Lampa.Noty.show('袛芯褋褌褍锌薪芯 写谢褟 VIP 锌芯谢褜蟹芯胁邪褌械谢械泄<br>效械褉械蟹 斜芯褌 @modssmy_bot');
         }
         if (object.movie.number_of_seasons || balanser == 'pub' || balanser == 'bazon') filter.render().find('.filter--filter').show();
   		  else filter.render().find('.filter--filter').hide();
@@ -4111,10 +4111,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       } else letgo();
   	};
   	this.cleanTitle = function (str) {
-      return str.replace(/[\s.,:; 1�7'\`!?]+/g, ' ').trim();
+      return str.replace(/[\s.,:;鈥�'\`!?]+/g, ' ').trim();
     };
     this.normalizeTitle = function (str) {
-      return this.cleanTitle(str.toLowerCase().replace(/ 1�7/g, '-').replace(/ё/g, 'е'));
+      return this.cleanTitle(str.toLowerCase().replace(/鈥�/g, '-').replace(/褢/g, '械'));
     };
     this.equalTitle = function (t1, t2) {
       return typeof t1 === 'string' && typeof t2 === 'string' && this.normalizeTitle(t1) === this.normalizeTitle(t2);
@@ -4321,12 +4321,12 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
         var info = [];
         var year = ((elem.start_date || elem.year || '') + '').slice(0, 4);
       	var transl = elem.translations ? String(elem.translations).split(',').slice(0, 2) : '';
-  			var count_s = elem.seasons_count ? elem.seasons_count + ' ' + Lampa.Lang.translate('torrent_serial_season').toLowerCase() + _this3.num_word(elem.seasons_count, ['', 'а', 'ов']) : '';
-  			var count_eps = elem.episodes_count ? elem.episodes_count + ' эпизод' + _this3.num_word(elem.episodes_count, ['', 'а', 'ов']) : '';
+  			var count_s = elem.seasons_count ? elem.seasons_count + ' ' + Lampa.Lang.translate('torrent_serial_season').toLowerCase() + _this3.num_word(elem.seasons_count, ['', '邪', '芯胁']) : '';
+  			var count_eps = elem.episodes_count ? elem.episodes_count + ' 褝锌懈蟹芯写' + _this3.num_word(elem.episodes_count, ['', '邪', '芯胁']) : '';
         if (year) info.push(year);
-  			if (elem.type) info.push(elem.type == 'serial' || elem.type == 'MINI_SERIES' ? ('Cериал' + (count_s && ' - ' + count_s + ' из них ' + count_eps)) : 
-  			           elem.type == 'TV_SHOW' ? 'Тв-Шоу' : 
-  			           elem.type == ('movie' || 'film' || 'FILM') ? 'Фильм' : elem.type);
+  			if (elem.type) info.push(elem.type == 'serial' || elem.type == 'MINI_SERIES' ? ('C械褉懈邪谢' + (count_s && ' - ' + count_s + ' 懈蟹 薪懈褏 ' + count_eps)) : 
+  			           elem.type == 'TV_SHOW' ? '孝胁-楔芯褍' : 
+  			           elem.type == ('movie' || 'film' || 'FILM') ? '肖懈谢褜屑' : elem.type);
   			if (transl) info.push(transl);
         if (elem.rating && elem.rating !== 'null' && elem.filmId) info.push(Lampa.Template.get('modss_online_rate', {
           rate: elem.rating
@@ -4349,7 +4349,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
         var orig = elem.orig_title || elem.nameEn || '';
         elem.title = name + (orig && orig !== name ? ' / ' + orig : '');
         elem.time = elem.filmLength || '';
-        elem.info = info.join('<span class="online_modss-split">◄1�7</span>');
+        elem.info = info.join('<span class="online_modss-split">鈼�</span>');
         var item = Lampa.Template.get('modss_online_folder', elem);
         item.on('hover:enter', function () {
           _this3.activity.loader(true);
@@ -4575,7 +4575,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
           if (element.info) info.push(element.info);
           if (info.length) element.info = info.map(function (i) {
             return '<span>' + i + '</span>';
-          }).join('<span class="online_modss-split">◄1�7</span>');
+          }).join('<span class="online_modss-split">鈼�</span>');
           var html = Lampa.Template.get('modss_online_full', element);
           var loader = html.find('.online_modss__loader');
           var image = html.find('.online_modss__img');
@@ -4721,7 +4721,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
               time: Lampa.Utils.secondsToTime((episode ? episode.runtime : object.movie.runtime) * 60, true),
               info: info.length ? info.map(function (i) {
                 return '<span>' + i + '</span>';
-              }).join('<span class="online_modss-split">◄1�7</span>') : '',
+              }).join('<span class="online_modss-split">鈼�</span>') : '',
               title: episode.name,
               quality: day > 0 ? txt : ''
             });
@@ -4861,7 +4861,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
               }
               
               if (a.speed) {
-                Modss.speedTest(extra.file, {title:object.search, info:[params.element.title, params.element.quality].join(' - '), balanser: (['pub', 'hdr'].indexOf(balanser) >= 0 && params.element.info && params.element.info.split('<span class="online_modss-split">◄1�7</span>').pop() + ' - ' || '') + sources[balanser].name});
+                Modss.speedTest(extra.file, {title:object.search, info:[params.element.title, params.element.quality].join(' - '), balanser: (['pub', 'hdr'].indexOf(balanser) >= 0 && params.element.info && params.element.info.split('<span class="online_modss-split">鈼�</span>').pop() + ' - ' || '') + sources[balanser].name});
               }
   
               if (a.copylink) {
@@ -4998,7 +4998,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   		if (num == 1) return words[0];
   		return words[2];
   	};
-    this.order = [{title: 'Стандартно', id: 'normal'}, {title: 'Инвертировать', id: 'invers'}];
+    this.order = [{title: '小褌邪薪写邪褉褌薪芯', id: 'normal'}, {title: '袠薪胁械褉褌懈褉芯胁邪褌褜', id: 'invers'}];
     this.start = function () {
       var _this7 = this;
       if (Lampa.Activity.active().activity !== this.activity) return;
@@ -5165,7 +5165,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				};
   				if (element.length > 1) {
   					JSON.parse(element).forEach(function (elem) {
-  						if (elem.title.match('Описание|Торрент|Трейлер|Страны|Жанр|Похож|Модел|Студи|Катег|Превь|Тег|Порноз') == null) playlist.push({
+  						if (elem.title.match('袨锌懈褋邪薪懈械|孝芯褉褉械薪褌|孝褉械泄谢械褉|小褌褉邪薪褘|袞邪薪褉|袩芯褏芯卸|袦芯写械谢|小褌褍写懈|袣邪褌械谐|袩褉械胁褜|孝械谐|袩芯褉薪芯蟹') == null) playlist.push({
   							title: elem.title,
   							url: elem.stream_url
   						});
@@ -5188,37 +5188,37 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   		bg_img = JSON.parse(bg_img);
   		bg_img.background_image && Lampa.Background.immediately(bg_img.background_image);
   		if (data.channels && data.channels.length == 0) {
-  			Lampa.Noty.show('Ничего не найдено');
+  			Lampa.Noty.show('袧懈褔械谐芯 薪械 薪邪泄写械薪芯');
   		} else {
-  			var json = data.channels && data.menu && data.menu.length > 0 && data.menu[0].title != 'Трейлер' && data.next_page_url && data.next_page_url.indexOf('page=1') > -1 ? data.menu.concat(data.channels) : (object.title == 'SerialHD' && data.next_page_url && data.next_page_url.split('page=')[1] != 2) ? data.channels.slice(1) : data.channels;
+  			var json = data.channels && data.menu && data.menu.length > 0 && data.menu[0].title != '孝褉械泄谢械褉' && data.next_page_url && data.next_page_url.indexOf('page=1') > -1 ? data.menu.concat(data.channels) : (object.title == 'SerialHD' && data.next_page_url && data.next_page_url.split('page=')[1] != 2) ? data.channels.slice(1) : data.channels;
   			json = JSON.stringify(json).replace('<br \/>', '<br>').replace(/\)|\(|%20/g, '');
   			if (data.title == 'HDGO') {
   					[{
-  					name: 'Быстрый доступ',
+  					name: '袘褘褋褌褉褘泄 写芯褋褌褍锌',
   					id: [0, 1, 2, 3]
   					}, {
-  					name: 'Фильмы',
+  					name: '肖懈谢褜屑褘',
   					id: [4, 14,15,16,17]
   					}, {
-  					name: 'Сериалы',
+  					name: '小械褉懈邪谢褘',
   					id: [5, 18,19,20,21,22]
   					}, {
-  					name: 'Мультфильмы',
+  					name: '袦褍谢褜褌褎懈谢褜屑褘',
   					id: [6, 23,24,25]
   					}, {
-  					name: 'Мультсериалы',
+  					name: '袦褍谢褜褌褋械褉懈邪谢褘',
   					id: [7, 26,27,28,29]
   					}, {
-  					name: 'Аниме',
+  					name: '袗薪懈屑械',
   					id: [8, 30,31,32,33]
   					}, {
-  					name: 'Тв-Шоу',
+  					name: '孝胁-楔芯褍',
   					id: [9, 34, 35,36]
   					}, {
-  					name: 'Док. Сериалы',
+  					name: '袛芯泻. 小械褉懈邪谢褘',
   					id: [10, 37,38,39]
   					}, {
-  					name: 'Док. Фильмы',
+  					name: '袛芯泻. 肖懈谢褜屑褘',
   					id: [11, 40,41]
   					}].map(function (i) {
   					_this3.appendHdgo({
@@ -5231,7 +5231,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   			} else {
   				var element = JSON.parse(json)[0];
   				var infos = element.description ? element.description : element.template;
-  				var voic = infos && infos.match(/Озвучка:(.*?)<br/) || infos && infos.match(/Перевод:(.*?)(<br|Разм|Обн|Реж|Вр|Фор)/) || '';
+  				var voic = infos && infos.match(/袨蟹胁褍褔泻邪:(.*?)<br/) || infos && infos.match(/袩械褉械胁芯写:(.*?)(<br|袪邪蟹屑|袨斜薪|袪械卸|袙褉|肖芯褉)/) || '';
   				if (element.template && element.template.indexOf('film.') > -1 || element.logo_30x30 && element.logo_30x30.match('mediafil') || element.logo_30x30 && element.logo_30x30.match('folder') && element.playlist_url && element.playlist_url.indexOf('torrstream?magnet') > -1) {
   					var image = element.before && element.before.indexOf('src') > -1 ? $('img', element.before).attr('src') : element.template && element.template.indexOf('src') > -1 ? $('img', element.template).attr('src') : element.description && element.description.indexOf('src') > -1 ? $('img', element.description).attr('src') : element.logo_30x30 && element.logo_30x30.indexOf('png') > -1 ? element.logo_30x30 : element.details && element.details.poster ? element.details.poster : './img/icons/film.svg';
   					object.movie = {
@@ -5257,7 +5257,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				}
   				JSON.parse(json).forEach(function (element) {
   					var stream = element.stream_url ? element.stream_url : element.playlist_url;
-  					if (element.title.match('Описание|Трейлер') == null) {
+  					if (element.title.match('袨锌懈褋邪薪懈械|孝褉械泄谢械褉') == null) {
   						if (element.template && element.template.indexOf('film.') > -1 || element.logo_30x30 && element.logo_30x30.match('mediafil') || element.logo_30x30 && element.logo_30x30.match('folder') && element.playlist_url && element.playlist_url.indexOf('torrstream?magnet') > -1) {
   							body.attr('class', '');
   							scroll.body().addClass('torrent-list');
@@ -5265,13 +5265,13 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   							element.info = '';
   							if (element.logo_30x30 && element.logo_30x30.match(/folder|mediafil/) && stream && stream.match(/torrstream\?magnet|getstream|kinomix/)) {
   								var des = $(element.template || element.description).text();
-  								var vo = des.match(/Озвучка(.*?)Вид/) || des.match(/Перевод:(.*?)Разм/);
-  								var vid = des.match(/Видео[:](.*?)[|]/) || des.match(/Видео[:](.*?)Длит/) || des.match(/Видео(.*?)$/);
-  								var sed_per = des.match(/Раздают:(.*?)Качают:(.*?)(Обн|Кач|Длит)/) || des.match(/Раздают:(.*?)\s[|]\sКачают:(.*?)(Обн|Кач|Длит)/);
-  								var size1 = des.match(/t\/s(.*?)Озв/) || des.match(/Размер:(.*?)Разд/) || $(element.template || element.description).find('.trt-size').text();
+  								var vo = des.match(/袨蟹胁褍褔泻邪(.*?)袙懈写/) || des.match(/袩械褉械胁芯写:(.*?)袪邪蟹屑/);
+  								var vid = des.match(/袙懈写械芯[:](.*?)[|]/) || des.match(/袙懈写械芯[:](.*?)袛谢懈褌/) || des.match(/袙懈写械芯(.*?)$/);
+  								var sed_per = des.match(/袪邪蟹写邪褞褌:(.*?)袣邪褔邪褞褌:(.*?)(袨斜薪|袣邪褔|袛谢懈褌)/) || des.match(/袪邪蟹写邪褞褌:(.*?)\s[|]\s袣邪褔邪褞褌:(.*?)(袨斜薪|袣邪褔|袛谢懈褌)/);
+  								var size1 = des.match(/t\/s(.*?)袨蟹胁/) || des.match(/袪邪蟹屑械褉:(.*?)袪邪蟹写/) || $(element.template || element.description).find('.trt-size').text();
   								var sizes = size1 && size1[1] || $(element.template || element.description).find('.trt-size').text();
   								element.quality = '';
-  								if (sed_per || vid || sizes || vo) element.info = (sed_per ? '<b style="color:green">&#8679;' + parseInt(sed_per[1]) + '</b><b style="color:red">&#8659;' + parseInt(sed_per[2]) + '</b> - ' : '') + (vo ? vo[1] + ' / ' : '') + (sizes && ' <b>' + sizes + '</b><br><hr>' || '') + (vid ? vid[0].replace(/Аудио|Звук/, ' | Аудио') : '');
+  								if (sed_per || vid || sizes || vo) element.info = (sed_per ? '<b style="color:green">&#8679;' + parseInt(sed_per[1]) + '</b><b style="color:red">&#8659;' + parseInt(sed_per[2]) + '</b> - ' : '') + (vo ? vo[1] + ' / ' : '') + (sizes && ' <b>' + sizes + '</b><br><hr>' || '') + (vid ? vid[0].replace(/袗褍写懈芯|袟胁褍泻/, ' | 袗褍写懈芯') : '');
   							}
   							var card = Lampa.Template.get('onlines_v1', element);
   							var hash = Lampa.Utils.hash([element.title, element.ident, stream].join(''));
@@ -5285,20 +5285,20 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   							var image = element.before && element.before.indexOf('src') > -1 ? $('img', element.before).attr('src') : element.template && element.template.indexOf('src') > -1 ? $('img', element.template).attr('src') : element.description && element.description.indexOf('src') > -1 ? $('img', element.description).attr('src') : element.logo_30x30 && element.logo_30x30.indexOf('png') > -1 ? element.logo_30x30 : element.details && element.details.poster ? element.details.poster : './img/icons/film.svg';
   							if (!element.search_on) {
   								var time = $($(element.description).children()[0]).parent().text();
-  								time = time.match(/Продолжительность: (.*?)?./i);
+  								time = time.match(/袩褉芯写芯谢卸懈褌械谢褜薪芯褋褌褜: (.*?)?./i);
   								time = time && time.shift() + ' - ' || '';
   								var descr = !element.ident && element.description && $($(element.description).children()[1]) ? $($(element.description).children()[1]).text().slice(0, 130) || $($(element.description).children()[0]).parent().text().slice(0, 130) : '';
   								var info = element.description ? element.description : element.template;
-  								var voice = info && info.match(/Озвучка[:](.*?)(Субтит|<\/div><\/div>|<br)/) || info && info.match(/Перевод:(.*?)(<br|Разм|Обн|Реж|Вр|Фор)/) || '';
-  								var size = info && info.match(/(Размер|Size):(.*?)<br/) || '';
-  								var qual = info && info.match(/Качество:(.*?)<br/) || '';
+  								var voice = info && info.match(/袨蟹胁褍褔泻邪[:](.*?)(小褍斜褌懈褌|<\/div><\/div>|<br)/) || info && info.match(/袩械褉械胁芯写:(.*?)(<br|袪邪蟹屑|袨斜薪|袪械卸|袙褉|肖芯褉)/) || '';
+  								var size = info && info.match(/(袪邪蟹屑械褉|Size):(.*?)<br/) || '';
+  								var qual = info && info.match(/袣邪褔械褋褌胁芯:(.*?)<br/) || '';
   								var qual2 = qual ? qual[1].split(' ')[1] : voice ? voice[1] && voice[1].split('>')[2].trim().split(/,\s|\s/)[0] : '';
   								var rating = $(element.template).find('.a-r').text();
   								var peer = info && info.split(/<br[^>]*>|<\/div>/).find(function (itm) {
-  									if (itm.match(/Качают|Скачивают|Leechers/)) return itm;
+  									if (itm.match(/袣邪褔邪褞褌|小泻邪褔懈胁邪褞褌|Leechers/)) return itm;
   								});
   								var seed = info && info.split(/<br[^>]*>|<\/div>/).find(function (itm) {
-  									if (itm.match('Раздают|Seeders')) return itm;
+  									if (itm.match('袪邪蟹写邪褞褌|Seeders')) return itm;
   								});
   							}
   							var card = Lampa.Template.get('card', {
@@ -5308,7 +5308,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   							if (rating) card.find('.card__view').append('<div class="card__type a-r' + (rating <= 5 ? ' b' : (rating >= 5 && rating <= 7) ? ' de' : ' g') + '" style="background-color: #ff9455;">' + rating + '</div>');
   							if (qual2) card.find('.card__view').append('<div class="card__quality">' + qual2 + '</div>');
   							if (seed) card.find('.card__view').append('<div class="card__type" style="background:none;font-size:1em;left:-.2em;top:-.5em"><b style="position:relative ;background: green;color: #fff;" class="card__type">' + parseInt(seed.match(/ \d+/) ? seed.match(/ \d+/)[0] : seed.match(/\d+/)[0]) + '</b><b class="card__type" style="position:relative;background: #ff4242;color: #fff;left:-1em!important;border-bottom-left-radius: 0;border-top-left-radius: 0" class="info_peer">' + parseInt(peer.match(/ \d+/) ? peer.match(/ \d+/)[0] : peer.match(/\d+/)[0]) + '</b></div>');
-  							card.addClass(isNaN(element.ident) && (element.home || typeof element.details != 'undefined' || element.title == 'Все' || element.title.match(/Всі|Обновлен|жанры|сезон|Наше|Зарубеж|Женск|Муж|Отеч|Фил|Сериал|Мул|Худ/g) !== null || element.template && element.template.indexOf('svg') > -1 || element.logo_30x30 && element.logo_30x30.match(/ttv|right|succes|server|info|cloud|translate|error|trailer|uhd|webcam|mediafile|viewed|new|top|country|genre|similarmenu|filter/g) != null || stream && (stream.indexOf('browse') > -1 || stream.indexOf('viewforum') > -1 || stream.indexOf('me/list?actor=') > -1 || stream.indexOf('genre=') > -1) || element.playlist_url && element.playlist_url.indexOf('actor') == -1 && element.playlist_url && element.playlist_url.indexOf('voice?') == -1 && element.playlist_url && element.playlist_url.match(/cat=|page=|year=|list\?direc|genre|list\?actor|country/g) !== null || element.playlist_url && element.playlist_url.indexOf('view?id') == -1 && element.playlist_url && element.playlist_url.indexOf('stream?id') == -1 && element.playlist_url && element.playlist_url.indexOf('details?') == -1 && object.title.indexOf('HDGO') > -1 || element.logo_30x30 && element.logo_30x30.indexOf('webcam') > -1) ? 'card--collection' : 'card--category');
+  							card.addClass(isNaN(element.ident) && (element.home || typeof element.details != 'undefined' || element.title == '袙褋械' || element.title.match(/袙褋褨|袨斜薪芯胁谢械薪|卸邪薪褉褘|褋械蟹芯薪|袧邪褕械|袟邪褉褍斜械卸|袞械薪褋泻|袦褍卸|袨褌械褔|肖懈谢|小械褉懈邪谢|袦褍谢|啸褍写/g) !== null || element.template && element.template.indexOf('svg') > -1 || element.logo_30x30 && element.logo_30x30.match(/ttv|right|succes|server|info|cloud|translate|error|trailer|uhd|webcam|mediafile|viewed|new|top|country|genre|similarmenu|filter/g) != null || stream && (stream.indexOf('browse') > -1 || stream.indexOf('viewforum') > -1 || stream.indexOf('me/list?actor=') > -1 || stream.indexOf('genre=') > -1) || element.playlist_url && element.playlist_url.indexOf('actor') == -1 && element.playlist_url && element.playlist_url.indexOf('voice?') == -1 && element.playlist_url && element.playlist_url.match(/cat=|page=|year=|list\?direc|genre|list\?actor|country/g) !== null || element.playlist_url && element.playlist_url.indexOf('view?id') == -1 && element.playlist_url && element.playlist_url.indexOf('stream?id') == -1 && element.playlist_url && element.playlist_url.indexOf('details?') == -1 && object.title.indexOf('HDGO') > -1 || element.logo_30x30 && element.logo_30x30.indexOf('webcam') > -1) ? 'card--collection' : 'card--category');
   							if (!data.landscape && !data.details && ((/iPhone|android/i.test(navigator.userAgent) || Lampa.Platform.is('android')))) card.addClass('mobile');
   							if (/iPhone|x11|nt/i.test(navigator.userAgent) && !Lampa.Platform.is('android')) card.addClass('pc');
   							if (/Mozilla/i.test(navigator.userAgent) && !/Android/i.test(navigator.userAgent) || Lampa.Platform.tv()) card.addClass('tv');
@@ -5322,10 +5322,10 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   							if (bg_img.background_image && bg_img.background_image.indexOf('18') > -1 && ((data.next_page_url && data.next_page_url.indexOf('girl') > -1) && stream.match(/pornst|models/g) !== null)) card.addClass('card--category').removeClass('nuam hdgo mobile card--collection');
   							if (image && image.indexOf('film.svg') > -1) card.addClass('card--collection nuam');
   							if (bg_img.background_image && bg_img.background_image.indexOf('18') > -1 && stream.match(/view\?|hdporn|channel=/g)) card.addClass('card--collection').removeClass('nuam hdgo mobile card--category');
-  							if (object.title.match(/Торренты|ForkTV|18\+/g)) card.addClass('home');
+  							if (object.title.match(/孝芯褉褉械薪褌褘|ForkTV|18\+/g)) card.addClass('home');
   							if (element.logo_30x30 && element.logo_30x30.match(/country|genre|filter/g)) card.addClass('sort');
   							if ((stream && stream.match(/filmix\?subcategory|rutor/) || element.submenu && element.submenu[0] && element.submenu[0].playlist_url && element.submenu[0].playlist_url.indexOf('rutor') > -1) && element.logo_30x30 && element.logo_30x30.match(/filter/g)) card.addClass('two');
-  							if (element.title == 'Поиск' && (stream && stream.match(/coldfilm/) || object.title == 'SerialHD')) card.addClass('searc');
+  							if (element.title == '袩芯懈褋泻' && (stream && stream.match(/coldfilm/) || object.title == 'SerialHD')) card.addClass('searc');
   							var img = card.find('img')[0];
   							img.onload = function () {
   								card.addClass('card--loaded');
@@ -5339,7 +5339,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   						//console.log ('class', card[0].className, window.innerWidth)
   						card.on('hover:focus hover:touch', function () {
   							if (this.className.indexOf('card--category') > -1) {
-  								if (Lampa.Helper) Lampa.Helper.show('online_file', 'Удерживайте клавишу (ОК) для просмотра описания', card);
+  								if (Lampa.Helper) Lampa.Helper.show('online_file', '校写械褉卸懈胁邪泄褌械 泻谢邪胁懈褕褍 (袨袣) 写谢褟 锌褉芯褋屑芯褌褉邪 芯锌懈褋邪薪懈褟', card);
   								//Lampa.Background.immediately(image);
   							}
   							last = card[0];
@@ -5369,7 +5369,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   										var query = element.playlist_url.indexOf('newserv') > -1 ? Lampa.Storage.get('server_ip') : new_value;
   										var u = element.playlist_url && element.playlist_url.indexOf('?') > -1 ? '&' : '/?';
   										network["native"](element.playlist_url + u + 'search=' + query + '&' + ForkTV.user_dev(), function (json) {
-  											if (json.channels && json.channels[0].title.indexOf('по запросу') > -1) {
+  											if (json.channels && json.channels[0].title.indexOf('锌芯 蟹邪锌褉芯褋褍') > -1) {
   												if (json.channels.length == 0) {
   													Lampa.Controller.toggle('content');
   													return;
@@ -5378,7 +5378,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   													title: '',
   													size: 'medium',
   													html: Lampa.Template.get('error', {
-  														title: 'Ошибка',
+  														title: '袨褕懈斜泻邪',
   														text: json.channels[0].title
   													}),
   													onBack: function onBack() {
@@ -5425,18 +5425,18 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   									if (element.title == '18+' && Lampa.Storage.get('mods_password')) {
   										Lampa.Input.edit({
   											value: "",
-  											title: "Введите пароль доступа",
+  											title: "袙胁械写懈褌械 锌邪褉芯谢褜 写芯褋褌褍锌邪",
   											free: true,
   											nosave: true
   										}, function (t) {
   											if (Lampa.Storage.field('mods_password') == t) goto();
   											else {
-  												Lampa.Noty.show('Неверный пароль.');
+  												Lampa.Noty.show('袧械胁械褉薪褘泄 锌邪褉芯谢褜.');
   												Lampa.Controller.toggle('content');
   											}
   										});
   									} else goto();
-  								} else if (element.description && element.description.indexOf('доступа') > -1) {
+  								} else if (element.description && element.description.indexOf('写芯褋褌褍锌邪') > -1) {
   									ForkTV.checkAdd('content');
   								}
   							}
@@ -5543,7 +5543,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   						var query = new_value;
   						var u = element.playlist_url && element.playlist_url.indexOf('?') > -1 ? '&' : '/?';
   						network["native"](element.playlist_url + u + 'search=' + query + '&' + ForkTV.user_dev(), function (json) {
-  							if (json.channels[0].title.indexOf('Нет результатов') == -1) {
+  							if (json.channels[0].title.indexOf('袧械褌 褉械蟹褍谢褜褌邪褌芯胁') == -1) {
   								Lampa.Activity.push({
   									title: element.title,
   									url: json,
@@ -5556,7 +5556,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   									title: '',
   									size: 'medium',
   									html: Lampa.Template.get('error', {
-  										title: 'Ошибка',
+  										title: '袨褕懈斜泻邪',
   										text: json.channels[0].title
   									}),
   									onBack: function onBack() {
@@ -6148,7 +6148,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   						return;
   					}
   					Lampa.Activity.push({
-  						title: 'Поиск по - ' + name,
+  						title: '袩芯懈褋泻 锌芯 - ' + name,
   						url: Pub.baseurl + 'v1/collections',
   						component: 'collection',
   						search: name,
@@ -6285,7 +6285,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   					title_org: $('a:eq(1)', html).text().split(' / ').shift(),
   					url: $('a', html).attr('href'),
   					img: $('img', html).attr('src'),
-  					quantity: $('.num', html).text() + ' видео',
+  					quantity: $('.num', html).text() + ' 胁懈写械芯',
   					year: $('div:eq(2)', html).text().split(' - ').shift()
   				});
   			});
@@ -6608,7 +6608,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		Lampa.Component.add('collection', collection);
 		
 		Lampa.Template.add('onlines_v1', "<div class='online onlines_v1 selector'><div class='online__body'><div style='position: absolute;left: 0;top: -0.3em;width: 2.4em;height: 2.4em'><svg style='height: 2.4em; width:  2.4em;' viewBox='0 0 128 128' fill='none' xmlns='http://www.w3.org/2000/svg'>   <circle cx='64' cy='64' r='56' stroke='white' stroke-width='16'/>   <path d='M90.5 64.3827L50 87.7654L50 41L90.5 64.3827Z' fill='white'/></svg>  </div><div class='online__title' style='padding-left: 2.1em;'>{title}</div><div class='online__quality' style='padding-left: 3.4em;'>{quality}{info}</div> </div></div>");
-		Lampa.Template.add('modss_online_css', "<style>@charset 'UTF-8';.full-start-new__buttons .full-start__button.view--modss_online span{display:block;} .online_modss__episode-number-season{font-size:1em;font-weight:700;color:#fff;position:absolute;top:.5em;right:.5em;background-color: rgba(0, 0, 0, 0.4);padding:0.2em;-webkit-border-radius: 0.3em;moz-border-radius: 0.3em;border-radius: 0.3em;} .online_modss{position:relative;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em;background-color:rgba(0,0,0,0.3);display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online_modss__body{padding:1.2em;line-height:1.3;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1;position:relative}@media screen and (max-width:480px){.online_modss__body{padding:.8em 1.2em}}.online_modss__img{position:relative;width:13em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;min-height:8.2em}.online_modss__img>img{position:absolute;top:0;left:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em;opacity:0;-webkit-transition:opacity .3s;-o-transition:opacity .3s;-moz-transition:opacity .3s;transition:opacity .3s}.online_modss__img--loaded>img{opacity:1}@media screen and (max-width:480px){.online_modss__img{width:7em;min-height:6em}}.online_modss__folder{padding:1em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.online_modss__folder>svg{width:4.4em!important;height:4.4em!important}.online_modss__viewed{position:absolute;top:1em;left:1em;background:rgba(0,0,0,0.45);-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;padding:.25em;font-size:.76em}.online_modss__subtitle{position:absolute;bottom:1em;left:1em;background:rgba(0,0,0,0.45);-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;padding:.25em;font-size:.76em}.online_modss__viewed>svg, .online_modss__subtitle>svg{width:1.5em!important;height:1.5em!important;}.online_modss__episode-number{position:absolute;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:2em}.online_modss__loader{position:absolute;top:50%;left:50%;width:2em;height:2em;margin-left:-1em;margin-top:-1em;background:url(./img/loader.svg) no-repeat center center;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain}.online_modss__head,.online_modss__footer{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online_modss__timeline{margin:.8em 0}.online_modss__timeline>.time-line{display:block !important}.online_modss__title{font-size:1.7em;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}@media screen and (max-width:480px){.online_modss__title{font-size:1.4em}}.online_modss__time{padding-left:2em}.online_modss__info{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online_modss__info>*{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}.online_modss__quality{padding-left:1em;white-space:nowrap}.online_modss__scan-file{position:absolute;bottom:0;left:0;right:0}.online_modss__scan-file .broadcast__scan{margin:0}.online_modss .online_modss-split{font-size:.8em;margin:0 1em;flex-shrink: 0;}.online_modss.focus::after{content:'';position:absolute;top:-0.6em;left:-0.6em;right:-0.6em;bottom:-0.6em;-webkit-border-radius:.7em;-moz-border-radius:.7em;border-radius:.7em;border:solid .3em #fff;z-index:-1;pointer-events:none}.online_modss+.online_modss{margin-top:1.5em}.online_modss--folder .online_modss__footer{margin-top:.8em}.online_modss-rate{display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online_modss-rate>svg{width:1.3em!important;height:1.3em!important;}.online_modss-rate>span{font-weight:600;font-size:1.1em;padding-left:.7em}.online-empty{line-height:1.4}.online-empty__title{font-size:1.8em;margin-bottom:.3em}.online-empty__time{font-size:1.2em;font-weight:300;margin-bottom:1.6em}.online-empty__buttons{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online-empty__buttons>*+*{margin-left:1em}.online-empty__button{background:rgba(0,0,0,0.3);font-size:1.2em;padding:.5em 1.2em;-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;margin-bottom:2.4em}.online-empty__button.focus{background:#fff;color:black}.online-empty__templates .online-empty-template:nth-child(2){opacity:.5}.online-empty__templates .online-empty-template:nth-child(3){opacity:.2}.online-empty-template{background-color:rgba(255,255,255,0.3);padding:1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em}.online-empty-template>*{background:rgba(0,0,0,0.3);-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em}.online-empty-template__ico{width:4em;height:4em;margin-right:2.4em}.online-empty-template__body{height:1.7em;width:70%}.online-empty-template+.online-empty-template{margin-top:1em} .online-modss-watched{padding:1em}.online-modss-watched__icon>svg{width:1.5em!important;height:1.5em!important;}.online-modss-watched__body{padding-left:1em;padding-top:.1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.online-modss-watched__body>span+span::before{content:' ◄1�7 ';vertical-align:top;display:inline-block;margin:0 .5em}   </style>");
+		Lampa.Template.add('modss_online_css', "<style>@charset 'UTF-8';.full-start-new__buttons .full-start__button.view--modss_online span{display:block;} .online_modss__episode-number-season{font-size:1em;font-weight:700;color:#fff;position:absolute;top:.5em;right:.5em;background-color: rgba(0, 0, 0, 0.4);padding:0.2em;-webkit-border-radius: 0.3em;moz-border-radius: 0.3em;border-radius: 0.3em;} .online_modss{position:relative;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em;background-color:rgba(0,0,0,0.3);display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online_modss__body{padding:1.2em;line-height:1.3;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1;position:relative}@media screen and (max-width:480px){.online_modss__body{padding:.8em 1.2em}}.online_modss__img{position:relative;width:13em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;min-height:8.2em}.online_modss__img>img{position:absolute;top:0;left:0;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em;opacity:0;-webkit-transition:opacity .3s;-o-transition:opacity .3s;-moz-transition:opacity .3s;transition:opacity .3s}.online_modss__img--loaded>img{opacity:1}@media screen and (max-width:480px){.online_modss__img{width:7em;min-height:6em}}.online_modss__folder{padding:1em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.online_modss__folder>svg{width:4.4em!important;height:4.4em!important}.online_modss__viewed{position:absolute;top:1em;left:1em;background:rgba(0,0,0,0.45);-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;padding:.25em;font-size:.76em}.online_modss__subtitle{position:absolute;bottom:1em;left:1em;background:rgba(0,0,0,0.45);-webkit-border-radius:100%;-moz-border-radius:100%;border-radius:100%;padding:.25em;font-size:.76em}.online_modss__viewed>svg, .online_modss__subtitle>svg{width:1.5em!important;height:1.5em!important;}.online_modss__episode-number{position:absolute;top:0;left:0;right:0;bottom:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;font-size:2em}.online_modss__loader{position:absolute;top:50%;left:50%;width:2em;height:2em;margin-left:-1em;margin-top:-1em;background:url(./img/loader.svg) no-repeat center center;-webkit-background-size:contain;-moz-background-size:contain;-o-background-size:contain;background-size:contain}.online_modss__head,.online_modss__footer{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online_modss__timeline{margin:.8em 0}.online_modss__timeline>.time-line{display:block !important}.online_modss__title{font-size:1.7em;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}@media screen and (max-width:480px){.online_modss__title{font-size:1.4em}}.online_modss__time{padding-left:2em}.online_modss__info{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online_modss__info>*{overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:1;-webkit-box-orient:vertical}.online_modss__quality{padding-left:1em;white-space:nowrap}.online_modss__scan-file{position:absolute;bottom:0;left:0;right:0}.online_modss__scan-file .broadcast__scan{margin:0}.online_modss .online_modss-split{font-size:.8em;margin:0 1em;flex-shrink: 0;}.online_modss.focus::after{content:'';position:absolute;top:-0.6em;left:-0.6em;right:-0.6em;bottom:-0.6em;-webkit-border-radius:.7em;-moz-border-radius:.7em;border-radius:.7em;border:solid .3em #fff;z-index:-1;pointer-events:none}.online_modss+.online_modss{margin-top:1.5em}.online_modss--folder .online_modss__footer{margin-top:.8em}.online_modss-rate{display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center}.online_modss-rate>svg{width:1.3em!important;height:1.3em!important;}.online_modss-rate>span{font-weight:600;font-size:1.1em;padding-left:.7em}.online-empty{line-height:1.4}.online-empty__title{font-size:1.8em;margin-bottom:.3em}.online-empty__time{font-size:1.2em;font-weight:300;margin-bottom:1.6em}.online-empty__buttons{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.online-empty__buttons>*+*{margin-left:1em}.online-empty__button{background:rgba(0,0,0,0.3);font-size:1.2em;padding:.5em 1.2em;-webkit-border-radius:.2em;-moz-border-radius:.2em;border-radius:.2em;margin-bottom:2.4em}.online-empty__button.focus{background:#fff;color:black}.online-empty__templates .online-empty-template:nth-child(2){opacity:.5}.online-empty__templates .online-empty-template:nth-child(3){opacity:.2}.online-empty-template{background-color:rgba(255,255,255,0.3);padding:1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em}.online-empty-template>*{background:rgba(0,0,0,0.3);-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em}.online-empty-template__ico{width:4em;height:4em;margin-right:2.4em}.online-empty-template__body{height:1.7em;width:70%}.online-empty-template+.online-empty-template{margin-top:1em} .online-modss-watched{padding:1em}.online-modss-watched__icon>svg{width:1.5em!important;height:1.5em!important;}.online-modss-watched__body{padding-left:1em;padding-top:.1em;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.online-modss-watched__body>span+span::before{content:' 鈼� ';vertical-align:top;display:inline-block;margin:0 .5em}   </style>");
 		Lampa.Template.add('modss_online_full', "<div class=\"online_modss online_modss--full selector\"><div class=\"online_modss__img\">    <img alt=\"\">    <div class=\"online_modss__loader\"></div></div><div class=\"online_modss__body\">    <div class=\"online_modss__head\">        <div class=\"online_modss__title\">{title}</div>        <div class=\"online_modss__time\">{serv} {time}</div>    </div><div class=\"online_modss__timeline\"></div><div class=\"online_modss__footer\">        <div class=\"online_modss__info\">{info}</div>        <div class=\"online_modss__quality\">{quality}</div>    </div></div>    </div>");
 		Lampa.Template.add('modss_does_not_answer', "<div class=\"online-empty\"><div class=\"online-empty__title\">    {title}</div><div class=\"online-empty__time\">    #{modss_balanser_timeout}</div><div class=\"online-empty__buttons\">    <div class=\"online-empty__button selector cancel\">#{cancel}</div>    <div class=\"online-empty__button selector change\">#{modss_change_balanser}</div></div><div class=\"online-empty__templates\">    <div class=\"online-empty-template\">        <div class=\"online-empty-template__ico\"></div>        <div class=\"online-empty-template__body\"></div>    </div>    <div class=\"online-empty-template\">        <div class=\"online-empty-template__ico\"></div>        <div class=\"online-empty-template__body\"></div>    </div>    <div class=\"online-empty-template\">        <div class=\"online-empty-template__ico\"></div>        <div class=\"online-empty-template__body\"></div>    </div></div>    </div>");
 		Lampa.Template.add('modss_online_rate', "<div class=\"online_modss-rate\"><svg width=\"17\" height=\"16\" viewBox=\"0 0 17 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">    <path d=\"M8.39409 0.192139L10.99 5.30994L16.7882 6.20387L12.5475 10.4277L13.5819 15.9311L8.39409 13.2425L3.20626 15.9311L4.24065 10.4277L0 6.20387L5.79819 5.30994L8.39409 0.192139Z\" fill=\"#fff\"></path></svg><span>{rate}</span>    </div>");
@@ -6622,7 +6622,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		Lampa.Template.add('hdgo_item', '<div class="selector hdgo-item"><div class="hdgo-item__imgbox"><img class="hdgo-item__img"/><div class="card__icons"><div class="card__icons-inner"></div></div></div><div class="hdgo-item__name">{title}</div></div>');
 		Lampa.Template.add('hdgo_style', '<style>.last--focus .hdgo-item__imgbox::after {content: "";position: absolute;top: -0.4em;left: -0.4em;right: -0.4em;bottom: -0.4em;border: .3em solid red;-webkit-border-radius: .8em;-moz-border-radius: .8em;border-radius: .8em;opacity: .4}.modss-channel__name {padding:20px;text-align: center;font-size: 1.2em}.forktv.focus .hdgo-item__imgbox::after, .modss__tv.focus .hdgo-item__imgbox::after {opacity: 1}.nuamtv {filter: blur(7px);}.nuamtv:hover, .nuamtv:action {filter: blur(0px);}.a-r.b{color:#fff;background: linear-gradient(to right, rgba(204,0,0,1) 0%,rgba(150,0,0,1) 100%);}.a-r.de{color:#fff;background: linear-gradient(to right, #ffbc54 0%,#ff5b55 100%);}.a-r.g{background: linear-gradient(to right, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%);color: #12420D;}.card.home.focus .card__img {border-color: green!important;-webkit-box-shadow: 0 0 0 0.4em green!important;-moz-box-shadow: 0 0 0 0.4em green!important;box-shadow: 0 0 0 0.4em green!important;}@media screen and (max-width: 2560px) {.pc.hdgo.card--collection,.pc.card--collection{width:11em!important} .tv_tv{width:12.5%!important}.tv_tv_c{width:20%!important}.tv_pc{width:16.66%!important}.tv.hdgo.card--collection{width:10.3em!important} .tv.card--collection{width:14.2%!important}.tv.sort.card--collection{width:25%!important}.tv.sort.hdgo.card--collection{width:25%!important}  .sort.hdgo.card--collection .card__view {padding-bottom:25%!important} .tv.two.sort.card--collection .card__view {padding-bottom: 10%!important} .tv.two.sort.card--collection{height:20%!important;width:50%!important}.pc.card--category, .tv.card--category{width:14.28%}.nuam.card--collection{width:20%!important}}  @media screen and (max-width: 1380px) {.pc.card--collection,.mobile,.mobile_tv{width:16.6%!important} .tv_pc{width:14.28%!important} .tv_pc_c{width:14.28%!important} .tv_tv{width:14.28%!important} .pc.hdgo.card--collection,.hdgo.card--collection{width:10em!important}.sort.pc.card--collection{width:25%!important}.sort.hdgo.card--collection{width:25%!important} .sort.hdgo.card--collection .card__view {padding-bottom:40%!important} .two.sort.card--collection{width:50%!important} .pc.two.sort.card--collection .card__view {padding-bottom: 33%!important} .pc.card--category,.nuam.card--category{width:11.5em!important}}  @media screen and (max-width: 420px) {.pc.card--collection,.mobile{width:10.3em!important}.mobile_tv{width:33.3%!important}  .pc.hdgo.card--collection,.hdgo.card--collection{width:10em!important}.pc.card--category,.nuam.card--category{width:7.9em!important}.nuam.card--collection{width:33.3%!important}.sort.hdgo.card--collection .card__view {padding-bottom:60%!important}}   .searc.card--collection .card__view {padding-bottom: 5%!important}.searc.card--collection{width:100%!important}.searc.card--collection .card__img{height:100%!important;}.hdgo-item{margin:0 .3em;width:10.4em;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0}.hdgo-item__imgbox{background-color:#3e3e3e;padding-bottom:60%;position:relative;-webkit-border-radius:.3em;-moz-border-radius:.3em;border-radius:.3em}.hdgo-item__img{position:absolute;top:0;left:0;width:100%;height:100%}.hdgo-item__name{font-size:1.1em;margin-top:.8em}.hdgo-item.focus .hdgo-item__imgbox::after{content:"";display:block;position:absolute;left:-.4em;top:-.4em;right:-.4em;bottom:-.4em;-border: .2em solid red;opacity:.6;-webkit-border-radius: .8em;-moz-border-radius: .8em;border-radius: .8em}.hdgo-item +.hdgo-item{margin:0 .3em}.modss_tv .items-line + .items-line, .forktv .items-line + .items-line {margin-top:0!important;}</style>');
 		Lampa.Template.add('mods_radio_style', "<style>.blink2{-webkit-animation:blink2 1.5s linear infinite;animation:blink2 1.5s linear infinite}@-webkit-keyframes blink2{100%{color:rgba(34,34,34,0)}}@keyframes blink2{100%{color:rgba(34,34,34,0)}}.controll,.controll *{box-sizing:content-box;letter-spacing:0;}.controll{position:relative;transition:.5s linear;border:.3em solid #fff;background-color:#fff;border-radius:50%;bottom:4.19em;float:right;right:0;padding:1.7em;width:.2em;height:.2em;white-space:nowrap;text-align:center;cursor:pointer}.controll.pause{background-color:#353434;border-color:#3b6531}.controll,.controll .but_left,.controll .but_right,.controll:before{display:inline-block}.controll.pause .but_left,.controll.pause .but_right{margin-left:-8px;margin-top:-8px;border-left:8px solid #fff;border-top:0 solid transparent;border-bottom:0 solid transparent;height:18px}.controll.pause .but_left{border-right:10px solid transparent}.controll.play .but_right{margin-left:-5px;margin-top:-9px;border-left:15px solid #525252;border-top:10px solid transparent;border-bottom:10px solid transparent}.controll:hover,.controll.focus{background-color:#fff}.controll.play.focus{border-color:#8a8a8a}.controll.focus .but_left,.controll.focus .but_right,.controll:hover .but_left,.controll:hover .but_right{border-left-color:#252525}.Radio_n .card__view {padding-bottom: 75%!important;}.stbut,.stbut *{box-sizing:content-box;letter-spacing:0}.title_plaing{position:absolute;text-align:center;width:15em;margin-top:-1.2em;font-size:1.1em}.stbut{transition:.5s linear;border:.15em solid #fbfbfb;background-color:#000;border-radius:4em;margin-top:1em;padding:0.3em 4em 0em 0.5em;font-size:2em;cursor:pointer;height:1.5em;max-width:4em}.stbut:hover, .stbut.focus{background-color:#edebef;color:#616060;border-color:#8e8e8e}</style>");
-		Lampa.Template.add('info_radio', '<div style="height:8em" class="radio_r info layer--width"><div class="info__left"><div style="margin-top:25px" class="info__title"></div><div class="info__create"></div></div><div style="display:block" class="info__right"> <b class="title_plaing"></b>   <div id="stantion_filtr"><div id="stbut" class="stbut selector"><b>СТАНЦИИ</b></div></div>    <div id="player_radio"><div id="plbut" class="controll selector play"><span class="but_left"></span><span class="but_right"></span></div></div></div></div>');
+		Lampa.Template.add('info_radio', '<div style="height:8em" class="radio_r info layer--width"><div class="info__left"><div style="margin-top:25px" class="info__title"></div><div class="info__create"></div></div><div style="display:block" class="info__right"> <b class="title_plaing"></b>   <div id="stantion_filtr"><div id="stbut" class="stbut selector"><b>小孝袗袧笑袠袠</b></div></div>    <div id="player_radio"><div id="plbut" class="controll selector play"><span class="but_left"></span><span class="but_right"></span></div></div></div></div>');
 		Lampa.Template.add('mods_iptv_details', '<div class="mods_iptv-details"><div class="mods_epg-load" style="display:none;margin-bottom:-2em;position:relative"><div class="broadcast__text">' + Lampa.Lang.translate('search_searching') + '</div><div class="broadcast__scan"><div></div></div></div><div class="mods_iptv__program"></div></div>');
 		Lampa.Template.add('mods_iptv_list', "<div class=\"iptv-list layer--height\"><div class=\"iptv-list__ico\"><svg height=\"36\" viewBox=\"0 0 38 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">        <rect x=\"2\" y=\"8\" width=\"34\" height=\"21\" rx=\"3\" stroke=\"white\" stroke-width=\"3\"/>        <line x1=\"13.0925\" y1=\"2.34874\" x2=\"16.3487\" y2=\"6.90754\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\"/><line x1=\"1.5\" y1=\"-1.5\" x2=\"9.31665\" y2=\"-1.5\" transform=\"matrix(-0.757816 0.652468 0.652468 0.757816 26.197 2)\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\"/>        <line x1=\"9.5\" y1=\"34.5\" x2=\"29.5\" y2=\"34.5\" stroke=\"white\" stroke-width=\"3\" stroke-linecap=\"round\"/></svg></div><div class=\"iptv-list__title\">#{iptv_select_playlist}</div><div class=\"iptv-list__items\"></div></div>");
 		
@@ -6637,8 +6637,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		manifest = {
 		type: 'video',
 		version: version_modss,
-		name: "Онлайн - MODS's v" + version_modss,
-		description: 'Плагин для просмотра онлайн сериалов и фильмов',
+		name: "袨薪谢邪泄薪 - MODS's v" + version_modss,
+		description: '袩谢邪谐懈薪 写谢褟 锌褉芯褋屑芯褌褉邪 芯薪谢邪泄薪 褋械褉懈邪谢芯胁 懈 褎懈谢褜屑芯胁',
 		component: 'modss_online',
 		onContextMenu: function onContextMenu(object) {
 			return {
@@ -6673,791 +6673,791 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		}
 		Lampa.Lang.add({
     	iptv_select_playlist: {
-        ru: 'Выберите плейлист',
-        uk: 'Виберіть плейлист',
+        ru: '袙褘斜械褉懈褌械 锌谢械泄谢懈褋褌',
+        uk: '袙懈斜械褉褨褌褜 锌谢械泄谢懈褋褌',
         en: 'Choose a playlist'
       },
       iptv_add_fav: {
-        ru: 'Добавить в избранное',
-        uk: 'Додати в обране',
+        ru: '袛芯斜邪胁懈褌褜 胁 懈蟹斜褉邪薪薪芯械',
+        uk: '袛芯写邪褌懈 胁 芯斜褉邪薪械',
         en: 'Add to favourites'
       },
       iptv_remove_fav: {
-        ru: 'Убрать из избранного',
-        uk: 'Прибрати з вибраного',
+        ru: '校斜褉邪褌褜 懈蟹 懈蟹斜褉邪薪薪芯谐芯',
+        uk: '袩褉懈斜褉邪褌懈 蟹 胁懈斜褉邪薪芯谐芯',
         en: 'Remove from favorites'
       },
       iptv_later: {
-        ru: 'Потом',
-        uk: 'Потім',
+        ru: '袩芯褌芯屑',
+        uk: '袩芯褌褨屑',
         en: 'Later'
       },
       iptv_now: {
-        ru: 'Сейчас на:',
-        uk: 'Зараз на:',
+        ru: '小械泄褔邪褋 薪邪:',
+        uk: '袟邪褉邪蟹 薪邪:',
         en: 'Now on:'
       },
     	pub_sort_views: {
-    		ru: 'По просмотрам',
-    		uk: 'По переглядах',
+    		ru: '袩芯 锌褉芯褋屑芯褌褉邪屑',
+    		uk: '袩芯 锌械褉械谐谢褟写邪褏',
     		en: 'By views'
     	},
     	pub_sort_watchers: {
-    		ru: 'По подпискам',
-    		uk: 'За підписками',
+    		ru: '袩芯 锌芯写锌懈褋泻邪屑',
+    		uk: '袟邪 锌褨写锌懈褋泻邪屑懈',
     		en: 'Subscriptions'
     	},
     	pub_sort_updated: {
-    		ru: 'По обновлению',
-    		uk: 'За оновленням',
+    		ru: '袩芯 芯斜薪芯胁谢械薪懈褞',
+    		uk: '袟邪 芯薪芯胁谢械薪薪褟屑',
     		en: 'By update'
     	},
     	pub_sort_created: {
-    		ru: 'По дате добавления',
-    		uk: 'За датою додавання',
+    		ru: '袩芯 写邪褌械 写芯斜邪胁谢械薪懈褟',
+    		uk: '袟邪 写邪褌芯褞 写芯写邪胁邪薪薪褟',
     		en: 'By date added'
     	},
     	pub_search_coll: {
-    		ru: 'Поиск по подборкам',
-    		uk: 'Пошук по добіркам',
+    		ru: '袩芯懈褋泻 锌芯 锌芯写斜芯褉泻邪屑',
+    		uk: '袩芯褕褍泻 锌芯 写芯斜褨褉泻邪屑',
     		en: 'Search by collections'
     	},
     	pub_title_all: {
-    		ru: 'Все',
-    		uk: 'Все',
+    		ru: '袙褋械',
+    		uk: '袙褋械',
     		en: 'All'
     	},
     	pub_title_popular: {
-    		ru: 'Популярные',
-    		uk: 'Популярнi',
+    		ru: '袩芯锌褍谢褟褉薪褘械',
+    		uk: '袩芯锌褍谢褟褉薪i',
     		en: 'Popular'
     	},
     	pub_title_new: {
-    		ru: 'Новые',
-    		uk: 'Новi',
+    		ru: '袧芯胁褘械',
+    		uk: '袧芯胁i',
     		en: 'New'
     	},
     	pub_title_hot: {
-    		ru: 'Горячие',
-    		uk: 'Гарячi',
+    		ru: '袚芯褉褟褔懈械',
+    		uk: '袚邪褉褟褔i',
     		en: 'Hot'
     	},
     	pub_title_fresh: {
-    		ru: 'Свежие',
-    		uk: 'Свiжi',
+    		ru: '小胁械卸懈械',
+    		uk: '小胁i卸i',
     		en: 'Fresh'
     	},
     	pub_title_rating: {
-    		ru: 'Рейтинговые',
-    		uk: 'Рейтинговi',
+    		ru: '袪械泄褌懈薪谐芯胁褘械',
+    		uk: '袪械泄褌懈薪谐芯胁i',
     		en: 'Rating'
     	},
     	pub_title_allingenre: {
-    		ru: 'Всё в жанре',
-    		uk: 'Все у жанрі',
+    		ru: '袙褋褢 胁 卸邪薪褉械',
+    		uk: '袙褋械 褍 卸邪薪褉褨',
     		en: 'All in the genre'
     	},
     	pub_title_popularfilm: {
-    		ru: 'Популярные фильмы',
-    		uk: 'Популярні фільми',
+    		ru: '袩芯锌褍谢褟褉薪褘械 褎懈谢褜屑褘',
+    		uk: '袩芯锌褍谢褟褉薪褨 褎褨谢褜屑懈',
     		en: 'Popular movies'
     	},
     	pub_title_popularserial: {
-    		ru: 'Популярные сериалы',
-    		uk: 'Популярні сериали',
+    		ru: '袩芯锌褍谢褟褉薪褘械 褋械褉懈邪谢褘',
+    		uk: '袩芯锌褍谢褟褉薪褨 褋械褉懈邪谢懈',
     		en: 'Popular series'
     	},
     	pub_title_newfilm: {
-    		ru: 'Новые фильмы',
-    		uk: 'Новi фiльми',
+    		ru: '袧芯胁褘械 褎懈谢褜屑褘',
+    		uk: '袧芯胁i 褎i谢褜屑懈',
     		en: 'New movies'
     	},
     	pub_title_newserial: {
-    		ru: 'Новые сериалы',
-    		uk: 'Новi серiали',
+    		ru: '袧芯胁褘械 褋械褉懈邪谢褘',
+    		uk: '袧芯胁i 褋械褉i邪谢懈',
     		en: 'New series'
     	},
     	pub_title_newconcert: {
-    		ru: 'Новые концерты',
-    		uk: 'Новi концерти',
+    		ru: '袧芯胁褘械 泻芯薪褑械褉褌褘',
+    		uk: '袧芯胁i 泻芯薪褑械褉褌懈',
     		en: 'New concerts'
     	},
     	pub_title_newdocfilm: {
-    		ru: 'Новые док. фильмы',
-    		uk: 'Новi док. фiльми',
+    		ru: '袧芯胁褘械 写芯泻. 褎懈谢褜屑褘',
+    		uk: '袧芯胁i 写芯泻. 褎i谢褜屑懈',
     		en: 'New document movies'
     	},
     	pub_title_newdocserial: {
-    		ru: 'Новые док. сериалы',
-    		uk: 'Новi док. серiали',
+    		ru: '袧芯胁褘械 写芯泻. 褋械褉懈邪谢褘',
+    		uk: '袧芯胁i 写芯泻. 褋械褉i邪谢懈',
     		en: 'New document series'
     	},
     	pub_title_newtvshow: {
-    		ru: 'Новое ТВ шоу',
-    		uk: 'Нове ТБ шоу',
+    		ru: '袧芯胁芯械 孝袙 褕芯褍',
+    		uk: '袧芯胁械 孝袘 褕芯褍',
     		en: 'New TV show'
     	},
     	pub_modal_title: {
-    		ru: '1. Авторизируйтесь на сайте: <a style="color:#fff" href="#">https://kino.pub/device</a><br>2. В поле "Активация устройства" введите код.',
-    		uk: '1. Авторизуйтесь на сайті: <a style="color:#fff" href="#">https://kino.pub/device</a><br>2.  Введіть код у полі "Активація пристрою".',
+    		ru: '1. 袗胁褌芯褉懈蟹懈褉褍泄褌械褋褜 薪邪 褋邪泄褌械: <a style="color:#fff" href="#">https://kino.pub/device</a><br>2. 袙 锌芯谢械 "袗泻褌懈胁邪褑懈褟 褍褋褌褉芯泄褋褌胁邪" 胁胁械写懈褌械 泻芯写.',
+    		uk: '1. 袗胁褌芯褉懈蟹褍泄褌械褋褜 薪邪 褋邪泄褌褨: <a style="color:#fff" href="#">https://kino.pub/device</a><br>2.  袙胁械写褨褌褜 泻芯写 褍 锌芯谢褨 "袗泻褌懈胁邪褑褨褟 锌褉懈褋褌褉芯褞".',
     		en: '1. Log in to the site: <a style="color:#fff" href="#">https://kino.pub/device</a><br>2.  Enter the code in the "Device activation" field.'
     	},
     	pub_title_wait: {
-    		ru: 'Ожидание идентификации кода',
-    		uk: 'Очікування ідентифікації коду',
+    		ru: '袨卸懈写邪薪懈械 懈写械薪褌懈褎懈泻邪褑懈懈 泻芯写邪',
+    		uk: '袨褔褨泻褍胁邪薪薪褟 褨写械薪褌懈褎褨泻邪褑褨褩 泻芯写褍',
     		en: 'Waiting for code identification'
     	},
     	pub_title_left_days: {
-    		ru: 'Осталось: ',
-    		uk: 'Залишилось: ',
+    		ru: '袨褋褌邪谢芯褋褜: ',
+    		uk: '袟邪谢懈褕懈谢芯褋褜: ',
     		en: 'Left days: '
     	},
     	pub_title_left_days_d: {
-    		ru: 'дн.',
-    		uk: 'дн.',
+    		ru: '写薪.',
+    		uk: '写薪.',
     		en: 'd.'
     	},
     	pub_title_regdate: {
-    		ru: 'Дата регистрации:',
-    		uk: 'Дата реєстрації:',
+    		ru: '袛邪褌邪 褉械谐懈褋褌褉邪褑懈懈:',
+    		uk: '袛邪褌邪 褉械褦褋褌褉邪褑褨褩:',
     		en: 'Date of registration:'
     	},
     	pub_date_end_pro: {
-    		ru: 'ПРО заканчивается:',
-    		uk: 'ПРО закінчується:',
+    		ru: '袩袪袨 蟹邪泻邪薪褔懈胁邪械褌褋褟:',
+    		uk: '袩袪袨 蟹邪泻褨薪褔褍褦褌褜褋褟:',
     		en: 'PRO ends:'
     	},
     	pub_auth_add_descr: {
-    		ru: 'Добавить в свой профиль устройство',
-    		uk: 'Додати у свій профіль пристрій',
+    		ru: '袛芯斜邪胁懈褌褜 胁 褋胁芯泄 锌褉芯褎懈谢褜 褍褋褌褉芯泄褋褌胁芯',
+    		uk: '袛芯写邪褌懈 褍 褋胁褨泄 锌褉芯褎褨谢褜 锌褉懈褋褌褉褨泄',
     		en: 'Add a device to your profile'
     	},
     	pub_title_not_pro: {
-    		ru: 'ПРО не активирован',
-    		uk: 'ПРО не активований',
+    		ru: '袩袪袨 薪械 邪泻褌懈胁懈褉芯胁邪薪',
+    		uk: '袩袪袨 薪械 邪泻褌懈胁芯胁邪薪懈泄',
     		en: 'PRO is not activated'
     	},
     	pub_device_dell_noty: {
-    		ru: 'Устройство успешно удалено',
-    		uk: 'Пристрій успішно видалено',
+    		ru: '校褋褌褉芯泄褋褌胁芯 褍褋锌械褕薪芯 褍写邪谢械薪芯',
+    		uk: '袩褉懈褋褌褉褨泄 褍褋锌褨褕薪芯 胁懈写邪谢械薪芯',
     		en: 'Device deleted successfully'
     	},
     	pub_device_title_options: {
-    		ru: 'Настройки устройства',
-    		uk: 'Налаштування пристрою',
+    		ru: '袧邪褋褌褉芯泄泻懈 褍褋褌褉芯泄褋褌胁邪',
+    		uk: '袧邪谢邪褕褌褍胁邪薪薪褟 锌褉懈褋褌褉芯褞',
     		en: 'Device Settings'
     	},
     	pub_device_options_edited: {
-    		ru: 'Настройки устройства изменены',
-    		uk: 'Установки пристрою змінено',
+    		ru: '袧邪褋褌褉芯泄泻懈 褍褋褌褉芯泄褋褌胁邪 懈蟹屑械薪械薪褘',
+    		uk: '校褋褌邪薪芯胁泻懈 锌褉懈褋褌褉芯褞 蟹屑褨薪械薪芯',
     		en: 'Device settings changed'
     	},
     	params_pub_clean_tocken: {
-    		ru: 'Очистить токен',
-    		uk: 'Очистити токен',
+    		ru: '袨褔懈褋褌懈褌褜 褌芯泻械薪',
+    		uk: '袨褔懈褋褌懈褌懈 褌芯泻械薪',
     		en: 'Clear token'
     	},
     	saved_collections_clears: {
-    		ru: 'Сохранённые подборки очищены',
-    		uk: 'Збірки очищені',
+    		ru: '小芯褏褉邪薪褢薪薪褘械 锌芯写斜芯褉泻懈 芯褔懈褖械薪褘',
+    		uk: '袟斜褨褉泻懈 芯褔懈褖械薪褨',
     		en: 'Saved collections cleared'
     	},
     	card_my_clear: {
-    		ru: 'Убрать из моих подборок',
-    		uk: 'Прибрати з моїх добірок',
+    		ru: '校斜褉邪褌褜 懈蟹 屑芯懈褏 锌芯写斜芯褉芯泻',
+    		uk: '袩褉懈斜褉邪褌懈 蟹 屑芯褩褏 写芯斜褨褉芯泻',
     		en: 'Remove from my collections'
     	},
     	card_my_add: {
-    		ru: 'Добавить в мои подборки',
-    		uk: 'Додати до моїх добірок',
+    		ru: '袛芯斜邪胁懈褌褜 胁 屑芯懈 锌芯写斜芯褉泻懈',
+    		uk: '袛芯写邪褌懈 写芯 屑芯褩褏 写芯斜褨褉芯泻',
     		en: 'Add to my collections'
     	},
     	card_my_descr: {
-    		ru: 'Смотрите в меню (Подборки)',
-    		uk: 'Дивитесь в меню (Підбірки)',
+    		ru: '小屑芯褌褉懈褌械 胁 屑械薪褞 (袩芯写斜芯褉泻懈)',
+    		uk: '袛懈胁懈褌械褋褜 胁 屑械薪褞 (袩褨写斜褨褉泻懈)',
     		en: 'Look in the menu (Collections)'
     	},
     	card_my_clear_all: {
-    		ru: 'Удалить всё',
-    		uk: 'Видалити все',
+    		ru: '校写邪谢懈褌褜 胁褋褢',
+    		uk: '袙懈写邪谢懈褌懈 胁褋械',
     		en: 'Delete all'
     	},
     	card_my_clear_all_descr: {
-    		ru: 'Очистит все сохранённые подборки',
-    		uk: 'Очистити всі збережені збірки',
+    		ru: '袨褔懈褋褌懈褌 胁褋械 褋芯褏褉邪薪褢薪薪褘械 锌芯写斜芯褉泻懈',
+    		uk: '袨褔懈褋褌懈褌懈 胁褋褨 蟹斜械褉械卸械薪褨 蟹斜褨褉泻懈',
     		en: 'Clear all saved selections'
     	},
     	radio_style: {
-    		ru: 'Стиль',
-    		uk: 'Стиль',
+    		ru: '小褌懈谢褜',
+    		uk: '小褌懈谢褜',
     		en: 'Style'
     	},
     	title_on_the: {
-    		ru: 'на',
-    		uk: 'на',
+    		ru: '薪邪',
+    		uk: '薪邪',
     		en: 'on'
     	},
     	title_my_collections: {
-    		ru: 'Мои подборки',
-    		uk: 'Мої добiрки',
+    		ru: '袦芯懈 锌芯写斜芯褉泻懈',
+    		uk: '袦芯褩 写芯斜i褉泻懈',
     		en: 'My collections'
     	},
       modss_watch: {
-        ru: 'Смотреть онлайн',
+        ru: '小屑芯褌褉械褌褜 芯薪谢邪泄薪',
         en: 'Watch online',
-        ua: 'Дивитися онлайн',
-        zh: '在线观看'
+        ua: '袛懈胁懈褌懈褋褟 芯薪谢邪泄薪',
+        zh: '鍦ㄧ嚎瑙傜湅'
       },
       online_no_watch_history: {
-        ru: 'Нет истории просмотра',
+        ru: '袧械褌 懈褋褌芯褉懈懈 锌褉芯褋屑芯褌褉邪',
         en: 'No browsing history',
-        ua: 'Немає історії перегляду',
-        zh: '没有浏览历史'
+        ua: '袧械屑邪褦 褨褋褌芯褉褨褩 锌械褉械谐谢褟写褍',
+        zh: '娌℃湁娴忚鍘嗗彶'
       },
       modss_video: {
-        ru: 'Видео',
+        ru: '袙懈写械芯',
         en: 'Video',
-        ua: 'Відео',
-        zh: '视频'
+        ua: '袙褨写械芯',
+        zh: '瑙嗛'
       },
     	modss_nolink: {
-    		ru: 'Не удалось извлечь ссылку',
-    		uk: 'Неможливо отримати посилання',
+    		ru: '袧械 褍写邪谢芯褋褜 懈蟹胁谢械褔褜 褋褋褘谢泻褍',
+    		uk: '袧械屑芯卸谢懈胁芯 芯褌褉懈屑邪褌懈 锌芯褋懈谢邪薪薪褟',
     		en: 'Failed to fetch link'
     	},
     	modss_waitlink: {
-        ru: 'Работаем над извлечением ссылки, подождите...',
-        uk: 'Працюємо над отриманням посилання, зачекайте...',
-        be: 'Працуем над выманнем спасылкі, пачакайце...',
+        ru: '袪邪斜芯褌邪械屑 薪邪写 懈蟹胁谢械褔械薪懈械屑 褋褋褘谢泻懈, 锌芯写芯卸写懈褌械...',
+        uk: '袩褉邪褑褞褦屑芯 薪邪写 芯褌褉懈屑邪薪薪褟屑 锌芯褋懈谢邪薪薪褟, 蟹邪褔械泻邪泄褌械...',
+        be: '袩褉邪褑褍械屑 薪邪写 胁褘屑邪薪薪械屑 褋锌邪褋褘谢泻褨, 锌邪褔邪泻邪泄褑械...',
         en: 'Working on extracting the link, please wait...',
-        zh: '正在提取链接，请稍�1�7�1�7...'
+        zh: '姝ｅ湪鎻愬彇閾炬帴锛岃绋嶅��...'
      },
     	modss_viewed: {
-    		ru: 'Просмотрено',
-    		uk: 'Переглянуто',
+    		ru: '袩褉芯褋屑芯褌褉械薪芯',
+    		uk: '袩械褉械谐谢褟薪褍褌芯',
     		en: 'Viewed'
     	},
     	modss_balanser: {
-    		ru: 'Источник',
-    		uk: 'Джерело',
+    		ru: '袠褋褌芯褔薪懈泻',
+    		uk: '袛卸械褉械谢芯',
     		en: 'Source'
     	},
     	helper_online_file: {
-    		ru: 'Удерживайте клавишу "ОК" для вызова контекстного меню',
-    		uk: 'Утримуйте клавішу "ОК" для виклику контекстного меню',
+    		ru: '校写械褉卸懈胁邪泄褌械 泻谢邪胁懈褕褍 "袨袣" 写谢褟 胁褘蟹芯胁邪 泻芯薪褌械泻褋褌薪芯谐芯 屑械薪褞',
+    		uk: '校褌褉懈屑褍泄褌械 泻谢邪胁褨褕褍 "袨袣" 写谢褟 胁懈泻谢懈泻褍 泻芯薪褌械泻褋褌薪芯谐芯 屑械薪褞',
     		en: 'Hold the "OK" key to bring up the context menu'
     	},
     	filter_series_order: {
-    		ru: 'Порядок серий',
-    		uk: 'Порядок серій',
+    		ru: '袩芯褉褟写芯泻 褋械褉懈泄',
+    		uk: '袩芯褉褟写芯泻 褋械褉褨泄',
     		en: 'Series order'
     	},
     	filter_video_stream: {
-    		ru: 'Видео поток',
-    		uk: 'Відео потік',
+    		ru: '袙懈写械芯 锌芯褌芯泻',
+    		uk: '袙褨写械芯 锌芯褌褨泻',
     		en: 'Video stream'
     	},
     	filter_video_codec: {
-    		ru: 'Кодек',
-    		uk: 'Кодек',
+    		ru: '袣芯写械泻',
+    		uk: '袣芯写械泻',
     		en: 'Codec'
     	},
     	filter_video_server: {
-    		ru: 'Сервер',
-    		uk: 'Сервер',
+    		ru: '小械褉胁械褉',
+    		uk: '小械褉胁械褉',
     		en: 'Server'
     	},
     	modss_title_online: {
-    		ru: 'Онлайн',
-    		uk: 'Онлайн',
+    		ru: '袨薪谢邪泄薪',
+    		uk: '袨薪谢邪泄薪',
     		en: 'Online'
     	},
     	modss_change_balanser: {
-        ru: 'Изменить источник',
-        uk: 'Змінити источник',
+        ru: '袠蟹屑械薪懈褌褜 懈褋褌芯褔薪懈泻',
+        uk: '袟屑褨薪懈褌懈 懈褋褌芯褔薪懈泻',
         en: 'Change source',
-        zh: '更改平衡噄1�7'
+        zh: '鏇存敼骞宠　鍣�'
       },
       modss_clear_all_marks: {
-        ru: 'Очистить все метки',
-        uk: 'Очистити всі мітки',
+        ru: '袨褔懈褋褌懈褌褜 胁褋械 屑械褌泻懈',
+        uk: '袨褔懈褋褌懈褌懈 胁褋褨 屑褨褌泻懈',
         en: 'Clear all labels',
-        zh: '清除扄1�7有标筄1�7'
+        zh: '娓呴櫎鎵�鏈夋爣绛�'
       },
       modss_clear_all_timecodes: {
-        ru: 'Очистить все тайм-коды',
-        uk: 'Очистити всі тайм-коди',
+        ru: '袨褔懈褋褌懈褌褜 胁褋械 褌邪泄屑-泻芯写褘',
+        uk: '袨褔懈褋褌懈褌懈 胁褋褨 褌邪泄屑-泻芯写懈',
         en: 'Clear all timecodes',
-        zh: '清除扄1�7有时间代砄1�7'
+        zh: '娓呴櫎鎵�鏈夋椂闂翠唬鐮�'
       },
     	modss_title_clear_all_mark: {
-    		ru: 'Снять отметку у всех',
-    		uk: 'Зняти відмітку у всіх',
+    		ru: '小薪褟褌褜 芯褌屑械褌泻褍 褍 胁褋械褏',
+    		uk: '袟薪褟褌懈 胁褨写屑褨褌泻褍 褍 胁褋褨褏',
     		en: 'Unmark all'
     	},
     	modss_title_clear_all_timecode: {
-    		ru: 'Сбросить тайм-код у всех',
-    		uk: 'Скинути тайм-код у всіх',
+    		ru: '小斜褉芯褋懈褌褜 褌邪泄屑-泻芯写 褍 胁褋械褏',
+    		uk: '小泻懈薪褍褌懈 褌邪泄屑-泻芯写 褍 胁褋褨褏',
     		en: 'Reset timecode for all'
     	},
     	modss_title_links: {
-    		ru: 'Качество',
-    		uk: 'Якість',
+    		ru: '袣邪褔械褋褌胁芯',
+    		uk: '携泻褨褋褌褜',
     		en: 'Quality'
     	},
     	title_proxy: {
-				ru: 'Прокси',
-				uk: 'Проксі',
+				ru: '袩褉芯泻褋懈',
+				uk: '袩褉芯泻褋褨',
 				en: 'Proxy'
 			},
 			online_proxy_title: {
-				ru: 'Личный прокси',
-				uk: 'Особистий проксі',
+				ru: '袥懈褔薪褘泄 锌褉芯泻褋懈',
+				uk: '袨褋芯斜懈褋褌懈泄 锌褉芯泻褋褨',
 				en: 'Your proxy'
 			},
 			online_proxy_title_descr: {
-				ru: 'Если источник недоступен или не отвечает, требуется в выбранном Вами источнике "Включить" прокси, или указать ссылку на "Свой URL"',
-				uk: 'Якщо джерело недоступний або не відповідає, потрібно у вибраному Вами джерелі "Увімкнути" проксі, або вказати посилання на "Свій URL"',
+				ru: '袝褋谢懈 懈褋褌芯褔薪懈泻 薪械写芯褋褌褍锌械薪 懈谢懈 薪械 芯褌胁械褔邪械褌, 褌褉械斜褍械褌褋褟 胁 胁褘斜褉邪薪薪芯屑 袙邪屑懈 懈褋褌芯褔薪懈泻械 "袙泻谢褞褔懈褌褜" 锌褉芯泻褋懈, 懈谢懈 褍泻邪蟹邪褌褜 褋褋褘谢泻褍 薪邪 "小胁芯泄 URL"',
+				uk: '携泻褖芯 写卸械褉械谢芯 薪械写芯褋褌褍锌薪懈泄 邪斜芯 薪械 胁褨写锌芯胁褨写邪褦, 锌芯褌褉褨斜薪芯 褍 胁懈斜褉邪薪芯屑褍 袙邪屑懈 写卸械褉械谢褨 "校胁褨屑泻薪褍褌懈" 锌褉芯泻褋褨, 邪斜芯 胁泻邪蟹邪褌懈 锌芯褋懈谢邪薪薪褟 薪邪 "小胁褨泄 URL"',
 				en: 'If the source is not available or does not respond, you need to "Enable" the proxy in the source you have chosen, or specify a link to "Custom URL"'
 			},
 			online_proxy_title_main: {
-				ru: 'Встроенный прокси',
-				uk: 'Вбудований проксі',
+				ru: '袙褋褌褉芯械薪薪褘泄 锌褉芯泻褋懈',
+				uk: '袙斜褍写芯胁邪薪懈泄 锌褉芯泻褋褨',
 				en: 'Built-in proxy'
 			},
 			online_proxy_title_main_descr: {
-				ru: 'Позволяет использовать встроенный в систему прокси для всех',
-				uk: 'Дозволяє використовувати вбудований у систему проксі для всіх',
+				ru: '袩芯蟹胁芯谢褟械褌 懈褋锌芯谢褜蟹芯胁邪褌褜 胁褋褌褉芯械薪薪褘泄 胁 褋懈褋褌械屑褍 锌褉芯泻褋懈 写谢褟 胁褋械褏',
+				uk: '袛芯蟹胁芯谢褟褦 胁懈泻芯褉懈褋褌芯胁褍胁邪褌懈 胁斜褍写芯胁邪薪懈泄 褍 褋懈褋褌械屑褍 锌褉芯泻褋褨 写谢褟 胁褋褨褏',
 				en: 'Allows you to use the built-in proxy for all'
 			},
 			online_proxy_descr: {
-				ru: 'Позволяет задать личный прокси для всех',
-				uk: 'Дозволяє встановити особистий проксі для всіх',
+				ru: '袩芯蟹胁芯谢褟械褌 蟹邪写邪褌褜 谢懈褔薪褘泄 锌褉芯泻褋懈 写谢褟 胁褋械褏',
+				uk: '袛芯蟹胁芯谢褟褦 胁褋褌邪薪芯胁懈褌懈 芯褋芯斜懈褋褌懈泄 锌褉芯泻褋褨 写谢褟 胁褋褨褏',
 				en: 'Allows you to set a personal proxy for all'
 			},
 			online_proxy_placeholder: {
-				ru: 'Например: http://proxy.com',
-				uk: 'Наприклад: http://proxy.com',
+				ru: '袧邪锌褉懈屑械褉: http://proxy.com',
+				uk: '袧邪锌褉懈泻谢邪写: http://proxy.com',
 				en: 'For example: http://proxy.com'
 			},
 			online_proxy_url: {
-				ru: 'Свой URL',
-				uk: 'Свiй URL',
+				ru: '小胁芯泄 URL',
+				uk: '小胁i泄 URL',
 				en: 'Mine URL'
 			},
     	modss_voice_subscribe: {
-    		ru: 'Подписаться на перевод',
-    		uk: 'Підписатися на переклад',
+    		ru: '袩芯写锌懈褋邪褌褜褋褟 薪邪 锌械褉械胁芯写',
+    		uk: '袩褨写锌懈褋邪褌懈褋褟 薪邪 锌械褉械泻谢邪写',
     		en: 'Subscribe to translation'
     	},
     	modss_voice_success: {
-    		ru: 'Вы успешно подписались',
-    		uk: 'Ви успішно підписалися',
+    		ru: '袙褘 褍褋锌械褕薪芯 锌芯写锌懈褋邪谢懈褋褜',
+    		uk: '袙懈 褍褋锌褨褕薪芯 锌褨写锌懈褋邪谢懈褋褟',
     		en: 'You have successfully subscribed'
     	},
     	modss_voice_error: {
-    		ru: 'Возникла ошибка',
-    		uk: 'Виникла помилка',
+    		ru: '袙芯蟹薪懈泻谢邪 芯褕懈斜泻邪',
+    		uk: '袙懈薪懈泻谢邪 锌芯屑懈谢泻邪',
     		en: 'An error has occurred'
     	},
       modss_balanser_dont_work: {
-        ru: 'Источник ({balanser}) не отвечает на запрос.',
-        uk: 'Джерело ({balanser}) не відповідає на запит.',
+        ru: '袠褋褌芯褔薪懈泻 ({balanser}) 薪械 芯褌胁械褔邪械褌 薪邪 蟹邪锌褉芯褋.',
+        uk: '袛卸械褉械谢芯 ({balanser}) 薪械 胁褨写锌芯胁褨写邪褦 薪邪 蟹邪锌懈褌.',
         en: 'Source ({balanser}) does not respond to the request.',
-        zh: '平衡器（{balanser}）未响应请求〄1�7'
+        zh: '骞宠　鍣紙{balanser}锛夋湭鍝嶅簲璇锋眰銆�'
       },
       modss_balanser_timeout: {
-        ru: 'Источник будет переключен автоматически через <span class="timeout">10</span> секунд.',
-        uk: 'Джерело буде переключено автоматично через <span class="timeout">10</span> секунд.',
+        ru: '袠褋褌芯褔薪懈泻 斜褍写械褌 锌械褉械泻谢褞褔械薪 邪胁褌芯屑邪褌懈褔械褋泻懈 褔械褉械蟹 <span class="timeout">10</span> 褋械泻褍薪写.',
+        uk: '袛卸械褉械谢芯 斜褍写械 锌械褉械泻谢褞褔械薪芯 邪胁褌芯屑邪褌懈褔薪芯 褔械褉械蟹 <span class="timeout">10</span> 褋械泻褍薪写.',
         en: 'Source will be switched automatically in <span class="timeout">10</span> seconds.',
-        zh: '平衡器将圄1�7<span class="timeout">10</span>秒内自动切换〄1�7'
+        zh: '骞宠　鍣ㄥ皢鍦�<span class="timeout">10</span>绉掑唴鑷姩鍒囨崲銆�'
       },
       modss_does_not_answer_text: {
-        ru: 'Сервер не отвечает на запрос.',
-        uk: 'Сервер не відповідає на запит.',
+        ru: '小械褉胁械褉 薪械 芯褌胁械褔邪械褌 薪邪 蟹邪锌褉芯褋.',
+        uk: '小械褉胁械褉 薪械 胁褨写锌芯胁褨写邪褦 薪邪 蟹邪锌懈褌.',
         en: 'Server does not respond to the request.',
-        zh: '服务器未响应请求〄1�7'
+        zh: '鏈嶅姟鍣ㄦ湭鍝嶅簲璇锋眰銆�'
       }, 
       modss_balanser_dont_work_from: {
-        ru: ' на источнике <b>{balanser}</b>',
-        uk: ' на джерелі <b>{balanser}</b>',
+        ru: ' 薪邪 懈褋褌芯褔薪懈泻械 <b>{balanser}</b>',
+        uk: ' 薪邪 写卸械褉械谢褨 <b>{balanser}</b>',
         en: ' at the source <b>{balanser}</b>',
       },
     	online_dash: {
-        ru: 'Предпочитать DASH вместо HLS',
-        uk: 'Віддавати перевагу DASH замість HLS',
-        be: 'Аддаваць перавагу DASH замест HLS',
+        ru: '袩褉械写锌芯褔懈褌邪褌褜 DASH 胁屑械褋褌芯 HLS',
+        uk: '袙褨写写邪胁邪褌懈 锌械褉械胁邪谐褍 DASH 蟹邪屑褨褋褌褜 HLS',
+        be: '袗写写邪胁邪褑褜 锌械褉邪胁邪谐褍 DASH 蟹邪屑械褋褌 HLS',
         en: 'Prefer DASH over HLS',
-        zh: '毄1�7 HLS 更喜欄1�7 DASH'
+        zh: '姣� HLS 鏇村枩娆� DASH'
       },
     	online_query_start: {
-    		ru: 'По запросу',
-    		uk: 'На запит',
+    		ru: '袩芯 蟹邪锌褉芯褋褍',
+    		uk: '袧邪 蟹邪锌懈褌',
     		en: 'On request'
     	},
     	online_query_end: {
-    		ru: 'нет результатов',
-    		uk: 'немає результатів',
+    		ru: '薪械褌 褉械蟹褍谢褜褌邪褌芯胁',
+    		uk: '薪械屑邪褦 褉械蟹褍谢褜褌邪褌褨胁',
     		en: 'no results'
     	},
     	title_online_continue: {
-    		ru: 'Продолжить',
-    		uk: 'Продовжити',
+    		ru: '袩褉芯写芯谢卸懈褌褜',
+    		uk: '袩褉芯写芯胁卸懈褌懈',
     		en: 'Continue'
     	},
     	title_kb_captcha_address: {
-        ru: 'Требуется пройти капчу по адресу: ',
-        uk: 'Потрібно пройти капчу за адресою: ',
+        ru: '孝褉械斜褍械褌褋褟 锌褉芯泄褌懈 泻邪锌褔褍 锌芯 邪写褉械褋褍: ',
+        uk: '袩芯褌褉褨斜薪芯 锌褉芯泄褌懈 泻邪锌褔褍 蟹邪 邪写褉械褋芯褞: ',
         en: 'It is required to pass the captcha at: ',
       },
     	title_online_first_but: {
-    		ru: 'Кнопка онлайн всегда первая',
-    		uk: 'Кнопка онлайн завжди перша',
+    		ru: '袣薪芯锌泻邪 芯薪谢邪泄薪 胁褋械谐写邪 锌械褉胁邪褟',
+    		uk: '袣薪芯锌泻邪 芯薪谢邪泄薪 蟹邪胁卸写懈 锌械褉褕邪',
     		en: 'Online button always first'
     	},
     	title_online_continued: {
-    		ru: 'Продолжить просмотр',
-    		uk: 'Продовжити перегляд',
+    		ru: '袩褉芯写芯谢卸懈褌褜 锌褉芯褋屑芯褌褉',
+    		uk: '袩褉芯写芯胁卸懈褌懈 锌械褉械谐谢褟写',
     		en: 'Continue browsing'
     	},
     	title_online_descr: {
-    		ru: 'Позволяет запускать плеер сразу на том месте, где остановили просмотр. Работает только в ВСТРОЕННОМ плеере.',
-    		uk: 'Дозволяє запускати плеєр одразу на тому місці, де зупинили перегляд.  Працює тільки у Вбудованому плеєрі.',
+    		ru: '袩芯蟹胁芯谢褟械褌 蟹邪锌褍褋泻邪褌褜 锌谢械械褉 褋褉邪蟹褍 薪邪 褌芯屑 屑械褋褌械, 谐写械 芯褋褌邪薪芯胁懈谢懈 锌褉芯褋屑芯褌褉. 袪邪斜芯褌邪械褌 褌芯谢褜泻芯 胁 袙小孝袪袨袝袧袧袨袦 锌谢械械褉械.',
+    		uk: '袛芯蟹胁芯谢褟褦 蟹邪锌褍褋泻邪褌懈 锌谢械褦褉 芯写褉邪蟹褍 薪邪 褌芯屑褍 屑褨褋褑褨, 写械 蟹褍锌懈薪懈谢懈 锌械褉械谐谢褟写.  袩褉邪褑褞褦 褌褨谢褜泻懈 褍 袙斜褍写芯胁邪薪芯屑褍 锌谢械褦褉褨.',
     		en: 'Allows you to start the player immediately at the place where you stopped browsing.  Works only in the INTEGRATED player.'
     	},
     	title_online_hevc: {
-        ru: 'Включить поддержку HDR',
-        uk: 'Включити підтримку HDR',
+        ru: '袙泻谢褞褔懈褌褜 锌芯写写械褉卸泻褍 HDR',
+        uk: '袙泻谢褞褔懈褌懈 锌褨写褌褉懈屑泻褍 HDR',
         en: 'Enable HDR Support',
       },
       title_online__hevc_descr: {
-        ru: 'Использовать HEVC / HDR если он доступен',
-        uk: 'Використовувати HEVC / HDR якщо він доступний',
+        ru: '袠褋锌芯谢褜蟹芯胁邪褌褜 HEVC / HDR 械褋谢懈 芯薪 写芯褋褌褍锌械薪',
+        uk: '袙懈泻芯褉懈褋褌芯胁褍胁邪褌懈 HEVC / HDR 褟泻褖芯 胁褨薪 写芯褋褌褍锌薪懈泄',
         en: 'Use HEVC / HDR if available',
       },
     	title_prioriry_balanser: {
-        ru: 'Источник по умолчанию',
-        uk: 'Джерело за замовчуванням',
+        ru: '袠褋褌芯褔薪懈泻 锌芯 褍屑芯谢褔邪薪懈褞',
+        uk: '袛卸械褉械谢芯 蟹邪 蟹邪屑芯胁褔褍胁邪薪薪褟屑',
         en: 'Default source',
       },
       title_prioriry_balanser_descr: {
-        ru: 'Источник фильмов по умолчанию',
-        uk: 'Джерело фільмів за замовчуванням',
+        ru: '袠褋褌芯褔薪懈泻 褎懈谢褜屑芯胁 锌芯 褍屑芯谢褔邪薪懈褞',
+        uk: '袛卸械褉械谢芯 褎褨谢褜屑褨胁 蟹邪 蟹邪屑芯胁褔褍胁邪薪薪褟屑',
         en: 'Default movie source',
       },
     	filmix_param_add_title: {
-    		ru: 'Добавить ТОКЕН от Filmix',
-    		uk: 'Додати ТОКЕН від Filmix',
+    		ru: '袛芯斜邪胁懈褌褜 孝袨袣袝袧 芯褌 Filmix',
+    		uk: '袛芯写邪褌懈 孝袨袣袝袧 胁褨写 Filmix',
     		en: 'Add TOKEN from Filmix'
     	},
     	filmix_param_add_descr: {
-    		ru: 'Добавьте ТОКЕН для подключения подписки',
-    		uk: 'Додайте ТОКЕН для підключення передплати',
+    		ru: '袛芯斜邪胁褜褌械 孝袨袣袝袧 写谢褟 锌芯写泻谢褞褔械薪懈褟 锌芯写锌懈褋泻懈',
+    		uk: '袛芯写邪泄褌械 孝袨袣袝袧 写谢褟 锌褨写泻谢褞褔械薪薪褟 锌械褉械写锌谢邪褌懈',
     		en: 'Add a TOKEN to connect a subscription'
     	},
     	filmix_param_placeholder: {
-    		ru: 'Например: nxjekeb57385b..',
-    		uk: 'Наприклад: nxjekeb57385b..',
+    		ru: '袧邪锌褉懈屑械褉: nxjekeb57385b..',
+    		uk: '袧邪锌褉懈泻谢邪写: nxjekeb57385b..',
     		en: 'For example: nxjekeb57385b..'
     	},
     	filmix_params_add_device: {
-    		ru: 'Добавить устройство на ',
-    		uk: 'Додати пристрій на ',
+    		ru: '袛芯斜邪胁懈褌褜 褍褋褌褉芯泄褋褌胁芯 薪邪 ',
+    		uk: '袛芯写邪褌懈 锌褉懈褋褌褉褨泄 薪邪 ',
     		en: 'Add Device to '
     	},
     	filmix_modal_text: {
-    		ru: 'Введите его на странице https://filmix.ac/consoles в вашем авторизованном аккаунте!',
-    		uk: 'Введіть його на сторінці https://filmix.ac/consoles у вашому авторизованому обліковому записі!',
+    		ru: '袙胁械写懈褌械 械谐芯 薪邪 褋褌褉邪薪懈褑械 https://filmix.ac/consoles 胁 胁邪褕械屑 邪胁褌芯褉懈蟹芯胁邪薪薪芯屑 邪泻泻邪褍薪褌械!',
+    		uk: '袙胁械写褨褌褜 泄芯谐芯 薪邪 褋褌芯褉褨薪褑褨 https://filmix.ac/consoles 褍 胁邪褕芯屑褍 邪胁褌芯褉懈蟹芯胁邪薪芯屑褍 芯斜谢褨泻芯胁芯屑褍 蟹邪锌懈褋褨!',
     		en: 'Enter it at https://filmix.ac/consoles in your authorized account!'
     	},
     	filmix_modal_wait: {
-    		ru: 'Ожидаем код',
-    		uk: 'Очікуємо код',
+    		ru: '袨卸懈写邪械屑 泻芯写',
+    		uk: '袨褔褨泻褍褦屑芯 泻芯写',
     		en: 'Waiting for the code'
     	},
     	filmix_copy_secuses: {
-    		ru: 'Код скопирован в буфер обмена',
-    		uk: 'Код скопійовано в буфер обміну',
+    		ru: '袣芯写 褋泻芯锌懈褉芯胁邪薪 胁 斜褍褎械褉 芯斜屑械薪邪',
+    		uk: '袣芯写 褋泻芯锌褨泄芯胁邪薪芯 胁 斜褍褎械褉 芯斜屑褨薪褍',
     		en: 'Code copied to clipboard'
     	},
     	filmix_copy_fail: {
-    		ru: 'Ошибка при копировании',
-    		uk: 'Помилка при копіюванні',
+    		ru: '袨褕懈斜泻邪 锌褉懈 泻芯锌懈褉芯胁邪薪懈懈',
+    		uk: '袩芯屑懈谢泻邪 锌褉懈 泻芯锌褨褞胁邪薪薪褨',
     		en: 'Copy error'
     	},
     	filmix_nodevice: {
-    		ru: 'Устройство не авторизовано',
-    		uk: 'Пристрій не авторизований',
+    		ru: '校褋褌褉芯泄褋褌胁芯 薪械 邪胁褌芯褉懈蟹芯胁邪薪芯',
+    		uk: '袩褉懈褋褌褉褨泄 薪械 邪胁褌芯褉懈蟹芯胁邪薪懈泄',
     		en: 'Device not authorized'
     	},
     	filmix_auth_onl: {
-        ru: 'Для просмотра в качестве 720p нужно добавить устройство в свой аккаунт на сайте filmix иначе будет заставка на видео.<br><br>Перейти в настройки и добавить?',
-        uk: 'Для перегляду в якостi 720p потрібно додати пристрій до свого облікового запису на сайті filmix інакше буде заставка на відео.<br><br>Перейти до налаштувань і додати?',
+        ru: '袛谢褟 锌褉芯褋屑芯褌褉邪 胁 泻邪褔械褋褌胁械 720p 薪褍卸薪芯 写芯斜邪胁懈褌褜 褍褋褌褉芯泄褋褌胁芯 胁 褋胁芯泄 邪泻泻邪褍薪褌 薪邪 褋邪泄褌械 filmix 懈薪邪褔械 斜褍写械褌 蟹邪褋褌邪胁泻邪 薪邪 胁懈写械芯.<br><br>袩械褉械泄褌懈 胁 薪邪褋褌褉芯泄泻懈 懈 写芯斜邪胁懈褌褜?',
+        uk: '袛谢褟 锌械褉械谐谢褟写褍 胁 褟泻芯褋褌i 720p 锌芯褌褉褨斜薪芯 写芯写邪褌懈 锌褉懈褋褌褉褨泄 写芯 褋胁芯谐芯 芯斜谢褨泻芯胁芯谐芯 蟹邪锌懈褋褍 薪邪 褋邪泄褌褨 filmix 褨薪邪泻褕械 斜褍写械 蟹邪褋褌邪胁泻邪 薪邪 胁褨写械芯.<br><br>袩械褉械泄褌懈 写芯 薪邪谢邪褕褌褍胁邪薪褜 褨 写芯写邪褌懈?',
         en: 'To view in 720p quality, you need to add a device to your account on the filmix website, otherwise there will be a splash screen on the video.<br><br>Go to settings and add?'
       },
     	fork_auth_modal_title: {
-    		ru: '1. Авторизируйтесь на: <a style="color:#fff" href="#">http://forktv.me</a><br>2. Потребуется оформить подписку<br>3. В поле "Ваш ID/MAC" добавьте код',
-    		uk: '1. Авторизуйтесь на: <a style="color:#fff" href="#">http://forktv.me</a><br>2. Потрібно оформити передплату<br>3. У полі "Ваш ID/MAC" додайте код',
+    		ru: '1. 袗胁褌芯褉懈蟹懈褉褍泄褌械褋褜 薪邪: <a style="color:#fff" href="#">http://forktv.me</a><br>2. 袩芯褌褉械斜褍械褌褋褟 芯褎芯褉屑懈褌褜 锌芯写锌懈褋泻褍<br>3. 袙 锌芯谢械 "袙邪褕 ID/MAC" 写芯斜邪胁褜褌械 泻芯写',
+    		uk: '1. 袗胁褌芯褉懈蟹褍泄褌械褋褜 薪邪: <a style="color:#fff" href="#">http://forktv.me</a><br>2. 袩芯褌褉褨斜薪芯 芯褎芯褉屑懈褌懈 锌械褉械写锌谢邪褌褍<br>3. 校 锌芯谢褨 "袙邪褕 ID/MAC" 写芯写邪泄褌械 泻芯写',
     		en: '1. Log in to: <a style="color:#fff" href="#">http://forktv.me</a><br>2. Subscription required<br>3. In the "Your ID / MAC" field, add the code'
     	},
     	fork_modal_wait: {
-    		ru: '<b style="font-size:1em">Ожидание идентификации кода</b><hr>После завершения идентификации произойдет перенаправление в обновленный раздел ForkTV',
-    		uk: '<b style="font-size:1em">Очiкуемо ідентифікації коду</b><hr>Після завершення ідентифікації відбудеться перенаправлення в оновлений розділ ForkTV',
+    		ru: '<b style="font-size:1em">袨卸懈写邪薪懈械 懈写械薪褌懈褎懈泻邪褑懈懈 泻芯写邪</b><hr>袩芯褋谢械 蟹邪胁械褉褕械薪懈褟 懈写械薪褌懈褎懈泻邪褑懈懈 锌褉芯懈蟹芯泄写械褌 锌械褉械薪邪锌褉邪胁谢械薪懈械 胁 芯斜薪芯胁谢械薪薪褘泄 褉邪蟹写械谢 ForkTV',
+    		uk: '<b style="font-size:1em">袨褔i泻褍械屑芯 褨写械薪褌懈褎褨泻邪褑褨褩 泻芯写褍</b><hr>袩褨褋谢褟 蟹邪胁械褉褕械薪薪褟 褨写械薪褌懈褎褨泻邪褑褨褩 胁褨写斜褍写械褌褜褋褟 锌械褉械薪邪锌褉邪胁谢械薪薪褟 胁 芯薪芯胁谢械薪懈泄 褉芯蟹写褨谢 ForkTV',
     		en: '<b style="font-size:1em">Waiting for code identification</b><hr>After identification is completed, you will be redirected to the updated ForkTV section'
     	},
     	title_status: {
-    		ru: 'Статус',
-    		uk: 'Статус',
+    		ru: '小褌邪褌褍褋',
+    		uk: '小褌邪褌褍褋',
     		en: 'Status'
     	},
     	season_ended: {
-    		ru: 'сезон завершён',
-    		uk: 'сезон завершено',
+    		ru: '褋械蟹芯薪 蟹邪胁械褉褕褢薪',
+    		uk: '褋械蟹芯薪 蟹邪胁械褉褕械薪芯',
     		en: 'season ended'
     	},
     	season_from: {
-    		ru: 'из',
-    		uk: 'з',
+    		ru: '懈蟹',
+    		uk: '蟹',
     		en: 'from'
     	},
     	season_new: {
-    		ru: 'Новая',
-    		uk: 'Нова',
+    		ru: '袧芯胁邪褟',
+    		uk: '袧芯胁邪',
     		en: 'New'
     	},
     	info_attention: {
-    		ru: 'Внимание',
-    		uk: 'Увага',
+    		ru: '袙薪懈屑邪薪懈械',
+    		uk: '校胁邪谐邪',
     		en: 'Attention'
     	},
     	info_pub_descr: {
-    		ru: '<b>KinoPub</b> платный ресурс, просмотр онлайн с источника, а так же спортивные ТВ каналы будут доступны после покупки <b>PRO</b> в аккаунте на сайте',
-    		uk: '<b>KinoPub</b> платний ресурс, перегляд онлайн з джерела, а також спортивні ТБ канали будуть доступні після покупки <b>PRO</b> в обліковому записі на сайті',
+    		ru: '<b>KinoPub</b> 锌谢邪褌薪褘泄 褉械褋褍褉褋, 锌褉芯褋屑芯褌褉 芯薪谢邪泄薪 褋 懈褋褌芯褔薪懈泻邪, 邪 褌邪泻 卸械 褋锌芯褉褌懈胁薪褘械 孝袙 泻邪薪邪谢褘 斜褍写褍褌 写芯褋褌褍锌薪褘 锌芯褋谢械 锌芯泻褍锌泻懈 <b>PRO</b> 胁 邪泻泻邪褍薪褌械 薪邪 褋邪泄褌械',
+    		uk: '<b>KinoPub</b> 锌谢邪褌薪懈泄 褉械褋褍褉褋, 锌械褉械谐谢褟写 芯薪谢邪泄薪 蟹 写卸械褉械谢邪, 邪 褌邪泻芯卸 褋锌芯褉褌懈胁薪褨 孝袘 泻邪薪邪谢懈 斜褍写褍褌褜 写芯褋褌褍锌薪褨 锌褨褋谢褟 锌芯泻褍锌泻懈 <b>PRO</b> 胁 芯斜谢褨泻芯胁芯屑褍 蟹邪锌懈褋褨 薪邪 褋邪泄褌褨',
     		en: '<b>KinoPub</b> a paid resource, online viewing from a source, as well as sports TV channels will be available after purchasing <b>PRO</b> in your account on the site'
     	},
     	info_filmix_descr: {
-    		ru: 'Максимально доступное качество для просмотра без подписки - 720p. Для того, чтобы смотреть фильмы и сериалы в качестве - 1080р-2160р требуется подписка <b>PRO</b> или <b>PRO-PLUS</b> на сайте',
-    		uk: 'Максимально доступна якість для перегляду без підписки  1�7 720p.  Для того, щоб дивитися фільми та серіали як - 1080р-2160р потрібна підписка <b>PRO</b> або <b>PRO-PLUS</b> на сайтi',
+    		ru: '袦邪泻褋懈屑邪谢褜薪芯 写芯褋褌褍锌薪芯械 泻邪褔械褋褌胁芯 写谢褟 锌褉芯褋屑芯褌褉邪 斜械蟹 锌芯写锌懈褋泻懈 - 720p. 袛谢褟 褌芯谐芯, 褔褌芯斜褘 褋屑芯褌褉械褌褜 褎懈谢褜屑褘 懈 褋械褉懈邪谢褘 胁 泻邪褔械褋褌胁械 - 1080褉-2160褉 褌褉械斜褍械褌褋褟 锌芯写锌懈褋泻邪 <b>PRO</b> 懈谢懈 <b>PRO-PLUS</b> 薪邪 褋邪泄褌械',
+    		uk: '袦邪泻褋懈屑邪谢褜薪芯 写芯褋褌褍锌薪邪 褟泻褨褋褌褜 写谢褟 锌械褉械谐谢褟写褍 斜械蟹 锌褨写锌懈褋泻懈 鈥� 720p.  袛谢褟 褌芯谐芯, 褖芯斜 写懈胁懈褌懈褋褟 褎褨谢褜屑懈 褌邪 褋械褉褨邪谢懈 褟泻 - 1080褉-2160褉 锌芯褌褉褨斜薪邪 锌褨写锌懈褋泻邪 <b>PRO</b> 邪斜芯 <b>PRO-PLUS</b> 薪邪 褋邪泄褌i',
     		en: 'The maximum available quality for viewing without a subscription is 720p.  In order to watch movies and series in quality - 1080p-2160p, you need a <b>PRO</b> or <b>PRO-PLUS</b> subscription to the site'
     	},
     	params_pub_on: {
-    		ru: 'Включить',
-    		uk: 'Увiмкнути',
+    		ru: '袙泻谢褞褔懈褌褜',
+    		uk: '校胁i屑泻薪褍褌懈',
     		en: 'Enable'
     	},
     	params_pub_off: {
-    		ru: 'Выключить',
-    		uk: 'Вимкнути',
+    		ru: '袙褘泻谢褞褔懈褌褜',
+    		uk: '袙懈屑泻薪褍褌懈',
     		en: 'Disable'
     	},
     	params_pub_on_descr: {
-    		ru: 'Отображает источник "<b>KinoPub</b>", а так же подборки. Для просмотра с тсточника, а так же ТВ спорт каналов <span style="color:#ffd402">требуется подписка<span>',
-    		uk: 'Відображає джерело "<b>KinoPub</b>", а також добірки.  Для перегляду з балансера, а також ТБ спорт каналів <span style="color:#ffd402">потрібна підписка<span>',
+    		ru: '袨褌芯斜褉邪卸邪械褌 懈褋褌芯褔薪懈泻 "<b>KinoPub</b>", 邪 褌邪泻 卸械 锌芯写斜芯褉泻懈. 袛谢褟 锌褉芯褋屑芯褌褉邪 褋 褌褋褌芯褔薪懈泻邪, 邪 褌邪泻 卸械 孝袙 褋锌芯褉褌 泻邪薪邪谢芯胁 <span style="color:#ffd402">褌褉械斜褍械褌褋褟 锌芯写锌懈褋泻邪<span>',
+    		uk: '袙褨写芯斜褉邪卸邪褦 写卸械褉械谢芯 "<b>KinoPub</b>", 邪 褌邪泻芯卸 写芯斜褨褉泻懈.  袛谢褟 锌械褉械谐谢褟写褍 蟹 斜邪谢邪薪褋械褉邪, 邪 褌邪泻芯卸 孝袘 褋锌芯褉褌 泻邪薪邪谢褨胁 <span style="color:#ffd402">锌芯褌褉褨斜薪邪 锌褨写锌懈褋泻邪<span>',
     		en: 'Displays the "<b>KinoPub</b>" source as well as collections.  To view from the source, as well as TV sports channels <span style="color:#ffd402">subscription<span> is required'
     	},
     	params_pub_add_source: {
-    		ru: 'Установить источник',
-    		uk: 'Встановити джерело',
+    		ru: '校褋褌邪薪芯胁懈褌褜 懈褋褌芯褔薪懈泻',
+    		uk: '袙褋褌邪薪芯胁懈褌懈 写卸械褉械谢芯',
     		en: 'Set source'
     	},
     	pub_source_add_noty: {
-    		ru: 'KinoPub установлен источником по умолчанию',
-    		uk: 'KinoPub встановлений стандартним джерелом',
+    		ru: 'KinoPub 褍褋褌邪薪芯胁谢械薪 懈褋褌芯褔薪懈泻芯屑 锌芯 褍屑芯谢褔邪薪懈褞',
+    		uk: 'KinoPub 胁褋褌邪薪芯胁谢械薪懈泄 褋褌邪薪写邪褉褌薪懈屑 写卸械褉械谢芯屑',
     		en: 'KinoPub set as default source'
     	},
     	descr_pub_settings: {
-    		ru: 'Настройки сервера, типа потока...',
-    		uk: 'Налаштування сервера типу потоку...',
+    		ru: '袧邪褋褌褉芯泄泻懈 褋械褉胁械褉邪, 褌懈锌邪 锌芯褌芯泻邪...',
+    		uk: '袧邪谢邪褕褌褍胁邪薪薪褟 褋械褉胁械褉邪 褌懈锌褍 锌芯褌芯泻褍...',
     		en: 'Server settings, stream type...'
     	},
     	params_pub_add_source_descr: {
-    		ru: 'Установить источник по умолчанию на KinoPub',
-    		uk: 'Встановити стандартне джерело на KinoPub',
+    		ru: '校褋褌邪薪芯胁懈褌褜 懈褋褌芯褔薪懈泻 锌芯 褍屑芯谢褔邪薪懈褞 薪邪 KinoPub',
+    		uk: '袙褋褌邪薪芯胁懈褌懈 褋褌邪薪写邪褉褌薪械 写卸械褉械谢芯 薪邪 KinoPub',
     		en: 'Set Default Source to KinoPub'
     	},
     	params_pub_update_tocken: {
-    		ru: 'Обновить токен',
-    		uk: 'Оновити токен',
+    		ru: '袨斜薪芯胁懈褌褜 褌芯泻械薪',
+    		uk: '袨薪芯胁懈褌懈 褌芯泻械薪',
     		en: 'Update token'
     	},
     	params_pub_dell_device: {
-    		ru: 'Удалить привязку устройства',
-    		uk: 'Видалити прив\'язку пристрою',
+    		ru: '校写邪谢懈褌褜 锌褉懈胁褟蟹泻褍 褍褋褌褉芯泄褋褌胁邪',
+    		uk: '袙懈写邪谢懈褌懈 锌褉懈胁\'褟蟹泻褍 锌褉懈褋褌褉芯褞',
     		en: 'Remove device link'
     	},
     	params_pub_dell_descr: {
-    		ru: 'Будет удалено устройство с прывязаных устройств в аккаунте',
-    		uk: 'Буде видалено пристрій із прив\'язаних пристроїв в обліковому записі',
+    		ru: '袘褍写械褌 褍写邪谢械薪芯 褍褋褌褉芯泄褋褌胁芯 褋 锌褉褘胁褟蟹邪薪褘褏 褍褋褌褉芯泄褋褌胁 胁 邪泻泻邪褍薪褌械',
+    		uk: '袘褍写械 胁懈写邪谢械薪芯 锌褉懈褋褌褉褨泄 褨蟹 锌褉懈胁\'褟蟹邪薪懈褏 锌褉懈褋褌褉芯褩胁 胁 芯斜谢褨泻芯胁芯屑褍 蟹邪锌懈褋褨',
     		en: 'The device will be removed from linked devices in the account'
     	},
     	params_radio_enable: {
-    		ru: 'Включить радио',
-    		uk: 'Увiмкнути радiо',
+    		ru: '袙泻谢褞褔懈褌褜 褉邪写懈芯',
+    		uk: '校胁i屑泻薪褍褌懈 褉邪写i芯',
     		en: 'Enable radio'
     	},
     	params_radio_enable_descr: {
-    		ru: 'Отображает пункт "Радио" в главном меню с популярными радио-станциями',
-    		uk: 'Відображає пункт "Радіо" в головному меню з популярними радіостанціями',
+    		ru: '袨褌芯斜褉邪卸邪械褌 锌褍薪泻褌 "袪邪写懈芯" 胁 谐谢邪胁薪芯屑 屑械薪褞 褋 锌芯锌褍谢褟褉薪褘屑懈 褉邪写懈芯-褋褌邪薪褑懈褟屑懈',
+    		uk: '袙褨写芯斜褉邪卸邪褦 锌褍薪泻褌 "袪邪写褨芯" 胁 谐芯谢芯胁薪芯屑褍 屑械薪褞 蟹 锌芯锌褍谢褟褉薪懈屑懈 褉邪写褨芯褋褌邪薪褑褨褟屑懈',
     		en: 'Displays the item "Radio" in the main menu with popular radio stations'
     	},
     	params_tv_enable: {
-    		ru: 'Включить ТВ',
-    		uk: 'Увiмкнути ТВ',
+    		ru: '袙泻谢褞褔懈褌褜 孝袙',
+    		uk: '校胁i屑泻薪褍褌懈 孝袙',
     		en: 'Enable TV'
     	},
     	params_tv_enable_descr: {
-    		ru: 'Отображает пункт "Modss-TV" в главном меню с популярными каналами',
-    		uk: 'Відображає пункт "Modss-TV" в головному меню з популярними каналами',
+    		ru: '袨褌芯斜褉邪卸邪械褌 锌褍薪泻褌 "Modss-TV" 胁 谐谢邪胁薪芯屑 屑械薪褞 褋 锌芯锌褍谢褟褉薪褘屑懈 泻邪薪邪谢邪屑懈',
+    		uk: '袙褨写芯斜褉邪卸邪褦 锌褍薪泻褌 "Modss-TV" 胁 谐芯谢芯胁薪芯屑褍 屑械薪褞 蟹 锌芯锌褍谢褟褉薪懈屑懈 泻邪薪邪谢邪屑懈',
     		en: 'Displays the item "Modss-TV" in the main menu with popular channels'
     	},
     	params_collections_descr: {
-    		ru: 'Добавляет в пункт "Подборки" популярные разделы, такие как Rezka, Filmix, KinoPub',
-    		uk: 'Додає до пункту "Підбірки" популярні розділи, такі як Rezka, Filmix, KinoPub',
+    		ru: '袛芯斜邪胁谢褟械褌 胁 锌褍薪泻褌 "袩芯写斜芯褉泻懈" 锌芯锌褍谢褟褉薪褘械 褉邪蟹写械谢褘, 褌邪泻懈械 泻邪泻 Rezka, Filmix, KinoPub',
+    		uk: '袛芯写邪褦 写芯 锌褍薪泻褌褍 "袩褨写斜褨褉泻懈" 锌芯锌褍谢褟褉薪褨 褉芯蟹写褨谢懈, 褌邪泻褨 褟泻 Rezka, Filmix, KinoPub',
     		en: 'Adds to "Collections" popular sections such as Rezka, Filmix, KinoPub'
     	},
     	params_styles_title: {
-    		ru: 'Стилизация',
-    		uk: 'Стилізація',
+    		ru: '小褌懈谢懈蟹邪褑懈褟',
+    		uk: '小褌懈谢褨蟹邪褑褨褟',
     		en: 'Stylization'
     	},
     	placeholder_password: {
-    		ru: 'Введите пароль',
-    		uk: 'Введіть пароль',
+    		ru: '袙胁械写懈褌械 锌邪褉芯谢褜',
+    		uk: '袙胁械写褨褌褜 锌邪褉芯谢褜',
     		en: 'Enter password'
     	},
     	title_parent_contr: {
-    		ru: 'Родительский контроль',
-    		uk: 'Батьківський контроль',
+    		ru: '袪芯写懈褌械谢褜褋泻懈泄 泻芯薪褌褉芯谢褜',
+    		uk: '袘邪褌褜泻褨胁褋褜泻懈泄 泻芯薪褌褉芯谢褜',
     		en: 'Parental control'
     	},
     	title_addons: {
-    		ru: 'Дополнения',
-    		uk: 'Додатки',
+    		ru: '袛芯锌芯谢薪械薪懈褟',
+    		uk: '袛芯写邪褌泻懈',
     		en: 'Add-ons'
     	},
     	onl_enable_descr: {
-    		ru: 'Позволяет просматривать фильмы, сериалы в режиме Stream',
-    		uk: 'Дозволяє переглядати фільми, серіали в режимі Stream',
+    		ru: '袩芯蟹胁芯谢褟械褌 锌褉芯褋屑邪褌褉懈胁邪褌褜 褎懈谢褜屑褘, 褋械褉懈邪谢褘 胁 褉械卸懈屑械 Stream',
+    		uk: '袛芯蟹胁芯谢褟褦 锌械褉械谐谢褟写邪褌懈 褎褨谢褜屑懈, 褋械褉褨邪谢懈 胁 褉械卸懈屑褨 Stream',
     		en: 'Allows you to watch movies, series in Stream mode'
     	},
     	fork_enable_descr: {
-    		ru: 'Отображает пункт <b>"ForkTV"</b> в главном меню с популярными источниками, торрентами',
-    		uk: 'Відображає пункт <b>"ForkTV"</b> у головному меню з популярними джерелами, торрентами',
+    		ru: '袨褌芯斜褉邪卸邪械褌 锌褍薪泻褌 <b>"ForkTV"</b> 胁 谐谢邪胁薪芯屑 屑械薪褞 褋 锌芯锌褍谢褟褉薪褘屑懈 懈褋褌芯褔薪懈泻邪屑懈, 褌芯褉褉械薪褌邪屑懈',
+    		uk: '袙褨写芯斜褉邪卸邪褦 锌褍薪泻褌 <b>"ForkTV"</b> 褍 谐芯谢芯胁薪芯屑褍 屑械薪褞 蟹 锌芯锌褍谢褟褉薪懈屑懈 写卸械褉械谢邪屑懈, 褌芯褉褉械薪褌邪屑懈',
     		en: 'Displays <b>"ForkTV"</b> item in main menu with popular sources, torrents'
     	},
     	title_fork_edit_cats: {
-    		ru: 'Изменить разделы',
-    		uk: 'Змінити розділи',
+    		ru: '袠蟹屑械薪懈褌褜 褉邪蟹写械谢褘',
+    		uk: '袟屑褨薪懈褌懈 褉芯蟹写褨谢懈',
     		en: 'Edit Sections'
     	},
     	title_fork_add_cats: {
-    		ru: 'Добавить разделы',
-    		uk: 'Додати розділи',
+    		ru: '袛芯斜邪胁懈褌褜 褉邪蟹写械谢褘',
+    		uk: '袛芯写邪褌懈 褉芯蟹写褨谢懈',
     		en: 'Add Sections'
     	},
     	title_fork_clear: {
-    		ru: 'Очистить разделы',
-    		uk: 'Очистити розділи',
+    		ru: '袨褔懈褋褌懈褌褜 褉邪蟹写械谢褘',
+    		uk: '袨褔懈褋褌懈褌懈 褉芯蟹写褨谢懈',
     		en: 'Clear Sections'
     	},
     	title_fork_clear_descr: {
-    		ru: 'Будет выполнена очистка всех выбранных разделов',
-    		uk: 'Буде виконано очищення всіх вибраних розділів',
+    		ru: '袘褍写械褌 胁褘锌芯谢薪械薪邪 芯褔懈褋褌泻邪 胁褋械褏 胁褘斜褉邪薪薪褘褏 褉邪蟹写械谢芯胁',
+    		uk: '袘褍写械 胁懈泻芯薪邪薪芯 芯褔懈褖械薪薪褟 胁褋褨褏 胁懈斜褉邪薪懈褏 褉芯蟹写褨谢褨胁',
     		en: 'All selected partitions will be cleared'
     	},
     	title_fork_clear_noty: {
-    		ru: 'Разделы успешно очищены',
-    		uk: 'Розділи успішно очищені',
+    		ru: '袪邪蟹写械谢褘 褍褋锌械褕薪芯 芯褔懈褖械薪褘',
+    		uk: '袪芯蟹写褨谢懈 褍褋锌褨褕薪芯 芯褔懈褖械薪褨',
     		en: 'Partitions cleared successfully'
     	},
     	title_fork_reload_code: {
-    		ru: 'Обновить код',
-    		uk: 'Оновити код',
+    		ru: '袨斜薪芯胁懈褌褜 泻芯写',
+    		uk: '袨薪芯胁懈褌懈 泻芯写',
     		en: 'Update Code'
     	},
     	title_fork_current: {
-    		ru: 'Текущий',
-    		uk: 'Поточний',
+    		ru: '孝械泻褍褖懈泄',
+    		uk: '袩芯褌芯褔薪懈泄',
     		en: 'Current'
     	},
     	title_fork_new: {
-    		ru: 'Новый',
-    		uk: 'Новий',
+    		ru: '袧芯胁褘泄',
+    		uk: '袧芯胁懈泄',
     		en: 'New'
     	},
     	title_tv_clear_fav: {
-    		ru: 'Очистить избранное',
-    		uk: 'Очистити вибране',
+    		ru: '袨褔懈褋褌懈褌褜 懈蟹斜褉邪薪薪芯械',
+    		uk: '袨褔懈褋褌懈褌懈 胁懈斜褉邪薪械',
     		en: 'Clear Favorites'
     	},
     	title_tv_clear__fav_descr: {
-    		ru: 'Будет выполнена очистка избранных каналов',
-    		uk: 'Буде виконано очищення обраних каналів',
+    		ru: '袘褍写械褌 胁褘锌芯谢薪械薪邪 芯褔懈褋褌泻邪 懈蟹斜褉邪薪薪褘褏 泻邪薪邪谢芯胁',
+    		uk: '袘褍写械 胁懈泻芯薪邪薪芯 芯褔懈褖械薪薪褟 芯斜褉邪薪懈褏 泻邪薪邪谢褨胁',
     		en: 'Favorite channels will be cleared'
     	},
     	title_tv_clear_fav_noty: {
-    		ru: 'Все избранные каналы удалены',
-    		uk: 'Усі вибрані канали видалені',
+    		ru: '袙褋械 懈蟹斜褉邪薪薪褘械 泻邪薪邪谢褘 褍写邪谢械薪褘',
+    		uk: '校褋褨 胁懈斜褉邪薪褨 泻邪薪邪谢懈 胁懈写邪谢械薪褨',
     		en: 'All favorite channels have been deleted'
     	},
     	succes_update_noty: {
-    		ru: 'успешно обновлён',
-    		uk: 'успішно оновлено',
+    		ru: '褍褋锌械褕薪芯 芯斜薪芯胁谢褢薪',
+    		uk: '褍褋锌褨褕薪芯 芯薪芯胁谢械薪芯',
     		en: 'successfully updated'
     	},
     	title_enable_rating: {
-    		ru: 'Включить рейтинг',
-    		uk: 'Увiмкнути рейтинг',
+    		ru: '袙泻谢褞褔懈褌褜 褉械泄褌懈薪谐',
+    		uk: '校胁i屑泻薪褍褌懈 褉械泄褌懈薪谐',
     		en: 'Enable rating'
     	},
     	title_enable_rating_descr: {
-    		ru: 'Отображает в карточке рейтинг Кинопоиск и IMDB',
-    		uk: 'Відображає у картці рейтинг Кінопошук та IMDB',
+    		ru: '袨褌芯斜褉邪卸邪械褌 胁 泻邪褉褌芯褔泻械 褉械泄褌懈薪谐 袣懈薪芯锌芯懈褋泻 懈 IMDB',
+    		uk: '袙褨写芯斜褉邪卸邪褦 褍 泻邪褉褌褑褨 褉械泄褌懈薪谐 袣褨薪芯锌芯褕褍泻 褌邪 IMDB',
     		en: 'Displays the Kinopoisk and IMDB rating in the card'
     	},
     	title_info_serial: {
-    		ru: 'Информация о карточке',
-    		uk: 'Інформація про картку',
+    		ru: '袠薪褎芯褉屑邪褑懈褟 芯 泻邪褉褌芯褔泻械',
+    		uk: '袉薪褎芯褉屑邪褑褨褟 锌褉芯 泻邪褉褌泻褍',
     		en: 'Card Information'
     	},
     	title_info_serial_descr: {
-    		ru: 'Отображает информацию о количестве серий в карточке, в том числе последнею серию на постере',
-    		uk: 'Відображає інформацію про кількість серій у картці, у тому числі останню серію на постері',
+    		ru: '袨褌芯斜褉邪卸邪械褌 懈薪褎芯褉屑邪褑懈褞 芯 泻芯谢懈褔械褋褌胁械 褋械褉懈泄 胁 泻邪褉褌芯褔泻械, 胁 褌芯屑 褔懈褋谢械 锌芯褋谢械写薪械褞 褋械褉懈褞 薪邪 锌芯褋褌械褉械',
+    		uk: '袙褨写芯斜褉邪卸邪褦 褨薪褎芯褉屑邪褑褨褞 锌褉芯 泻褨谢褜泻褨褋褌褜 褋械褉褨泄 褍 泻邪褉褌褑褨, 褍 褌芯屑褍 褔懈褋谢褨 芯褋褌邪薪薪褞 褋械褉褨褞 薪邪 锌芯褋褌械褉褨',
     		en: 'Displays information about the number of episodes in the card, including the last episode on the poster'
     	},
     	title_add_butback: {
-    		ru: 'Включить кнопку "Назад"',
-    		uk: 'Увiмкнути кнопку "Назад"',
+    		ru: '袙泻谢褞褔懈褌褜 泻薪芯锌泻褍 "袧邪蟹邪写"',
+    		uk: '校胁i屑泻薪褍褌懈 泻薪芯锌泻褍 "袧邪蟹邪写"',
     		en: 'Enable back button'
     	},
     	title_add_butback_descr: {
-    		ru: 'Отображает внешнюю кнопку "Назад" для удобной навигации в полноэкраном режиме на различных смартфона',
-    		uk: 'Відображає зовнішню кнопку "Назад" для зручної навігації в повноекранному режимі на різних смартфонах',
+    		ru: '袨褌芯斜褉邪卸邪械褌 胁薪械褕薪褞褞 泻薪芯锌泻褍 "袧邪蟹邪写" 写谢褟 褍写芯斜薪芯泄 薪邪胁懈谐邪褑懈懈 胁 锌芯谢薪芯褝泻褉邪薪芯屑 褉械卸懈屑械 薪邪 褉邪蟹谢懈褔薪褘褏 褋屑邪褉褌褎芯薪邪',
+    		uk: '袙褨写芯斜褉邪卸邪褦 蟹芯胁薪褨褕薪褞 泻薪芯锌泻褍 "袧邪蟹邪写" 写谢褟 蟹褉褍褔薪芯褩 薪邪胁褨谐邪褑褨褩 胁 锌芯胁薪芯械泻褉邪薪薪芯屑褍 褉械卸懈屑褨 薪邪 褉褨蟹薪懈褏 褋屑邪褉褌褎芯薪邪褏',
     		en: 'Displays an external back button for easy full-screen navigation on various smartphones'
     	},
     	title_butback_pos: {
-    		ru: 'Положение кнопки "Назад"',
-    		uk: 'Розташування кнопки "Назад"',
+    		ru: '袩芯谢芯卸械薪懈械 泻薪芯锌泻懈 "袧邪蟹邪写"',
+    		uk: '袪芯蟹褌邪褕褍胁邪薪薪褟 泻薪芯锌泻懈 "袧邪蟹邪写"',
     		en: 'Back button position'
     	},
     	buttback_right: {
-    		ru: 'Справа',
-    		uk: 'Праворуч',
+    		ru: '小锌褉邪胁邪',
+    		uk: '袩褉邪胁芯褉褍褔',
     		en: 'Right'
     	},
     	buttback_left: {
-    		ru: 'Слева',
-    		uk: 'Лiворуч',
+    		ru: '小谢械胁邪',
+    		uk: '袥i胁芯褉褍褔',
     		en: 'Left'
     	},
     	title_close_app: {
-    		ru: 'Закрыть приложение',
-    		uk: 'Закрити додаток',
+    		ru: '袟邪泻褉褘褌褜 锌褉懈谢芯卸械薪懈械',
+    		uk: '袟邪泻褉懈褌懈 写芯写邪褌芯泻',
     		en: 'Close application'
     	},
     	title_radio: {
-    		ru: 'Радио',
-    		uk: 'Радiо',
+    		ru: '袪邪写懈芯',
+    		uk: '袪邪写i芯',
     		en: 'Radio'
     	}
     });
@@ -7481,8 +7481,8 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 					default: 'jacred_ru'				
 				},
 				field: {
-					name: 'Публичные JACKett Ⓜ️', 			
-					description: 'Обновится после выхода из настроек' 
+					name: '袩褍斜谢懈褔薪褘械 JACKett 鈸傦笍', 			
+					description: '袨斜薪芯胁懈褌褋褟 锌芯褋谢械 胁褘褏芯写邪 懈蟹 薪邪褋褌褉芯械泻' 
 				},
 				onChange: function (value) { 	
 					Lampa.Storage.set('jackett_url', Modss.jack[value].url);
@@ -7603,17 +7603,17 @@ interfaceElement.after(settingsElement);
 			}
 			if (e.name == 'mods_proxy') {
 				$('.settings__title').text(Lampa.Lang.translate('title_proxy') + " MODS's");
-				var ads = ['<div style="padding: 1.5em 2em; padding-top: 10px;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="font-size: 1em; margin-bottom: 1em; color: #ffd402;">#{info_attention} ⚄1�7</div>', '<div style="line-height: 1.4;">#{online_proxy_title_descr}</div>', '</div>', '</div>'].join('');
+				var ads = ['<div style="padding: 1.5em 2em; padding-top: 10px;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="font-size: 1em; margin-bottom: 1em; color: #ffd402;">#{info_attention} 鈿�</div>', '<div style="line-height: 1.4;">#{online_proxy_title_descr}</div>', '</div>', '</div>'].join('');
 				e.body.find('[data-name="mods_proxy_all"]').before(Lampa.Lang.translate(ads));
 			} else $('.settings__title').text(Lampa.Lang.translate('menu_settings'));
 			if (e.name == 'fork_param') $('.settings__title').append(" ForkTV");
 			if (e.name == 'filmix_param') {
-				var ads = ['<div style="padding: 1.5em 2em; padding-top: 10px;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="font-size: 1em; margin-bottom: 1em; color: #ffd402;">#{info_attention} ⚄1�7</div>', '<div style="line-height: 1.4;">#{info_filmix_descr} <span style="color: #24b4f9">filmix.ac</span></div>', '</div>', '</div>'].join('');
+				var ads = ['<div style="padding: 1.5em 2em; padding-top: 10px;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="font-size: 1em; margin-bottom: 1em; color: #ffd402;">#{info_attention} 鈿�</div>', '<div style="line-height: 1.4;">#{info_filmix_descr} <span style="color: #24b4f9">filmix.ac</span></div>', '</div>', '</div>'].join('');
 				e.body.find('[data-static="true"]:eq(0)').after(Lampa.Lang.translate(ads));
 				$('.settings__title').append(" Filmix");
 			}
 			if (e.name == 'pub_param') {
-				var ads = ['<div style="padding: 1.5em 2em; padding-top: 10px;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="font-size: 1em; margin-bottom: 1em; color: #ffd402;">#{info_attention} ⚄1�7</div>', '<div style="line-height: 1.4;">#{info_pub_descr} <span style="color: #24b4f9">kino.pub</span></div>', '</div>', '</div>'].join('');
+				var ads = ['<div style="padding: 1.5em 2em; padding-top: 10px;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="font-size: 1em; margin-bottom: 1em; color: #ffd402;">#{info_attention} 鈿�</div>', '<div style="line-height: 1.4;">#{info_pub_descr} <span style="color: #24b4f9">kino.pub</span></div>', '</div>', '</div>'].join('');
 				e.body.find('[data-static="true"]:eq(0)').after(Lampa.Lang.translate(ads));
 				$('.settings__title').append(" KinoPub");
 			}
@@ -7664,15 +7664,15 @@ interfaceElement.after(settingsElement);
 					type: 'title'
 				},
 				field: {
-					name: '<div class="settings-folder" style="padding:0!important"><div style="width:3em;height:2.3em;margin-top:-.5em;padding-right:.5em"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z"></path><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm8 5.5v7h2v-7h-2zm-.285 0H8.601l-1.497 4.113L5.607 8.5H3.493l2.611 6.964h2L10.715 8.5zm5.285 5h1.5a2.5 2.5 0 1 0 0-5H14v7h2v-2zm0-2v-1h1.5a.5.5 0 1 1 0 1H16z" fill="#ffffff" class="fill-000000"></path></svg></div><div style="font-size:1.3em">Не подключён</div></div>',
-					description: '❇️ <b>💻 Windows NT 10.0 (x64)</b><br><br>⚠️ <span style="font-weight:700;color:#ffda00">Не вошли в аккаунт или не верный email</span><br><br><div class="ad-server" style="margin: 0em 0em;"><div class="ad-server__text">Для активации <b style="color: #ffd402;">Vip</b> статуса перейдите в телеграм бот</div><img src="http://lampa.stream/group.jpg" class="ad-server__qr"><div class="ad-server__label">@modssmy_bot</div></div>'
+					name: '<div class="settings-folder" style="padding:0!important"><div style="width:3em;height:2.3em;margin-top:-.5em;padding-right:.5em"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z"></path><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm8 5.5v7h2v-7h-2zm-.285 0H8.601l-1.497 4.113L5.607 8.5H3.493l2.611 6.964h2L10.715 8.5zm5.285 5h1.5a2.5 2.5 0 1 0 0-5H14v7h2v-2zm0-2v-1h1.5a.5.5 0 1 1 0 1H16z" fill="#ffffff" class="fill-000000"></path></svg></div><div style="font-size:1.3em">袧械 锌芯写泻谢褞褔褢薪</div></div>',
+					description: '鉂囷笍 <b>馃捇 Windows NT 10.0 (x64)</b><br><br>鈿狅笍 <span style="font-weight:700;color:#ffda00">袧械 胁芯褕谢懈 胁 邪泻泻邪褍薪褌 懈谢懈 薪械 胁械褉薪褘泄 email</span><br><br><div class="ad-server" style="margin: 0em 0em;"><div class="ad-server__text">袛谢褟 邪泻褌懈胁邪褑懈懈 <b style="color: #ffd402;">Vip</b> 褋褌邪褌褍褋邪 锌械褉械泄写懈褌械 胁 褌械谢械谐褉邪屑 斜芯褌</div><img src="http://lampa.stream/group.jpg" class="ad-server__qr"><div class="ad-server__label">@modssmy_bot</div></div>'
 				}
 			});
 			Lampa.SettingsApi.addParam({
 				component: 'settings_modss',
 				param: {
 					name: 'mods_password',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					placeholder: Lampa.Lang.translate('placeholder_password'),
 					values: '',
 					default: ''
@@ -7695,20 +7695,20 @@ interfaceElement.after(settingsElement);
 					item.on('hover:enter', function () {
 						if (Lampa.Storage.get('mods_password')) Lampa.Input.edit({
 							value: '',
-							title: 'Введите старый пароль',
+							title: '袙胁械写懈褌械 褋褌邪褉褘泄 锌邪褉芯谢褜',
 							free: true,
 							nosave: true
 						}, function (t) {
 							if (t == Lampa.Storage.get('mods_password')) pass();
-							else Lampa.Noty.show('Неверный пароль');
+							else Lampa.Noty.show('袧械胁械褉薪褘泄 锌邪褉芯谢褜');
 						});
 						else pass();
 					});
-					if (Lampa.Storage.get('mods_password')) item.find('.settings-param__descr').text('Изменить пароль');
+					if (Lampa.Storage.get('mods_password')) item.find('.settings-param__descr').text('袠蟹屑械薪懈褌褜 锌邪褉芯谢褜');
 					else item.find('.settings-param__descr').text(Lampa.Lang.translate('placeholder_password'));
 				},
 				onChange: function (value) {
-					if (value) $('body').find('.settings-param__descr').text('Изменить пароль');
+					if (value) $('body').find('.settings-param__descr').text('袠蟹屑械薪懈褌褜 锌邪褉芯谢褜');
 					else $('body').find('.settings-param__descr').text(Lampa.Lang.translate('placeholder_password'));
 				}
 			});
@@ -7717,7 +7717,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_onl',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -7733,7 +7733,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'modss_online_param',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -7755,7 +7755,7 @@ interfaceElement.after(settingsElement);
 				component: 'modss_online_param',
 				param: {
 					name: 'priority_balanser',
-					type: 'select', //доступно select,input,trigger,title,static
+					type: 'select', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					values: Modss.balansers(),
 					default: Modss.balansPrf
 				},
@@ -7776,7 +7776,7 @@ interfaceElement.after(settingsElement);
 				component: 'modss_online_param',
 				param: {
 					name: 'online_but_first',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -7794,7 +7794,7 @@ interfaceElement.after(settingsElement);
 				component: 'modss_online_param',
 				param: {
 					name: 'online_continued',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -7810,7 +7810,7 @@ interfaceElement.after(settingsElement);
 				component: 'modss_online_param',
 				param: {
 					name: 'online_dash',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: false
 				},
 				field: {
@@ -7827,7 +7827,7 @@ interfaceElement.after(settingsElement);
 				component: 'modss_online_param',
 				param: {
 					name: 'filmix_param',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -7853,7 +7853,7 @@ interfaceElement.after(settingsElement);
 				component: 'filmix_param',
 				param: {
 					name: 'filmix_status',
-					type: 'title', //доступно select,input,trigger,title,static
+					type: 'title', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: ''
 				},
 				field: {
@@ -7869,7 +7869,7 @@ interfaceElement.after(settingsElement);
 				component: 'filmix_param',
 				param: {
 					name: 'filmix_token',
-					type: 'input', //доступно select,input,trigger,title,static
+					type: 'input', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					values: '',
 					placeholder: Lampa.Lang.translate('filmix_param_placeholder'),
 					default: ''
@@ -7893,7 +7893,7 @@ interfaceElement.after(settingsElement);
 				component: 'filmix_param',
 				param: {
 					name: 'filmix_add',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: ''
 				},
 				field: {
@@ -7911,7 +7911,7 @@ interfaceElement.after(settingsElement);
       	component: 'modss_online_param',
       	param: {
       		name: 'pub_param',
-      		type: 'static', //доступно select,input,trigger,title,static
+      		type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
       		default: true
       	},
       	field: {
@@ -7936,7 +7936,7 @@ interfaceElement.after(settingsElement);
     		component: 'pub_param',
     		param: {
     			name: 'pub_auth',
-    			type: 'static' //доступно select,input,trigger,title,static
+    			type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
     		},
     		field: {
     			name: ' ',
@@ -7951,7 +7951,7 @@ interfaceElement.after(settingsElement);
     		component: 'pub_param',
     		param: {
     			name: 'pub_auth_add',
-    			type: 'static' //доступно select,input,trigger,title,static
+    			type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
     		},
     		field: {
     			name: Lampa.Lang.translate('filmix_params_add_device') + ' KinoPub',
@@ -7967,11 +7967,11 @@ interfaceElement.after(settingsElement);
     		component: 'modss_online_param',
     		param: {
     			name: 'pub_speed',
-    			type: 'static', //доступно select,input,trigger,title,static
+    			type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
     		},
     		field: {
     			name: 'SpeedTest',
-    			description: 'Выбор лучшего сервера Pub'
+    			description: '袙褘斜芯褉 谢褍褔褕械谐芯 褋械褉胁械褉邪 Pub'
     		},
     		onRender: function (item) {
     			item.on('hover:enter', function(){
@@ -7989,7 +7989,7 @@ interfaceElement.after(settingsElement);
     		component: 'pub_param',
     		param: {
     			name: 'pub_parametrs',
-    			type: 'static' //доступно select,input,trigger,title,static
+    			type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
     		},
     		field: {
     			name: Lampa.Lang.translate('title_settings'),
@@ -8006,7 +8006,7 @@ interfaceElement.after(settingsElement);
     		component: 'pub_param',
     		param: {
     			name: 'pub_source',
-    			type: 'static' //доступно select,input,trigger,title,static
+    			type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
     		},
     		field: {
     			name: Lampa.Lang.translate('params_pub_add_source'),
@@ -8023,7 +8023,7 @@ interfaceElement.after(settingsElement);
 				component: 'pub_param',
 				param: {
 					name: 'pub_del_device',
-					type: 'static' //доступно select,input,trigger,title,static
+					type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 				},
 				field: {
 					name: Lampa.Lang.translate('params_pub_dell_device'),
@@ -8043,7 +8043,7 @@ interfaceElement.after(settingsElement);
     		component: 'pub_param',
     		param: {
     			name: 'pub_clear_tocken',
-    			type: 'static' //доступно select,input,trigger,title,static
+    			type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
     		},
     		field: {
     			name: Lampa.Lang.translate('params_pub_clean_tocken')
@@ -8062,7 +8062,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_title',
-					type: 'title', //доступно select,input,trigger,title,static
+					type: 'title', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -8075,7 +8075,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_fork',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: false
 				},
 				field: {
@@ -8091,7 +8091,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'fork_param',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -8116,7 +8116,7 @@ interfaceElement.after(settingsElement);
 				component: 'fork_param',
 				param: {
 					name: 'forktv_url',
-					type: 'static' //доступно select,input,trigger,title,static
+					type: 'static' //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 				},
 				field: {
 					name: ForkTV.url,
@@ -8131,7 +8131,7 @@ interfaceElement.after(settingsElement);
 				component: 'fork_param',
 				param: {
 					name: 'ForkTV_add',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: ''
 				},
 				field: {
@@ -8151,7 +8151,7 @@ interfaceElement.after(settingsElement);
 				component: 'fork_param',
 				param: {
 					name: 'ForkTV_clear',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: ''
 				},
 				field: {
@@ -8172,7 +8172,7 @@ interfaceElement.after(settingsElement);
 				component: 'fork_param',
 				param: {
 					name: 'ForkTV_clearMac',
-					type: 'static', //доступно select,input,trigger,title,static
+					type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: ''
 				},
 				field: {
@@ -8190,7 +8190,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_radio',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: false
 				},
 				field: {
@@ -8206,7 +8206,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_collection',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: false
 				},
 				field: {
@@ -8223,7 +8223,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_title',
-					type: 'title', //доступно select,input,trigger,title,static
+					type: 'title', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -8234,11 +8234,11 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_snow',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: false
 				},
 				field: {
-					name: 'Снег'
+					name: '小薪械谐'
 				},
 				onChange: function (value) {
 					Modss.snow();
@@ -8248,7 +8248,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_rating',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -8266,7 +8266,7 @@ interfaceElement.after(settingsElement);
 				component: 'settings_modss',
 				param: {
 					name: 'mods_serial_info',
-					type: 'trigger', //доступно select,input,trigger,title,static
+					type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					default: true
 				},
 				field: {
@@ -8283,7 +8283,7 @@ interfaceElement.after(settingsElement);
 					component: 'settings_modss',
 					param: {
 						name: 'mods_butt_back',
-						type: 'trigger', //доступно select,input,trigger,title,static
+						type: 'trigger', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 						default: false
 					},
 					field: {
@@ -8300,7 +8300,7 @@ interfaceElement.after(settingsElement);
 					component: 'settings_modss',
 					param: {
 						name: 'mods_butt_pos',
-						type: 'select', //доступно select,input,trigger,title,static
+						type: 'select', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 						values: {
 							right: Lampa.Lang.translate('buttback_right'),
 							left: Lampa.Lang.translate('buttback_left')
@@ -8329,7 +8329,7 @@ interfaceElement.after(settingsElement);
 				component: 'mods_proxy',
 				param: {
 					name: 'mods_proxy_all',
-					type: 'input', //доступно select,input,trigger,title,static
+					type: 'input', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 					values: '',
 					default: '',
 					placeholder: Lampa.Lang.translate('online_proxy_placeholder')
@@ -8344,7 +8344,7 @@ interfaceElement.after(settingsElement);
 					component: 'mods_proxy',
 					param: {
 						name: 'mods_proxy_' + itm.toLowerCase(),
-						type: 'select', //доступно select,input,trigger,title,static
+						type: 'select', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 						values: {
 							on: Lampa.Lang.translate('params_pub_on'),
 							off: Lampa.Lang.translate('params_pub_off'),
@@ -8360,7 +8360,7 @@ interfaceElement.after(settingsElement);
 						var url = Lampa.Storage.get('onl_mods_proxy_' + itm.toLowerCase());
 						if (url.length > 0) item.find('.settings-param__descr').text(url);
 						if (url.length == 0) item.find('.settings-param__descr').addClass('hide');
-						//вызывается когда срабатывает рендер параметра
+						//胁褘蟹褘胁邪械褌褋褟 泻芯谐写邪 褋褉邪斜邪褌褘胁邪械褌 褉械薪写械褉 锌邪褉邪屑械褌褉邪
 					},
 					onChange: function (value) {
 						if (value == 'url') {
@@ -8393,7 +8393,7 @@ interfaceElement.after(settingsElement);
 					component: 'mods_exit',
 					param: {
 						name: 'close_app',
-						type: 'static', //доступно select,input,trigger,title,static
+						type: 'static', //写芯褋褌褍锌薪芯 select,input,trigger,title,static
 						default: true
 					},
 					field: {
@@ -9153,18 +9153,18 @@ interfaceElement.after(settingsElement);
 		}
 		function formatDate(dateString) {
       var months = [
-        { name: 'января', number: '01' },
-        { name: 'февраля', number: '02' },
-        { name: 'марта', number: '03' },
-        { name: 'апреля', number: '04' },
-        { name: 'мая', number: '05' },
-        { name: 'июня', number: '06' },
-        { name: 'июля', number: '07' },
-        { name: 'августа', number: '08' },
-        { name: 'сентября', number: '09' },
-        { name: 'октября', number: '10' },
-        { name: 'ноября', number: '11' },
-        { name: 'декабря', number: '12' }
+        { name: '褟薪胁邪褉褟', number: '01' },
+        { name: '褎械胁褉邪谢褟', number: '02' },
+        { name: '屑邪褉褌邪', number: '03' },
+        { name: '邪锌褉械谢褟', number: '04' },
+        { name: '屑邪褟', number: '05' },
+        { name: '懈褞薪褟', number: '06' },
+        { name: '懈褞谢褟', number: '07' },
+        { name: '邪胁谐褍褋褌邪', number: '08' },
+        { name: '褋械薪褌褟斜褉褟', number: '09' },
+        { name: '芯泻褌褟斜褉褟', number: '10' },
+        { name: '薪芯褟斜褉褟', number: '11' },
+        { name: '写械泻邪斜褉褟', number: '12' }
       ];
     
       var parts = dateString.split(' ');
@@ -9378,7 +9378,7 @@ interfaceElement.after(settingsElement);
 		gtag('config', 'G-8LVPC3VETR');
 		
 		function guide() {
-			var guide = '<div class="setorrent-checklist"><div class="torrent-checklist__descr">Вас приветствует Guide по использованию и настройке приложения Lampa.<br> Мы пройдём с Вами краткую инструкцию по основным этапам приложения.</div><div class="torrent-checklist__progress-steps">Пройдено 0 из 0</div><div class="torrent-checklist__progress-bar"><div style="width:0"></div></div><div class="torrent-checklist__content"><div class="torrent-checklist__steps hide"><ul class="torrent-checklist__list"><li>Парсер</li><li>Включение парсера</li><li>Плагины</li><li>Добавление плагина</li><li>Установка плагина</li><li>Балансер</li><li>Смена балансера</li><li>Фильтр</li><li>Применение фильтра</li></ul></div><div class="torrent-checklist__infoS"><div class="hide">Откройте Настройки, после перейдите в раздел "Парсер".<hr><img src="'+ Protocol() +'lampa.stream/img/guide/open_parser.jpg"></div><div class="hide">В пункте "Использовать парсер" переведите функцию в положение "Да", после чего в карточке фильма или сериала появится кнопка "Торренты".<hr><img src="'+ Protocol() +'lampa.stream/img/guide/add_parser.jpg"></div><div class="hide">Установка плагинов<hr><img src="'+ Protocol() +'lampa.stream/img/guide/add_plugin.jpg"></div><div class="hide">Для добавления плагинов воспользуйтесь следующими вариантами.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/options_install.jpg"></div><div class="hide">Для добавления плагина, воспользуйтесь списком плагинов<hr><img src="'+ Protocol() +'lampa.stream/img/guide/install_plugin.jpg"></div><div class="hide">Для смены "Онлайн" источника, воспользуйтесь кнопкой Балансер.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/open_balanser.jpg"></div><div class="hide">В случае, если источник не работает (нет подключения к сети) выберете в разделе "Балансер" другой источник.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/balansers_change.jpg"></div><div class="hide">Используйте "Фильтры" для смены перевода и сезона.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/open_filter.jpg"></div><div class="hide">Для смены сезона или озвучки воспользуйтесь пунктами<br>1. Перевод<br>2. Сезон<hr><img src="'+Protocol() +'lampa.stream/img/guide/filters.jpg"></div><div class="hide">Поздравляем! После прохождения краткого гайда, Вы знаете как пользоваться приложением и у Вас должно возникать меньше вопросов</div></div></div><div class="torrent-checklist__footer"><div class="simple-button selector hide back">Назад</div><div class="simple-button selector next">Начать</div><div class="torrent-checklist__next-step"></div></div></div>';
+			var guide = '<div class="setorrent-checklist"><div class="torrent-checklist__descr">袙邪褋 锌褉懈胁械褌褋褌胁褍械褌 Guide 锌芯 懈褋锌芯谢褜蟹芯胁邪薪懈褞 懈 薪邪褋褌褉芯泄泻械 锌褉懈谢芯卸械薪懈褟 Lampa.<br> 袦褘 锌褉芯泄写褢屑 褋 袙邪屑懈 泻褉邪褌泻褍褞 懈薪褋褌褉褍泻褑懈褞 锌芯 芯褋薪芯胁薪褘屑 褝褌邪锌邪屑 锌褉懈谢芯卸械薪懈褟.</div><div class="torrent-checklist__progress-steps">袩褉芯泄写械薪芯 0 懈蟹 0</div><div class="torrent-checklist__progress-bar"><div style="width:0"></div></div><div class="torrent-checklist__content"><div class="torrent-checklist__steps hide"><ul class="torrent-checklist__list"><li>袩邪褉褋械褉</li><li>袙泻谢褞褔械薪懈械 锌邪褉褋械褉邪</li><li>袩谢邪谐懈薪褘</li><li>袛芯斜邪胁谢械薪懈械 锌谢邪谐懈薪邪</li><li>校褋褌邪薪芯胁泻邪 锌谢邪谐懈薪邪</li><li>袘邪谢邪薪褋械褉</li><li>小屑械薪邪 斜邪谢邪薪褋械褉邪</li><li>肖懈谢褜褌褉</li><li>袩褉懈屑械薪械薪懈械 褎懈谢褜褌褉邪</li></ul></div><div class="torrent-checklist__infoS"><div class="hide">袨褌泻褉芯泄褌械 袧邪褋褌褉芯泄泻懈, 锌芯褋谢械 锌械褉械泄写懈褌械 胁 褉邪蟹写械谢 "袩邪褉褋械褉".<hr><img src="'+ Protocol() +'lampa.stream/img/guide/open_parser.jpg"></div><div class="hide">袙 锌褍薪泻褌械 "袠褋锌芯谢褜蟹芯胁邪褌褜 锌邪褉褋械褉" 锌械褉械胁械写懈褌械 褎褍薪泻褑懈褞 胁 锌芯谢芯卸械薪懈械 "袛邪", 锌芯褋谢械 褔械谐芯 胁 泻邪褉褌芯褔泻械 褎懈谢褜屑邪 懈谢懈 褋械褉懈邪谢邪 锌芯褟胁懈褌褋褟 泻薪芯锌泻邪 "孝芯褉褉械薪褌褘".<hr><img src="'+ Protocol() +'lampa.stream/img/guide/add_parser.jpg"></div><div class="hide">校褋褌邪薪芯胁泻邪 锌谢邪谐懈薪芯胁<hr><img src="'+ Protocol() +'lampa.stream/img/guide/add_plugin.jpg"></div><div class="hide">袛谢褟 写芯斜邪胁谢械薪懈褟 锌谢邪谐懈薪芯胁 胁芯褋锌芯谢褜蟹褍泄褌械褋褜 褋谢械写褍褞褖懈屑懈 胁邪褉懈邪薪褌邪屑懈.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/options_install.jpg"></div><div class="hide">袛谢褟 写芯斜邪胁谢械薪懈褟 锌谢邪谐懈薪邪, 胁芯褋锌芯谢褜蟹褍泄褌械褋褜 褋锌懈褋泻芯屑 锌谢邪谐懈薪芯胁<hr><img src="'+ Protocol() +'lampa.stream/img/guide/install_plugin.jpg"></div><div class="hide">袛谢褟 褋屑械薪褘 "袨薪谢邪泄薪" 懈褋褌芯褔薪懈泻邪, 胁芯褋锌芯谢褜蟹褍泄褌械褋褜 泻薪芯锌泻芯泄 袘邪谢邪薪褋械褉.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/open_balanser.jpg"></div><div class="hide">袙 褋谢褍褔邪械, 械褋谢懈 懈褋褌芯褔薪懈泻 薪械 褉邪斜芯褌邪械褌 (薪械褌 锌芯写泻谢褞褔械薪懈褟 泻 褋械褌懈) 胁褘斜械褉械褌械 胁 褉邪蟹写械谢械 "袘邪谢邪薪褋械褉" 写褉褍谐芯泄 懈褋褌芯褔薪懈泻.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/balansers_change.jpg"></div><div class="hide">袠褋锌芯谢褜蟹褍泄褌械 "肖懈谢褜褌褉褘" 写谢褟 褋屑械薪褘 锌械褉械胁芯写邪 懈 褋械蟹芯薪邪.<hr><img src="'+ Protocol() +'lampa.stream/img/guide/open_filter.jpg"></div><div class="hide">袛谢褟 褋屑械薪褘 褋械蟹芯薪邪 懈谢懈 芯蟹胁褍褔泻懈 胁芯褋锌芯谢褜蟹褍泄褌械褋褜 锌褍薪泻褌邪屑懈<br>1. 袩械褉械胁芯写<br>2. 小械蟹芯薪<hr><img src="'+Protocol() +'lampa.stream/img/guide/filters.jpg"></div><div class="hide">袩芯蟹写褉邪胁谢褟械屑! 袩芯褋谢械 锌褉芯褏芯卸写械薪懈褟 泻褉邪褌泻芯谐芯 谐邪泄写邪, 袙褘 蟹薪邪械褌械 泻邪泻 锌芯谢褜蟹芯胁邪褌褜褋褟 锌褉懈谢芯卸械薪懈械屑 懈 褍 袙邪褋 写芯谢卸薪芯 胁芯蟹薪懈泻邪褌褜 屑械薪褜褕械 胁芯锌褉芯褋芯胁</div></div></div><div class="torrent-checklist__footer"><div class="simple-button selector hide back">袧邪蟹邪写</div><div class="simple-button selector next">袧邪褔邪褌褜</div><div class="torrent-checklist__next-step"></div></div></div>';
 			Lampa.Template.add('guide', guide);
 			var temp = Lampa.Template.get('guide');
 			var descr = temp.find('.torrent-checklist__descr');
@@ -9394,7 +9394,7 @@ interfaceElement.after(settingsElement);
 			function makeStep(step) {
 				step ? position-- : position++;
 				var total = list.length;
-				comp.text('Пройдено ' + Math.max(0, position) + ' из ' + total);
+				comp.text('袩褉芯泄写械薪芯 ' + Math.max(0, position) + ' 懈蟹 ' + total);
 				if (position > list.length) {
 					Lampa.Modal.close();
 					Lampa.Controller.toggle('content');
@@ -9406,7 +9406,7 @@ interfaceElement.after(settingsElement);
 					info.eq(position).removeClass('hide');
 					var next_step = list.eq(position + 1);
 					prog.css('width', Math.round(position / total * 100) + '%');
-					btn.text(position < total ? 'Далее' : 'Завершить');
+					btn.text(position < total ? '袛邪谢械械' : '袟邪胁械褉褕懈褌褜');
 					if (position > 0) btn_back.removeClass('hide');
 					next.text(next_step.length ? '- ' + next_step.text() : '');
 				}
@@ -9425,7 +9425,7 @@ interfaceElement.after(settingsElement);
 				if (position > 0) makeStep(true);
 			});
 			Lampa.Modal.open({
-				title: 'Гайд по использованию',
+				title: '袚邪泄写 锌芯 懈褋锌芯谢褜蟹芯胁邪薪懈褞',
 				html: temp,
 				size: 'medium',
 				mask: true
