@@ -13,7 +13,7 @@ Store - https://lat5.github.io/pl/Store - https://skaztv.online/store.js - Ма�
 HotKeys - https://lat5.github.io/pl/HotKeys - https://nnmdd.github.io/lampa_hotkeys/hotkeys.js - Горячие клавиши 8, 5, 0
 Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
 Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
-MobileMod - https://lat5.github.io/pl/MobileMod - nb557.github.io/pligins/not_mobile.js - Режим смартфона
+NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligins/not_mobile.js - Выключение режима смартфона
 
 [Торрент]
 CUBTorrent - https://lat5.github.io/pl/CUBTorrent - http://cub.red/plugin/etor - Парсер торрентов от CUB
@@ -26,4 +26,4 @@ SkazTV - https://lat5.github.io/pl/SkazTV -  - Телевидение by Skaz
 Stream - https://lat5.github.io/pl/Stream - http://arkmv.ru/vod - Доп для просмотра фильмов
 
 [Тест]
-Вывод Lampa.Storage - https://lat5.github.io/pl/test -  - Тестирование вывода данных
+Вывод Lampa.Storage - https://lat5.github.io/pl/test - https://lat5.github.io/pl/test - Тестирование вывода данных
