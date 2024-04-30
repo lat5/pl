@@ -137,16 +137,315 @@
       var result = {
         "source": SOURCE_NAME,
         "type": type,
-        "id": SOURCE_NAME + '_' + kinopoisk_id,
+        "kinopoisk_id": kinopoisk_id,
         "title": title,
         "original_title": original_title,
-        "overview": elem.description || elem.shortDescription || '',
-        "img": elem.posterUrlPreview || elem.posterUrl || '',
-        "background_image": elem.coverUrl || elem.posterUrl || elem.posterUrlPreview || '',
-        "genres": elem.genres && elem.genres.map(function (e) {
-          return {
-            "id": e.genre && genres_map[e.genre] || 0,
-            "name": e.genre,
-            "url": ''
-          };
-        })
+        "year": elem.year || 0,
+        "genres": elem.genres || [],
+        "countries": elem.countries || [],
+        "description": elem.description || '',
+        "rating": elem.rating || 0,
+        "poster": elem.posterUrl || '',
+        "runtime": elem.filmLength || 0,
+        "kinopoisk_rating": elem.rating || 0,
+        "kinopoisk_votes": elem.ratingVoteCount || 0,
+        "imdb_rating": elem.imdbRating || 0,
+        "imdb_votes": elem.imdbVoteCount || 0,
+        "kp_rating": elem.kpRating || 0,
+        "kp_votes": elem.kpVoteCount || 0,
+        "world_art_rating": elem.worldArtRating || 0,
+        "world_art_votes": elem.worldArtVoteCount || 0,
+        "russia_rating": elem.russiaRating || 0,
+        "russia_votes": elem.russiaVoteCount || 0,
+        "film_studio": elem.filmStudio || '',
+        "director": elem.director || '',
+        "actors": elem.actors || [],
+        "series_count": elem.seriesCount || 0,
+        "status": elem.status || '',
+        "age_limit": elem.ratingAgeLimits || 0,
+        "related": []
+      };
+
+      if (elem.restrictions) {
+        for (var _i = 0, _Object$entries = Object.entries(elem.restrictions); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
+
+          if (result[key]) result[key] += ', ';
+          result[key] += value;
+        }
+      }
+
+      return result;
+    }
+
+    function searchLocal(ids, oncomplite) {
+      var items = [];
+      var count = ids.length;
+      var complite = 0;
+
+      function onGet(json) {
+        if (json) {
+          if (Array.isArray(json)) {
+            items = items.concat(json);
+          } else {
+            items.push(json);
+          }
+        }
+
+        complite++;
+
+        if (complite >= count) {
+          oncomplite(items);
+        }
+      }
+
+      for (var _i2 = 0, _ids = ids; _i2 < _ids.length; _i2++) {
+        var id = _ids[_i2];
+        var cache_key = 'film' + id;
+        var json = getCache(cache_key);
+
+        if (json) {
+          onGet(json);
+        } else {
+          get('getFilmById/' + id, function (json) {
+            if (json) {
+              setCache(cache_key, json);
+            }
+
+            onGet(json);
+          }, function () {
+            onGet(null);
+          });
+        }
+      }
+    }
+
+    function searchAll(ids, oncomplite) {
+      var items = [];
+      var count = ids.length;
+      var complite = 0;
+
+      function onGet(json) {
+        if (json) {
+          if (Array.isArray(json)) {
+            items = items.concat(json);
+          } else {
+            items.push(json);
+          }
+        }
+
+        complite++;
+
+        if (complite >= count) {
+          oncomplite(items);
+        }
+      }
+
+      var compliteLocal = function compliteLocal() {
+        searchLocal(ids, onGet);
+      };
+
+      for (var _i3 = 0, _ids2 = ids; _i3 < _ids2.length; _i3++) {
+        var id = _ids2[_i3];
+        var cache_key = 'film' + id;
+        var json = getCache(cache_key);
+
+        if (json) {
+          onGet(json);
+        } else {
+          get('getFilmById/' + id, function (json) {
+            if (json) {
+              setCache(cache_key, json);
+            }
+
+            onGet(json);
+          }, function () {
+            onGet(null);
+          });
+        }
+      }
+
+      getCompliteIf(complite < count, 'getTop', compliteLocal);
+    }
+
+    function searchByIds(ids, oncomplite) {
+      if (ids.length <= 5) {
+        searchAll(ids, oncomplite);
+      } else {
+        searchLocal(ids, oncomplite);
+      }
+    }
+
+    function searchTop(type, page, oncomplite) {
+      var cache_key = 'top' + type + page;
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getTop?type=' + type + '&page=' + page, function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchById(type, id, oncomplite) {
+      var cache_key = 'film' + id;
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getFilm?filmId=' + id, function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function search(type, query, page, oncomplite) {
+      var cache_key = type + 'Search' + query + page;
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('search' + type + '?keyword=' + encodeURIComponent(query) + '&page=' + page, function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchSuggest(query, oncomplite) {
+      var cache_key = 'suggest' + query;
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('searchSuggestions?keyword=' + encodeURIComponent(query), function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchGenres(oncomplite) {
+      var cache_key = 'genres';
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getGenres', function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchCountries(oncomplite) {
+      var cache_key = 'countries';
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getCountries', function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchStudios(oncomplite) {
+      var cache_key = 'studios';
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getStudios', function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function getSettings(oncomplite) {
+      var cache_key = 'settings';
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getSettings', function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchActors(oncomplite) {
+      var cache_key = 'actors';
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('getActors', function (json) {
+          setCache(cache_key,json);
+          oncomplite(json);
+        });
+      }
+    }
+
+    function searchRelated(type, id, oncomplite) {
+      var cache_key = 'related' + type + id;
+      var json = getCache(cache_key);
+
+      if (json) {
+        setTimeout(function () {
+          oncomplite(json);
+        }, 10);
+      } else {
+        getComplite('related?type=' + type + '&id=' + id, function (json) {
+          setCache(cache_key, json);
+          oncomplite(json);
+        });
+      }
+    }
+  })();
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <router-view/>
+  </div>
+</body>
+
+      </html>
+          
