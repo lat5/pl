@@ -19,6 +19,7 @@ NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligin
 CUBTorrent - https://lat5.github.io/pl/CUBTorrent - http://cub.red/plugin/etor - Парсер торрентов от CUB
 Tracks - https://lat5.github.io/pl/Tracks - http://cub.red/plugin/tracks - Аудиодорожки в торрентах
 PubParsers - https://lat5.github.io/pl/PubParsers - https://lampame.github.io/main/pubtorr/pubtorr.js - Отображение публичных парсеров
+TorrentInfo - https://lat5.github.io/pl/TorrentInfo - https://plugin.rootu.top/ts-preload.js - Информация о торренте при предзагрузке
 
 [Онлайн просмотр]
 OnlineMod - https://lat5.github.io/pl/online_mod - https://nb557.github.io/plugins/online_mod.js - Плагин для просмотра фильмов 
