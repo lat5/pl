@@ -14,6 +14,7 @@ HotKeys - https://lat5.github.io/pl/HotKeys - https://nnmdd.github.io/lampa_hotk
 Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
 Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
 NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligins/not_mobile.js - Выключение режима смартфона
+RemoteType - https://lat5.github.io/pl/RemoteType - https://nemiroff.github.io/lampa/select_weapon.js - Настройка типа управления
 
 [Торрент]
 CUBTorrent - https://lat5.github.io/pl/CUBTorrent - http://cub.red/plugin/etor - Парсер торрентов от CUB
