@@ -39,7 +39,10 @@
 		});
 			
 	}
-	if (!window.otzyv_plugin) startPlugin();
+	if (!window.otzyv_plugin)
+        {
+          if(!object.source== 'Кинопоиск') startPlugin();
+	}
 				
 })();
 
