@@ -39,13 +39,12 @@
 		});
 			
 	}
-	if (!window.otzyv_plugin)
-        {
-          if(Storage.field('source') == 'cub' || Storage.field('source') == 'tmdb' || Storage.field('source') == 'imdb') 
-	     {
-		startPlugin();
-	     }
-	}
+	if (!window.otzyv_plugin) {
+    if (Lampa.Storage.field('source') == 'cub' || Lampa.Storage.field('source') == 'tmdb' || Lampa.Storage.field('source') == 'imdb') {
+        startPlugin();
+    }
+}
+
 				
 })();
 
