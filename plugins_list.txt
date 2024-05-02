@@ -24,6 +24,7 @@ PubParsers - https://lat5.github.io/pl/PubParsers -  - Отображение п
 OnlineMod - https://lat5.github.io/pl/online_mod - https://nb557.github.io/plugins/online_mod.js - Плагин для просмотра фильмов 
 SkazTV - https://lat5.github.io/pl/SkazTV - https://skaz.tv/tv.js - Телевидение by Skaz
 Stream - https://lat5.github.io/pl/Stream - http://arkmv.ru/vod - Доп для просмотра фильмов
+Showy - https://lat5.github.io/pl/Showy - http://showy.online/m.js - Онлайн просмотр, есть 4K
 
 [Тест]
 Вывод Lampa.Storage - https://lat5.github.io/pl/test - https://lat5.github.io/pl/test - Тестирование вывода данных
