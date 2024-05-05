@@ -66,9 +66,7 @@
                         nameCell.innerText = name;
                         copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                         urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                        // Проверяем работоспособность ссылки и устанавливаем соответствующий кружок
-                        sourceCell.innerHTML = '<div class="status-circle" style="background-color: ' + (checkLinkStatus(source) ? 'green' : 'red') + '"></div>' +
-                                                '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
+                        sourceCell.innerHTML = source === '-' ? '-' : '<span class="status-circle" style="background-color: ' + (checkLinkStatus(source) ? 'green' : 'red') + '"></span><a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
                         downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" class="download-button">Скачать</button>' : '-';
                         descriptionCell.innerText = description === '-' ? '-' : description;
                         
@@ -83,14 +81,6 @@
                     }
                 }
             });
-        }
-
-        // Функция для проверки работоспособности ссылки
-        function checkLinkStatus(link) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('HEAD', link, false);
-            xhr.send();
-            return xhr.status === 200;
         }
 
         function copyToClipboard(url) {
@@ -121,6 +111,13 @@
             };
             xhr.open('GET', url, true);
             xhr.send();
+        }
+
+        function checkLinkStatus(url) {
+            var http = new XMLHttpRequest();
+            http.open('HEAD', url, false);
+            http.send();
+            return http.status !== 404;
         }
 
         window.onload = loadPlugins;
@@ -164,12 +161,12 @@
             text-overflow: ellipsis;
         }
 
-        /* Стиль для кружка */
+        /* Стиль для круглого кружка */
         .status-circle {
+            display: inline-block;
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            display: inline-block;
             margin-right: 5px;
         }
     </style>
