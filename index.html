@@ -14,7 +14,6 @@
                     if (xhr.status === 200) {
                         var pluginsData = xhr.responseText;
                         parsePlugins(pluginsData);
-                        checkLinks();
                     } else {
                         console.error('Не удалось загрузить данные из файла plugins_list.txt');
                     }
@@ -66,8 +65,10 @@
                         var descriptionCell = row.insertCell(5);
                         nameCell.innerText = name;
                         copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                        urlCell.innerHTML = '<a href="' + url + '" id="urlLink">' + url + '</a>';
-                        sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" id="sourceLink">' + source + '</a>';
+                        urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
+                        // Проверяем работоспособность ссылки и устанавливаем соответствующий кружок
+                        sourceCell.innerHTML = '<div class="status-circle" style="background-color: ' + (checkLinkStatus(source) ? 'green' : 'red') + '"></div>' +
+                                                '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
                         downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" class="download-button">Скачать</button>' : '-';
                         descriptionCell.innerText = description === '-' ? '-' : description;
                         
@@ -84,33 +85,12 @@
             });
         }
 
-        function checkLinks() {
-            var urlLink = document.getElementById('urlLink');
-            var sourceLink = document.getElementById('sourceLink');
-
-            // Проверяем ссылку и устанавливаем соответствующий класс для кружка
-            checkLinkValidity(urlLink);
-            checkLinkValidity(sourceLink);
-        }
-
-        function checkLinkValidity(linkElement) {
-            if (linkElement) {
-                var url = linkElement.href;
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            // Ссылка работает, устанавливаем зеленый кружок
-                            linkElement.innerHTML = '🟢 ' + linkElement.innerHTML;
-                        } else {
-                            // Ссылка не работает, устанавливаем красный кружок
-                            linkElement.innerHTML = '🔴 ' + linkElement.innerHTML;
-                        }
-                    }
-                };
-                xhr.open('HEAD', url, true);
-                xhr.send();
-            }
+        // Функция для проверки работоспособности ссылки
+        function checkLinkStatus(link) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', link, false);
+            xhr.send();
+            return xhr.status === 200;
         }
 
         function copyToClipboard(url) {
@@ -182,6 +162,15 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Стиль для кружка */
+        .status-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
         }
     </style>
 </head>
