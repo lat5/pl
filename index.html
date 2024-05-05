@@ -66,7 +66,7 @@
                         nameCell.innerText = name;
                         copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
                         urlCell.innerHTML = '<a href="' + url + '">' + url + '</a>';
-                        sourceCell.innerHTML = source === '-' ? '-' : '<span class="status-circle" style="background-color: ' + (checkLinkStatus(source) ? 'green' : 'red') + '"></span><a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
+                        sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
                         downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" class="download-button">Скачать</button>' : '-';
                         descriptionCell.innerText = description === '-' ? '-' : description;
                         
@@ -113,13 +113,6 @@
             xhr.send();
         }
 
-        function checkLinkStatus(url) {
-            var http = new XMLHttpRequest();
-            http.open('HEAD', url, false);
-            http.send();
-            return http.status !== 404;
-        }
-
         window.onload = loadPlugins;
     </script>
     <style>
@@ -160,15 +153,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
-        /* Стиль для круглого кружка */
-        .status-circle {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
     </style>
 </head>
 <body>
@@ -185,4 +169,4 @@
 </table>
 
 </body>
-</html>
+</html> 
