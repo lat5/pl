@@ -14,6 +14,7 @@
                     if (xhr.status === 200) {
                         var pluginsData = xhr.responseText;
                         parsePlugins(pluginsData);
+                        checkLinks();
                     } else {
                         console.error('Не удалось загрузить данные из файла plugins_list.txt');
                     }
@@ -65,11 +66,11 @@
                         var descriptionCell = row.insertCell(5);
                         nameCell.innerText = name;
                         copyCell.innerHTML = '<button onclick="copyToClipboard(\'' + url + '\')">Копировать ссылку</button>';
-                        urlCell.innerHTML = '<span class="link-status"></span> <a href="' + url + '">' + url + '</a>';
-                        sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + source + '</a>';
+                        urlCell.innerHTML = '<a href="' + url + '" id="urlLink">' + url + '</a>';
+                        sourceCell.innerHTML = source === '-' ? '-' : '<a href="' + source + '" id="sourceLink">' + source + '</a>';
                         downloadCell.innerHTML = url ? '<button onclick="downloadFile(\'' + name + '\', \'' + url + '\')" class="download-button">Скачать</button>' : '-';
                         descriptionCell.innerText = description === '-' ? '-' : description;
-
+                        
                         // Центрирование дефиса во всех столбцах
                         var cells = [nameCell, copyCell, urlCell, sourceCell, downloadCell, descriptionCell];
                         cells.forEach(function(cell) {
@@ -81,9 +82,35 @@
                     }
                 }
             });
+        }
 
-            // После загрузки всех плагинов проверяем работоспособность ссылок
-            checkLinkAvailability();
+        function checkLinks() {
+            var urlLink = document.getElementById('urlLink');
+            var sourceLink = document.getElementById('sourceLink');
+
+            // Проверяем ссылку и устанавливаем соответствующий класс для кружка
+            checkLinkValidity(urlLink);
+            checkLinkValidity(sourceLink);
+        }
+
+        function checkLinkValidity(linkElement) {
+            if (linkElement) {
+                var url = linkElement.href;
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Ссылка работает, устанавливаем зеленый кружок
+                            linkElement.innerHTML = '🟢 ' + linkElement.innerHTML;
+                        } else {
+                            // Ссылка не работает, устанавливаем красный кружок
+                            linkElement.innerHTML = '🔴 ' + linkElement.innerHTML;
+                        }
+                    }
+                };
+                xhr.open('HEAD', url, true);
+                xhr.send();
+            }
         }
 
         function copyToClipboard(url) {
@@ -114,33 +141,6 @@
             };
             xhr.open('GET', url, true);
             xhr.send();
-        }
-
-        function checkLinkAvailability() {
-            var links = document.querySelectorAll('#pluginsTable a');
-            links.forEach(function(link) {
-                var url = link.getAttribute('href');
-                var statusSpan = link.previousElementSibling;
-                var img = document.createElement('img');
-                img.src = 'https://icon-library.com/images/green-circle-icon/green-circle-icon-3.jpg'; // Измените путь к зелёному кружку
-                img.style.width = '15px';
-                img.style.height = '15px';
-                img.style.verticalAlign = 'middle';
-
-                var xhr = new XMLHttpRequest();
-                xhr.open('HEAD', url, true);
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            statusSpan.appendChild(img);
-                        } else {
-                            img.src = 'https://icon-library.com/images/red-circle-icon/red-circle-icon-18.jpg'; // Измените путь к красному кружку
-                            statusSpan.appendChild(img);
-                        }
-                    }
-                };
-                xhr.send();
-            });
         }
 
         window.onload = loadPlugins;
