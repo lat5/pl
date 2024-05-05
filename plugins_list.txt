@@ -29,4 +29,4 @@ Stream - https://lat5.github.io/pl/Stream - http://arkmv.ru/vod - Доп для 
 Showy - https://lat5.github.io/pl/Showy - http://showy.online/m.js - Онлайн просмотр, есть 4K
 
 [Тест]
-Вывод Lampa.Storage - https://lat5.github.io/pl/test - https://lat5.github.io/pl/test - Тестирование вывода данных
+Вывод Lampa.Storage - https://lat5.github.io/pl/test00 - https://lat5.github.io/pl/test - Тестирование вывода данных
