@@ -188,16 +188,16 @@ Lampa.SettingsApi.addComponent({
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.red/plugin/tmdb-proxy', 'TMDB Proxy', '@lampa', 'TMDB');
+							itemON('https://lat5.github.io/pl/TMDBProxy', 'TMDB Proxy', '@lampa', 'TMDB');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.red/plugin/tmdb-proxy";
+							var pluginToRemoveUrl = "https://lat5.github.io/pl/TMDBProxy";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy')
+						var myResult = checkPlugin('https://lat5.github.io/pl/TMDBProxy')
 						setTimeout(function() {	
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -226,15 +226,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://newtv.mail66.org/o.js', 'Отзывы', '@elenatv99', 'Feedback');
+							itemON('https://lat5.github.io/pl/Reviews', 'Отзывы', '@elenatv99', 'Feedback');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://newtv.mail66.org/o.js";
+							var pluginToRemoveUrl = "https://lat5.github.io/pl/Reviews";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('http://newtv.mail66.org/o.js')
+						var myResult = checkPlugin('https://lat5.github.io/pl/Reviews')
 						setTimeout(function() {	
 							$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -263,15 +263,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://andreyurl54.github.io/diesel5/tricks.js', 'Приятные Мелочи', '@AndreyURL54', 'Tricks');
+							itemON('https://lat5.github.io/pl/Tricks', 'Приятные Мелочи', '@AndreyURL54', 'Tricks');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://andreyurl54.github.io/diesel5/tricks.js";
+							var pluginToRemoveUrl = "https://lat5.github.io/pl/Tricks";
 							deletePlugin(pluginToRemoveUrl);
 						}	
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()
-						var myResult = checkPlugin('https://andreyurl54.github.io/diesel5/tricks.js')
+						var myResult = checkPlugin('https://lat5.github.io/pl/Tricks')
 						setTimeout(function() {	
 							$('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -300,15 +300,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://nb557.github.io/plugins/rating.js', 'Рейтинг КиноПоиск и IMDB', '@t_anton', 'Rating');
+							itemON('https://lat5.github.io/pl/Rating', 'Рейтинг КиноПоиск и IMDB', '@t_anton', 'Rating');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://nb557.github.io/plugins/rating.js";
+							var pluginToRemoveUrl = "https://lat5.github.io/pl/Rating";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://nb557.github.io/plugins/rating.js')
+						var myResult = checkPlugin('https://lat5.github.io/pl/Rating')
 						setTimeout(function() {	
 							$('div[data-name="Rating"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
