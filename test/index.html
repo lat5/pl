@@ -250,15 +250,15 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://lat5.github.io/pl/Reviews', 'Отзывы', '@elenatv99', 'Feedback');
+							itemON(reviews_url, 'Отзывы', '@elenatv99', 'Feedback');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://lat5.github.io/pl/Reviews";
+							var pluginToRemoveUrl = reviews_url;
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://lat5.github.io/pl/Reviews')
+						var myResult = checkPlugin(reviews_url)
 						setTimeout(function() {	
 							$('div[data-name="Feedback"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -287,15 +287,15 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://lat5.github.io/pl/Tricks', 'Приятные Мелочи', '@AndreyURL54', 'Tricks');
+							itemON(tricks_url, 'Приятные Мелочи', '@AndreyURL54', 'Tricks');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://lat5.github.io/pl/Tricks";
+							var pluginToRemoveUrl = tricks_url;
 							deletePlugin(pluginToRemoveUrl);
 						}	
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900');  hideInstall()
-						var myResult = checkPlugin('https://lat5.github.io/pl/Tricks')
+						var myResult = checkPlugin(tricks_url)
 						setTimeout(function() {	
 							$('div[data-name="Tricks"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -324,15 +324,15 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://lat5.github.io/pl/Rating', 'Рейтинг КиноПоиск и IMDB', '@t_anton', 'Rating');
+							itemON(rating_url, 'Рейтинг КиноПоиск и IMDB', '@t_anton', 'Rating');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://lat5.github.io/pl/Rating";
+							var pluginToRemoveUrl = rating_url;
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://lat5.github.io/pl/Rating')
+						var myResult = checkPlugin(rating_url)
 						setTimeout(function() {	
 							$('div[data-name="Rating"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
