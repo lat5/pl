@@ -164,45 +164,45 @@
     Lampa.Lang.add({
 	ts_preload_preload: {
 	    en: 'Preload',
-	    ru: 'ÐŸÑ€ÐµÐ´Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°',
-	    be: 'ÐŸÐµÑ€Ð°Ð´Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°',
-	    uk: 'ÐŸÐµÑ€ÐµÐ´Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñ',
-	    pt: 'PrÃ©-carregar',
-	    zh: 'é¢„åŠ è½½'
+	    ru: 'Предзагрузка',
+	    be: 'Перадзагрузка',
+	    uk: 'Передзавантаження',
+	    pt: 'Pré-carregar',
+	    zh: '预加载'
 	},
 	ts_preload_speed: {
 	    en: 'Speed',
-	    ru: 'Ð¡ÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸',
-	    be: 'Ð¥ÑƒÑ‚ÐºÐ°ÑÑ†ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÑ–',
-	    uk: 'Ð¨Ð²Ð¸Ð´ÐºÑ–ÑÑ‚ÑŒ',
+	    ru: 'Скорость загрузки',
+	    be: 'Хуткасць загрузкі',
+	    uk: 'Швидкість',
 	    pt: 'Velocidade',
-	    zh: 'é€Ÿåº¦'
+	    zh: '速度'
 	},
 	ts_preload_seeds: {
 	    en: 'seeds',
-	    ru: 'Ñ€Ð°Ð·Ð´Ð°ÑŽÑ‚',
-	    be: 'Ñ€Ð°Ð·Ð´Ð°ÑŽÑ†ÑŒ',
-	    uk: 'Ñ€Ð¾Ð·Ð´Ð°ÑŽÑ‚ÑŒ',
+	    ru: 'раздают',
+	    be: 'раздаюць',
+	    uk: 'роздають',
 	    pt: 'entregam',
-	    zh: 'ç§å­æ•°'
+	    zh: '种子数'
 	},
 	ts_preload_peers: {
 	    en: 'Peers',
-	    ru: 'ÐŸÐ¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ð»Ð¸ÑÑŒ',
-	    be: 'ÐŸÐ°Ð´ÐºÐ»ÑŽÑ‡Ñ‹Ð»Ñ–ÑÑ',
-	    uk: 'ÐŸÑ–Ð´ÐºÐ»ÑŽÑ‡Ð¸Ð»Ð¸ÑÑ',
+	    ru: 'Подключились',
+	    be: 'Падключыліся',
+	    uk: 'Підключилися',
 	    pt: 'Conectado',
-	    zh: 'è¿žæŽ¥æ•°'
+	    zh: '连接数'
 	}
     });
     function tsIP(){
-	// Ð”Ð»Ñ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ¸ Ð²ÐµÑ€ÑÑÐ¸Ð¸ 1.6.5
+	// Для поддержки верссии 1.6.5
 	return (!!Lampa.Torserver && !!Lampa.Torserver.ip)
 	    ? Lampa.Torserver.ip()
 	    : Lampa.Storage.get(Lampa.Storage.field('torrserver_use_link') === 'two' ? 'torrserver_url_two' : 'torrserver_url');
     }
     if (!!Lampa.Torserver && !!Lampa.Torserver.stream && !!Lampa.Torserver.url) {
-	// Ð”Ð»Ñ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð»Ð°Ð¼Ð¿Ð¾Ð²Ð¾Ð¹ Ð¿Ñ€ÐµÐ´Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸, Ñ„Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÐ¼ ÑÑÑ‹Ð»ÐºÑƒ Ð±ÐµÐ· &preload
+	// Для отключения ламповой предзагрузки, формируем ссылку без &preload
 	Lampa.Torserver.stream = function(path, hash, id) {
 	    return Lampa.Torserver.url() + '/stream/'+ encodeURIComponent(path.split('\\').pop().split('/').pop()) +'?link=' + hash + '&index=' + id + '&play'
 	}
@@ -253,11 +253,11 @@
 	    && data.url
 	    && tsIP()
 	    && data.url.indexOf(tsIP()) > -1
-	    && ( /* Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð° Ð¾Ð¿Ñ†Ð¸Ñ Ð¿Ð»ÐµÐµÑ€Ð° "ÐÐ°Ñ‡Ð°Ñ‚ÑŒ Ñ Ð½Ð°Ñ‡Ð°Ð»Ð°" Ð¸Ð»Ð¸ Ñ‚Ð°Ð¹Ð¼ÐºÐ¾Ð´ Ð¼ÐµÐ½ÑŒÑˆÐµ Ð¼Ð¸Ð½ÑƒÑ‚Ñ‹ */
+	    && ( /* Установлена опция плеера "Начать с начала" или таймкод меньше минуты */
 		Lampa.Storage.field('player_timecode') === 'again'
 		|| !data.timeline || !data.timeline.time
 		|| parseFloat('0' + data.timeline.time) < 60
-		|| true // nikk Ð³Ð¾Ð²Ð¾Ñ€Ð¸Ñ‚ Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ‚ÑŒ, ÐµÑÐ»Ð¸ Ñ‡Ñ‚Ð¾ ÐµÑÑ‚ÑŒ ÐºÐ½Ð¾Ð¿ÐºÐ° Ð·Ð°Ð¿ÑƒÑÐºÐ° Ð¿Ð»ÐµÐµÑ€Ð° (Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð½ÑƒÐ¶Ð½Ð° Ð¾Ð¿Ñ†Ð¸Ñ)
+		|| true // nikk говорит включать, если что есть кнопка запуска плеера (возможно нужна опция)
 	    )
 	) preload(data);
 	else lampaPlay(data);
@@ -330,7 +330,7 @@
 		player.play();
 	    }
 	}
-	network.timeout(1800 * 1000); /* 30 Ð¼Ð¸Ð½ÑƒÑ‚ Ð½Ð° Ð¿Ñ€ÐµÐ´Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÑƒ (Ð´Ð»Ñ Ð¾ÑÐ¾Ð±Ð¾ ÑƒÐ¿Ð¾Ñ€Ð¾Ñ‚Ñ‹Ñ… :D) */
+	network.timeout(1800 * 1000); /* 30 минут на предзагрузку (для особо упоротых :D) */
 	network.silent(u.clearUrl + '&preload', play, play);
 	network.timeout(2000);
 	var stat = function(data) {
