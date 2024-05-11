@@ -6,6 +6,7 @@ Rating - https://lat5.github.io/pl/Rating - https://nb557.github.io/plugins/rati
 Reviews - https://lat5.github.io/pl/Reviews - http://newtv.mail66.org/o.js - Рецензии из КиноПоиска
 TMDBProxy - https://lat5.github.io/pl/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
 Kinopoisk - https://lat5.github.io/pl/Kinopoisk - https://nb557.github.io/plugins/kp_source.js - Добавление Кинопоиска в источники
+Comments - https://lat5.github.io/pl/Comments - https://bdvburik.github.io/rezkacomment.js
 
 [Интерфейс]
 Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
