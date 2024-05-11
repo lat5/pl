@@ -21,7 +21,7 @@ HotKeys - https://lat5.github.io/pl/HotKeys - https://nnmdd.github.io/lampa_hotk
 RemoteType - https://lat5.github.io/pl/RemoteType - https://nemiroff.github.io/lampa/select_weapon.js - Настройка типа управления
 
 [Торрент]
-CUBTorrent - https://lat5.github.io/pl/CUBTorrent - http://cub.red/plugin/etor - Парсер торрентов от CUB
+Etor - https://lat5.github.io/pl/Etor - http://cub.red/plugin/etor - Торренты в настройках
 Tracks - https://lat5.github.io/pl/Tracks - http://cub.red/plugin/tracks - Аудиодорожки в торрентах
 PubParsers - https://lat5.github.io/pl/PubParsers - https://lampame.github.io/main/pubtorr/pubtorr.js - Отображение публичных парсеров
 TorrentInfo - https://lat5.github.io/pl/TorrentInfo - https://plugin.rootu.top/ts-preload.js - Информация о торренте при предзагрузке
