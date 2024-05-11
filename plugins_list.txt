@@ -12,6 +12,7 @@ Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interfac
 Weather - https://lat5.github.io/pl/Weather - https://bylampa.github.io/weather.js - Отображение погоды
 Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
 NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligins/not_mobile.js - Выключение режима смартфона
+Radio - https://lat5.github.io/pl/Radio - https://nemiroff.github.io/lampa/rr.js - Радио Record 320kbps
 
 [Настройки]
 Tricks - https://lat5.github.io/pl/Tricks - https://andreyurl54.github.io/diesel5/tricks.js - "Приятные мелочи" в настройках
