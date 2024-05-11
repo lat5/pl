@@ -2,18 +2,17 @@
   ("use strict");
 
   let www = "<hr>";
-  let id = null;
+  let urlEndTMDB = "?language=en-US&api_key=4ef0d7355d9ffb5151e987764708ce96";
   let year;
 
-  let num;
-  let kp_prox = "https://cors.kp556.workers.dev:8443/";
-  let url = "https://hdrezka.website/ajax/get_comments/?t=1714093694732&news_id=";
+  let kp_prox = "https://cors.bwa.workers.dev/";
+  let url = "https://rezka.ag/ajax/get_comments/?t=1714093694732&news_id=";
 
   // Функция для поиска на сайте hdrezka
   async function searchRezka(name, ye) {
     let fc = await fetch(
       kp_prox +
-        "https://hdrezka.website/search/?do=search&subaction=search&q=" +
+        "https://hdrezka.ag/search/?do=search&subaction=search&q=" +
         name +
         (ye ? "+" + ye : ""),
       {
@@ -36,9 +35,7 @@
     let enTitle;
 
     await fetch(
-      "https://api.themoviedb.org/3/movie/" +
-        id +
-        "?language=en-US&api_key=4ef0d7355d9ffb5151e987764708ce96",
+      kp_prox + "https://api.themoviedb.org/3/movie/" + id + urlEndTMDB,
       {
         method: "GET",
         headers: {
@@ -48,22 +45,17 @@
     )
       .then((response) => response.json())
       .then((data) => {
-        if (data.first_air_date) {
-          url =
-            "https://api.themoviedb.org/3/tv/" +
-            id +
-            "?append_to_response=content_ratings,release_dates,external_ids,keywords&api_key=4ef0d7355d9ffb5151e987764708ce96&language=ru";
+        if (!data.release_date) {
+          url = kp_prox + "https://api.themoviedb.org/3/tv/" + id + urlEndTMDB;
         } else {
           url =
-            "https://api.themoviedb.org/3/movie/" +
-            id +
-            "?language=en-US&api_key=4ef0d7355d9ffb5151e987764708ce96";
+            kp_prox + "https://api.themoviedb.org/3/movie/" + id + urlEndTMDB;
         }
       });
 
     await fetch(url)
       .then((response) => response.json())
-      .then((e) => (enTitle = e.title));
+      .then((e) => (enTitle = e.title || e.name));
 
     searchRezka(normalizeTitle(enTitle), year);
   }
@@ -111,13 +103,13 @@
           q.childNodes[1].children[1].innerText +
           "</span> <span >" +
           q.childNodes[1].children[2].innerText +
-          "</span></div> <div>" +
+          "</span></div> <div style='padding-left:1.2em'>" +
           q.childNodes[3].innerText.toString() +
           "</div></div><hr> ";
       });
 
     var modal = $(
-      '<div><div class="broadcast__text" style="text-align:left"><div class="comment">' +
+      `<div> <div class="broadcast__text" style="text-align:left"><div class="comment">` +
         www +
         "</div></div></div>"
     );
@@ -127,17 +119,17 @@
       title: "",
       html: modal,
       size: "large",
+      style: "",
       mask: !0,
-      footerButtons: [
-        { class: "btn btn-close", text: "Закрыть", action: "close" },
-      ],
       onBack: function () {
         Lampa.Modal.close(), Lampa.Controller.toggle(enabled);
+        $(".modal--large").remove();
       },
       onSelect: function () {},
     });
-
-    $(".comment").on("hover:enter", function () {});
+    $(".modal__head").after(
+      `<button class="close selector" tabindex="0" style = "float: right;" type="button"  onclick="$('.modal--large').remove()"  data-dismiss="modal">&times;</button>`
+    );
   }
 
   // Функция для начала работы плагина
@@ -152,7 +144,6 @@
         $(".button--comment").on("hover:enter", function (card) {
           if (e.data.movie.release_date) {
             year = e.data.movie.release_date.slice(0, 4);
-            getEnTitle(e.data.movie.id);
           }
 
           getEnTitle(e.data.movie.id);
