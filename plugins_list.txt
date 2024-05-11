@@ -7,13 +7,16 @@ Reviews - https://lat5.github.io/pl/Reviews - http://newtv.mail66.org/o.js - Р�
 TMDBProxy - https://lat5.github.io/pl/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
 Kinopoisk - https://lat5.github.io/pl/Kinopoisk - https://nb557.github.io/plugins/kp_source.js - Добавление Кинопоиска в источники
 
+[Интерфейс]
+Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
+Weather - https://lat5.github.io/pl/Weather - https://bylampa.github.io/weather.js
+Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
+NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligins/not_mobile.js - Выключение режима смартфона
+
 [Настройки]
 Tricks - https://lat5.github.io/pl/Tricks - https://andreyurl54.github.io/diesel5/tricks.js - "Приятные мелочи" в настройках
 Store - https://lat5.github.io/pl/Store - https://skaztv.online/store.js - Магазин пиратских плагинов
 HotKeys - https://lat5.github.io/pl/HotKeys - https://nnmdd.github.io/lampa_hotkeys/hotkeys.js - Горячие клавиши 8, 5, 0
-Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
-Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
-NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligins/not_mobile.js - Выключение режима смартфона
 RemoteType - https://lat5.github.io/pl/RemoteType - https://nemiroff.github.io/lampa/select_weapon.js - Настройка типа управления
 
 [Торрент]
