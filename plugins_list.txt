@@ -9,7 +9,7 @@ Kinopoisk - https://lat5.github.io/pl/Kinopoisk - https://nb557.github.io/plugin
 
 [Интерфейс]
 Interface - https://lat5.github.io/pl/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
-Weather - https://lat5.github.io/pl/Weather - https://bylampa.github.io/weather.js
+Weather - https://lat5.github.io/pl/Weather - https://bylampa.github.io/weather.js - Отображение погоды
 Exit - https://lat5.github.io/pl/Exit - https://tsynik.github.io/lampa/e.js - Кнопка выхода в главном меню
 NotMobile - https://lat5.github.io/pl/NotMobile - https://nb557.github.io/pligins/not_mobile.js - Выключение режима смартфона
 
