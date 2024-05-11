@@ -148,6 +148,17 @@ var online_mod_url = 'https://lat5.github.io/pl/online_mod';
 var skaztv_url = 'https://lat5.github.io/pl/SkazTV';
 var stream_url = 'https://lat5.github.io/pl/Stream';
 var showy_url = 'https://lat5.github.io/pl/Showy';
+
+var weather_url = 'https://lat5.github.io/pl/Weather'
+var cub_off_url = 'https://lat5.github.io/pl/CubOff'
+var sources_url = 'https://lat5.github.io/pl/Sources'
+var start_url = 'https://lat5.github.io/pl/Start'
+var gold_theme_url = 'https://lat5.github.io/pl/GoldTheme'
+var concerts_url = 'https://lat5.github.io/pl/Concerts'
+var updater_url = 'https://lat5.github.io/pl/Updater'
+var mult_url = 'https://lat5.github.io/pl/Mult'
+var reset_subs_url = 'https://lat5.github.io/pl/ResetSubs'
+var want_url = 'https://lat5.github.io/pl/Want'
 		
 /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
@@ -839,15 +850,15 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://tsynik.github.io/lampa/e.js', 'Выход', '@tsynik', 'Exit_Menu');
+							itemON(exit_url, 'Выход', '@tsynik', 'Exit_Menu');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://tsynik.github.io/lampa/e.js";
+							var pluginToRemoveUrl = exit_url;
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://tsynik.github.io/lampa/e.js')
+						var myResult = checkPlugin(exit_url)
 						setTimeout(function() {	
 							$('div[data-name="Exit_Menu"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -876,15 +887,15 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://nemiroff.github.io/lampa/updater.js', 'Проверка Новой Версии', '@nemiroff', 'New_Version');
+							itemON(updater_url, 'Проверка Новой Версии', '@nemiroff', 'New_Version');
 							}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://nemiroff.github.io/lampa/updater.js";
+							var pluginToRemoveUrl = updater_url;
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://nemiroff.github.io/lampa/updater.js')
+						var myResult = checkPlugin(updater_url)
 						setTimeout(function() {	
 							$('div[data-name="New_Version"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -913,15 +924,15 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
                             		},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://nnmdd.github.io/lampa_hotkeys/hotkeys.js', 'Горячие Кнопки', '@nnmd', 'Hot_Buttons');
+							itemON(hotkeys_url, '@nnmd', 'Hot_Buttons');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://nnmdd.github.io/lampa_hotkeys/hotkeys.js";
+							var pluginToRemoveUrl = hotkeys_url;
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://nnmdd.github.io/lampa_hotkeys/hotkeys.js')
+						var myResult = checkPlugin(hotkeys_url)
 						setTimeout(function() {	
 							$('div[data-name="Hot_Buttons"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -1970,124 +1981,7 @@ var showy_url = 'https://lat5.github.io/pl/Showy';
                                       });
                                    }
 		});*/			   
-/* Клубника */
-		Lampa.Settings.listener.follow('open', function (e) {
-					if (e.name == 'main') {
-						Lampa.SettingsApi.addComponent({
-                            component: 'add_sisi_plugin',
-							name: 'Sisi'
-						});
-					}
-		});
-		
-		Lampa.SettingsApi.addParam({
-					component: 'add_plugin',
-					param: {
-						name: 'add_sisi_plugin',
-						type: 'static',
-						default: true
-					},
-					field: {
-						name: icon_add_sisi_plugin
-					},
-					onRender: function(item) {
-						item.on('hover:enter', function () {
-							Lampa.Settings.create('add_sisi_plugin');
-							Lampa.Controller.enabled().controller.back = function(){
-								Lampa.Settings.create('add_plugin');
-							}
-						});
-					}
-		});
-		
-		Lampa.SettingsApi.addParam({
-					component: 'add_sisi_plugin',
-					param: {
-						name: 'Sisi',
-						type: 'select',
-						values: {
-							1:	'Установить',
-							2:	'Удалить',
-						},
-						//default: '1',
-					},
-					field: {
-						name: 'Клубничка',
-						description: 'Плагин для просмотра контента 18+'
-					},
-					onChange: function(value) {
-						if (value == '1') {
-							itemON('https://bwa.to/s', 'Клубничка', '@rik', 'Sisi');
-						}
-						if (value == '2') {
-							var pluginToRemoveUrl = "https://bwa.to/s";
-							deletePlugin(pluginToRemoveUrl);
-						}
-					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://bwa.to/s')
-						setTimeout(function() {	
-							$('div[data-name="Sisi"]').append('<div class="settings-param__status one"></div>')
-							if (myResult) {
-								$('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-							} else {
-								$('div[data-name="Sisi"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-							}
-						}, 100);		  
-					}
-		});
-	       /* Lampa.SettingsApi.addParam({
-					component: 'add_sisi_plugin',
-					param: {
-						name: 'Nyam',
-						type: 'select',
-						values: {
-							1:	'Установить',
-							2:	'Удалить',
-						},
-						//default: '1',
-					},
-					field: {
-						name: 'Sisi Nyam',
-						description: 'Другая версия плагина Клубничка (частично платная)'
-					},
-					onChange: function(value) {
-						if (value == '1') {
-							itemON('https://sisi.am/nyam.js', 'Sisi Nyam', '@rik', 'Nyam');
-						}
-						if (value == '2') {
-							var pluginToRemoveUrl = "https://sisi.am/nyam.js";
-							deletePlugin(pluginToRemoveUrl);
-						}
-					},
-					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://sisi.am/nyam.js')
-						setTimeout(function() {	
-							$('div[data-name="Nyam"]').append('<div class="settings-param__status one"></div>')
-							if (myResult) {
-								$('div[data-name="Nyam"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-							} else {
-								$('div[data-name="Nyam"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-							}
-						}, 100);		  
-					}
-		});*/
-	        /*Lampa.SettingsApi.addParam({
-                                  component: 'add_sisi_plugin',
-                                  param: {
-                                         name: 'Reboot_sisi_plugin',
-                                         type: 'static',
-                                  },
-                                  field: {
-                                         name: '<div class="settings-folder" style="padding:0!important"><div style="display: block; margin: 0 auto;height:2.3em;padding-right:.1em"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g style="fill:none;stroke:#ffffff;stroke-width:12px;stroke-linecap:round;stroke-linejoin:round;"> <path d="m 50,10 0,35"></path> <path d="M 20,29 C 4,52 15,90 50,90 85,90 100,47 74,20"></path> </g> <path style="fill:#ffffff;" d="m 2,21 29,-2 2,29"></path> </g></svg></div></div>',
-					 description: '<div style="text-align: center;">Нажмите для перезагрузки Lampa</div>',
-	                           },
-                                   onRender: function (item) {
-                                      item.on('hover:enter', function(){
-                                         location.reload();
-                                      });
-                                   }
-		}); */
+
 /* Реклама */
 Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
