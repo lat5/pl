@@ -95,25 +95,34 @@
     let arr = Array.from(dom.getElementsByClassName("message"));
 
     www = "<hr>";
-    arr
-      .map.map((er) => er)
+    .map((er) => er)
 .forEach((q) => {
     let text = q.childNodes[3].innerText;
     console.log(text.length, text);
     let spoilerIndex = text.indexOf("спойлер");
-    www +=
-        "<div><div style = 'display: flex; justify-content: space-between; font-size: 0.6em; color:#cfc9be '><span>" +
-        q.childNodes[1].children[1].innerText +
-        "</span> <span >" +
-        q.childNodes[1].children[2].innerText +
-        "</span></div> <div style='padding-left:1.2em'>" +
-        (spoilerIndex !== -1
-            ? text.slice(0, spoilerIndex) +
-              "<span class='spoiler'> Спойлер <span class='arrow'>▶</span> </span>"
-            : text) +
-        "</div></div><hr> ";
+    if (spoilerIndex !== -1) {
+        www +=
+            "<div><div style = 'display: flex; justify-content: space-between; font-size: 0.6em; color:#cfc9be '><span>" +
+            q.childNodes[1].children[1].innerText +
+            "</span> <span >" +
+            q.childNodes[1].children[2].innerText +
+            "</span></div> <div style='padding-left:1.2em'>" +
+            text.substring(0, spoilerIndex) +
+            "<details open><summary>Спойлер</summary>" +
+            text.substring(spoilerIndex) +
+            "</details>" +
+            "</div></div><hr> ";
+    } else {
+        www +=
+            "<div><div style = 'display: flex; justify-content: space-between; font-size: 0.6em; color:#cfc9be '><span>" +
+            q.childNodes[1].children[1].innerText +
+            "</span> <span >" +
+            q.childNodes[1].children[2].innerText +
+            "</span></div> <div style='padding-left:1.2em'>" +
+            text +
+            "</div></div><hr> ";
+    }
 });
-
 
     var modal = $(
       `<div> <div class="broadcast__text" style="text-align:left"><div class="comment">` +
