@@ -55,7 +55,7 @@
 
     await fetch(url)
       .then((response) => response.json())
-      .then((e) => (enTitle = `<b style="font-size: 20px;">${e.title || e.name}</b>`));
+      .then((e) => (enTitle = e.title || e.name));
 
     searchRezka(normalizeTitle(enTitle), year);
   }
@@ -96,24 +96,24 @@
 
     www = "<hr>";
     arr
-      .map((er) => er)
-      .forEach((q) => {
-        let text = q.childNodes[3].innerText;
-        console.log(text.length, text);
-        www +=
-          "<div><div style = 'display: flex; justify-content: space-between; font-size: 0.6em; color:#cfc9be '><span>" +
-          q.childNodes[1].children[1].innerText +
-          "</span> <span >" +
-          q.childNodes[1].children[2].innerText +
-          "</span></div> <div style='padding-left:1.2em'>" +
-          (q.childNodes[3].innerText.length > 150
-            ? text.toString().slice(0, text.toString().indexOf(" ", 150)) +
-              " ... ... ... <details> " +
-              text.toString().slice(text.toString().indexOf(" ", 150)) +
-              " </details>"
-            : text.toString()) +
-          "</div></div><hr> ";
-      });
+      .map.map((er) => er)
+.forEach((q) => {
+    let text = q.childNodes[3].innerText;
+    console.log(text.length, text);
+    let spoilerIndex = text.indexOf("спойлер");
+    www +=
+        "<div><div style = 'display: flex; justify-content: space-between; font-size: 0.6em; color:#cfc9be '><span>" +
+        q.childNodes[1].children[1].innerText +
+        "</span> <span >" +
+        q.childNodes[1].children[2].innerText +
+        "</span></div> <div style='padding-left:1.2em'>" +
+        (spoilerIndex !== -1
+            ? text.slice(0, spoilerIndex) +
+              "<span class='spoiler'> Спойлер <span class='arrow'>▶</span> </span>"
+            : text) +
+        "</div></div><hr> ";
+});
+
 
     var modal = $(
       `<div> <div class="broadcast__text" style="text-align:left"><div class="comment">` +
