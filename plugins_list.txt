@@ -7,7 +7,7 @@ Reviews - https://lat5.github.io/pl/Base/Reviews - http://newtv.mail66.org/o.js 
 TMDBProxy - https://lat5.github.io/pl/Base/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
 Kinopoisk - https://lat5.github.io/pl/Base/Kinopoisk - https://nb557.github.io/plugins/kp_source.js - Добавление Кинопоиска в источники
 Comments - https://lat5.github.io/pl/Base/Comments - https://bdvburik.github.io/rezkacomment.js - Комментарии из HDrezka
-OriginTitle - https://lat5.github.io/pl/Base/OriginTitle - BDVBurik - Оригинальное название фильма
+OriginTitle - https://lat5.github.io/pl/Base/OriginTitle - https://bdvburik.github.io/title.js - Оригинальное название фильма
 
 [Интерфейс]
 Interface - https://lat5.github.io/pl/UI/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
@@ -36,4 +36,4 @@ Showy - https://lat5.github.io/pl/Onl/Showy - http://showy.online/m.js - Онл�
 
 [Тест]
 PluginsList - https://lat5.github.io/pl/test/PluginsList - https://lat5.github.io/pl/test/PluginsList - Установка плагинов в настройках Lampa
-StartUnlock - https://lat5.github.io/pl/test/StartUnlock - https://lat5.github.io/pl/test/StartUnlock - Обход блокировки START
+StartUnlock - https://lat5.github.io/pl/test/StartUnlock - https://lat5.github.io/pl/test/StartUnlock - Обход блокировки контента от START
