@@ -34,22 +34,18 @@
 
     _showEnTitle(etEnTitle, etRuTitle);
 
-    function _showEnTitle(enTitle, ruTitle) {
-      var render = Lampa.Activity.active().activity.render();
-      $(".original_title", render)
-        .find("> div")
-        .eq(0)
-        .after(
-          "<div style='font-size: 1.3em; height: auto; '>Orig: " +
-            orig +
-            "</div><div style='font-size: 1.3em; height: auto; '>En: " +
-            enTitle +
-            "</div><div style='font-size: 1.3em; height: auto; '>Ru: " +
-            ruTitle +
-            "</div>"
-        );
-    }
-  }
+    function _showEnTitle(origTitle) {
+  var render = Lampa.Activity.active().activity.render();
+  $(".original_title", render)
+    .find("> div")
+    .eq(0)
+    .after(
+      "<div style='font-size: 1.3em; height: auto; '>Orig: " +
+        origTitle +
+        "</div>"
+    );
+}
+
 
   function startPlugin() {
     window.title_plugin = true;
