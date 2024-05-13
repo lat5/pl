@@ -31,7 +31,9 @@
 
     var origTitle = await getTitle();
 
-    _showOrigTitle(origTitle);
+    if (origTitle !== undefined) {
+      _showOrigTitle(origTitle);
+    }
 
     function _showOrigTitle(title) {
       var render = Lampa.Activity.active().activity.render();
