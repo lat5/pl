@@ -19,33 +19,32 @@
       },
     };
 
-    async function getTitle(language) {
+    async function getTitle() {
       var enTitle;
       var response = await fetch(
-        kp_prox + params.url + params.id + "?language=" + language + "&api_key=4ef0d7355d9ffb5151e987764708ce96",
+        kp_prox + params.url + params.id + "?language=en-US&api_key=4ef0d7355d9ffb5151e987764708ce96",
         getOptions
       );
       var data = await response.json();
-      return data.title;
+      return data.original_title || data.original_name;
     }
 
-    var etRuTitle = await getTitle("ru-RU");
-    var etEnTitle = await getTitle("en-US");
+    var origTitle = await getTitle();
 
-    _showEnTitle(etEnTitle, etRuTitle);
+    _showOrigTitle(origTitle);
 
-    function _showEnTitle(origTitle) {
-  var render = Lampa.Activity.active().activity.render();
-  $(".original_title", render)
-    .find("> div")
-    .eq(0)
-    .after(
-      "<div style='font-size: 1.3em; height: auto; '>Orig: " +
-        origTitle +
-        "</div>"
-    );
-}
-
+    function _showOrigTitle(title) {
+      var render = Lampa.Activity.active().activity.render();
+      $(".original_title", render)
+        .find("> div")
+        .eq(0)
+        .after(
+          "<div style='font-size: 1.3em; height: auto; '>Orig: " +
+            title +
+            "</div>"
+        );
+    }
+  }
 
   function startPlugin() {
     window.title_plugin = true;
@@ -62,4 +61,3 @@
 
   if (!window.title_plugin) startPlugin();
 })();
-            
