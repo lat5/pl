@@ -1,0 +1,65 @@
+(function () {
+  "use strict";
+
+  async function titleOrigin(card) {
+    var orig = card.original_title || card.original_name;
+
+    var params = {
+      id: card.id,
+      url: "https://api.themoviedb.org/3/movie/",
+    };
+
+    // Прокси для получения данных с TMDB
+    let kp_prox = "https://worker-patient-dream-26d7.bdvburik.workers.dev/";
+
+    var getOptions = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
+    };
+
+    async function getTitle() {
+      var enTitle;
+      var response = await fetch(
+        kp_prox + params.url + params.id + "?language=en-US&api_key=4ef0d7355d9ffb5151e987764708ce96",
+        getOptions
+      );
+      var data = await response.json();
+      return data.original_title || data.original_name;
+    }
+
+    var origTitle = await getTitle();
+
+    if (origTitle !== undefined) {
+      _showOrigTitle(origTitle);
+    }
+
+    function _showOrigTitle(title) {
+      var render = Lampa.Activity.active().activity.render();
+      $(".original_title", render)
+        .find("> div")
+        .eq(0)
+        .after(
+          "<div style='font-size: 1.3em; height: auto; '>Original: " +
+            title +
+            "</div><br>"
+        );
+    }
+  }
+
+  function startPlugin() {
+    window.title_plugin = true;
+    Lampa.Listener.follow("full", function (e) {
+      if (e.type == "complite") {
+        var render = e.object.activity.render();
+        $(".full-start-new__title", render).after(
+          '<div class="original_title" style=" padding-bottom: 0.3em"><div>'
+        );
+        titleOrigin(e.data.movie);
+      }
+    });
+  }
+
+  if (!window.title_plugin) startPlugin();
+})();
