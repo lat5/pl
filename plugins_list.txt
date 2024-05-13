@@ -6,7 +6,8 @@ Rating - https://lat5.github.io/pl/Base/Rating - https://nb557.github.io/plugins
 Reviews - https://lat5.github.io/pl/Base/Reviews - http://newtv.mail66.org/o.js - Рецензии из КиноПоиска
 TMDBProxy - https://lat5.github.io/pl/Base/TMDBProxy - http://cub.red/plugin/tmdb-proxy - Проксирование для TMDB
 Kinopoisk - https://lat5.github.io/pl/Base/Kinopoisk - https://nb557.github.io/plugins/kp_source.js - Добавление Кинопоиска в источники
-Comments - https://lat5.github.io/pl/Base/Comments - https://bdvburik.github.io/rezkacomment.js
+Comments - https://lat5.github.io/pl/Base/Comments - https://bdvburik.github.io/rezkacomment.js - Комментарии из HDrezka
+OriginTitle - https://lat5.github.io/pl/Base/OriginTitle - BDVBurik - Оригинальное название фильма
 
 [Интерфейс]
 Interface - https://lat5.github.io/pl/UI/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
