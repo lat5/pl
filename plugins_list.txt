@@ -9,7 +9,7 @@ Kinopoisk - https://lat5.github.io/pl/Base/Kinopoisk - https://nb557.github.io/p
 Comments - https://lat5.github.io/pl/Base/Comments - https://bdvburik.github.io/rezkacomment.js - Комментарии из HDrezka
 OriginTitle - https://lat5.github.io/pl/Base/OriginTitle - https://bdvburik.github.io/title.js - Оригинальное название фильма
 Titles - https://lat5.github.io/pl/Base/Titles - https://bdvburik.github.io/title.js - Английское название + оригинал
-FranchiseList - https://lat5.github.io/pl/Base/Franchise - https://bdvburik.github.io/franchiserezk.js - Список других фильмов франшизы
+FranchiseList - https://lat5.github.io/pl/Base/Franchise - https://bdvburik.github.io/franshrezka.js - Список других фильмов франшизы
 
 [Интерфейс]
 Interface - https://lat5.github.io/pl/UI/Interface - http://cub.red/plugin/interface - Новый стильный интерфейс
