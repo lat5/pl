@@ -1,4 +1,4 @@
-!function(){
+(function(){
   "use strict";
 
   function titleOrigin(card){
@@ -9,6 +9,7 @@
         .find("> div")
         .eq(0)
         .after(
+          "<div style='margin-top: 0.5em;'></div>" + // Отступ в половину строки
           "<div style='font-size: 1.3em; height: auto; text-align: left;'>Origin: " +
             orig +
             "</div><br>"
@@ -31,4 +32,4 @@
       }
     });
   }
-}();
+})();
