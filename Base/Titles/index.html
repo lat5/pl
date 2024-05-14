@@ -20,7 +20,6 @@
       return data.title || data.name;
     }
     var enTitle = await getTitle("en-US");
-    var ruTitle = await getTitle("ru-RU");
     if (enTitle){
       $(".original_title", Lampa.Activity.active().activity.render())
         .find("> div")
@@ -29,7 +28,7 @@
           "<div style='font-size: 1.3em; height: auto; '>En: " +
           enTitle +
           "</div><div style='font-size: 1.3em; height: auto;'>Ru: " +
-          ruTitle +
+          orig +
           "</div><div style='font-size: 1.3em; height: auto; '> Orig: " +
           orig +
           "</div>"
