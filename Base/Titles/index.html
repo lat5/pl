@@ -9,7 +9,7 @@
         .find("> div")
         .eq(0)
         .after(
-          "<div style='font-size: 1.3em; height: auto; text-align: left; margin-top: 0.5em;'>Origin: " +
+          "<br><div style='font-size: 1.3em; height: auto; text-align: left;'>Origin: " +
             orig +
             "</div><br>"
         );
@@ -22,7 +22,7 @@
       if (e.type == "complite") {
         var render = e.object.activity.render();
         $(".full-start-new__title", render).after(
-          '<div class="original_title" style="margin-top:-0.8em; text-align: left;"><div>'
+          '<div class="original_title" style="  margin-top:-0.8em ; text-align: left;"><div>'
         );
         titleOrigin(e.data.movie);
         $(".full-start-new__rate-line").css("margin-bottom", "0.8em");
