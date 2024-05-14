@@ -1,0 +1,92 @@
+(function() {
+  "use strict";
+
+  let apiUrl = "https://api.themoviedb.org/3/";
+  let proxyUrl = "https://worker-patient-dream-26d7.bdvburik.workers.dev/";
+  let apiKey = "?language=en-US&api_key=4ef0d7355d9ffb5151e987764708ce96";
+  let title, year, id, releaseYear;
+
+  async function fetchData(url, params, additionalParams) {
+    let response = await fetch(proxyUrl + url + (params || "") + (additionalParams ? "+" + additionalParams : ""), {
+      method: "GET",
+      headers: {
+        "Content-Type": "text/html"
+      }
+    });
+    let html = await response.text();
+    return new DOMParser().parseFromString(html, "text/html");
+  }
+
+  async function search(query, type) {
+    let searchResults = await fetchData("https://hdrezka.ag/search/?do=search&subaction=search&q=", query, type);
+    let links = Array.from(searchResults.getElementsByClassName("b-content__inline_item-link"));
+    fetchDetails(links[0].children[0].href);
+  }
+
+  async function fetchDetails(url) {
+    let details = await fetchData(url);
+    let items = Array.from(details.getElementsByClassName("b-post__partcontent_item"));
+    render(items);
+  }
+
+  function render(items) {
+    let html = "";
+    let currentIndex;
+    items.filter((item, index) => {
+      if (item.className.includes("current")) {
+        currentIndex = index;
+      }
+    });
+    items.forEach((item, index) => {
+      html += `<div id="stringhide" class="${item.className}`;
+      if (currentIndex + 2 >= index && index >= currentIndex - 2) {
+        html += " show";
+      } else {
+        html += " hide hdhd";
+      }
+      html += `"><span class="${item.children[0].className}">${item.children[0].innerText}</span><span class="${item.children[1].className}">${item.children[1].innerText}</span><span class="${item.children[2].className}">${item.children[2].innerText}</span><span class="${item.children[3].className}"><i class="hd-tooltip tooltipstered">${item.children[3].innerText}</i></span></div>`;
+    });
+    let collection = $('<div id="collect" class="collection selector" style=\'display: table;width: 100%;\'>' + html + "</div>");
+    $(".full-descr__text").after(collection);
+    let hoverState = 1;
+    $(".collection").on("hover:enter", function() {
+      if (hoverState) {
+        hoverState = 0;
+        $(".hdhd").removeClass("hide");
+      } else {
+        hoverState = 1;
+        $(".hdhd").addClass("hide");
+      }
+    });
+  }
+
+  async function fetchMovieDetails(id, type) {
+    let url;
+    if (type === "movie") {
+      url = apiUrl + "movie/" + id + apiKey;
+    } else {
+      url = apiUrl + "tv/" + id + apiKey;
+    }
+    fetchDetails(url);
+  }
+
+  async function fetchTitleDetails(title, type) {
+    let formattedTitle = title.toLowerCase().replace(/[\-\u2010-\u2015\u2E3A\u2E3B\uFE58\uFE63\uFF0D]+/g, "-").replace(/ё/g, "е");
+    let searchQuery = formattedTitle.replace(/[\s.,:;’'`!?]+/g, "%20").trim();
+    fetchDetails(searchQuery, type);
+  }
+
+  window.rezkacoll_plugin || (window.rezkacoll_plugin = true, Lampa.Listener.follow("full", function(event) {
+    if (event.type === "complite") {
+      releaseYear = event.data.movie.release_date ? event.data.movie.release_date.slice(0, 4) : event.data.movie.first_air ? event.data.movie.first_air.slice(0, 4) : "";
+      title = event.data.movie.title || event.data.movie.name;
+      id = event.data.movie.id;
+      fetchTitleDetails(id, event.object.method);
+
+      let style = document.createElement("style");
+      style.setAttribute("type", "text/css");
+      style.innerHTML = `.td{display:table-cell;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);padding:0 10px}.collection{display:table;width:90%}.collection.focus{outline:#FFF outset}.rating{text-align:center;width:4em}.year{width:8em;text-align:right}.title{text-align:left}.num{text-align:center;width:3em}.b-post__partcontent_item{display:table-row;width:90%}.current{background-color:#ffffff1f}.show{visibility:visible}.hide{visibility:hidden}`;
+      document.head.appendChild(style);
+    }
+  }));
+})();
