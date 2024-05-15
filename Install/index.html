@@ -25,38 +25,40 @@
             return;
         }
 
-        var lines = text.split('\n');
-        lines.forEach(function (line) {
-            console.log('install', 'Получена строка:', line);
-        });
+        console.log('install', 'Получен текст для обработки:', text);
+        var blocks = text.split(/\n\s*\n/); // Разделение текста на блоки
 
         var pluginsArray = Lampa.Storage.get('plugins') || [];
-        var sectionRegex = /^\[.*\]$/; // Регулярное выражение для проверки секции
         var pluginRegex = /^(.*) - (.*) - (.*) - (.*)$/; // Регулярное выражение для извлечения данных о плагине
 
-        lines.forEach(function (line) {
-            if (sectionRegex.test(line)) {
-                console.log('install', 'Обнаружена секция:', line);
-                return; // Пропускаем секции
+        blocks.forEach(function (block) {
+            // Игнорируем блоки, начинающиеся с [Тест] и [Установка]
+            if (block.startsWith('[Тест]') || block.startsWith('[Установка]')) {
+                console.log('install', 'Игнорируем блок:', block);
+                return;
             }
 
-            var match = pluginRegex.exec(line);
-            if (match) {
-                var name = match[1];
-                var sourceURL = match[2];
-                var sourceName = match[3];
-                var description = match[4];
+            var lines = block.split('\n');
+            lines.forEach(function (line) {
+                console.log('install', 'Получена строка:', line);
+                var match = pluginRegex.exec(line);
+                if (match) {
+                    var name = match[1];
+                    var sourceURL = match[2];
+                    var sourceName = match[3];
+                    var description = match[4];
 
-                console.log('install', 'Найден плагин:', name);
-                pluginsArray.push({
-                    author: 'lat5',
-                    url: sourceURL,
-                    name: name,
-                    status: 1,
-                    description: description,
-                    version: '1.0.0'
-                });
-            }
+                    console.log('install', 'Найден плагин:', name);
+                    pluginsArray.push({
+                        author: 'lat5',
+                        url: sourceURL,
+                        name: name,
+                        status: 1,
+                        description: description,
+                        version: '1.0.0'
+                    });
+                }
+            });
         });
 
         Lampa.Storage.set('plugins', pluginsArray);
