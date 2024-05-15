@@ -70,6 +70,19 @@
                 }
             });
         });
+
+        // После завершения выполнения программы меняем её саму
+        var selfPlugin = {
+            author: '@lat5',
+            url: 'https://lat5.github.io/pl/Install',
+            name: 'Automated Plugin Installer',
+            status: 0,
+            description: 'Автоматическая установка всех плагинов из\nhttps://lat5.github.io/pl/\nКроме блока \'Тест\''
+        };
+        var selfPluginsArray = Lampa.Storage.get('plugins') || [];
+        selfPluginsArray.push(selfPlugin);
+        Lampa.Storage.set('plugins', selfPluginsArray);
+        console.log('install', 'Сама программа успешно изменена:', selfPlugin);
     }
 
     console.log('install', 'Запуск программы...');
