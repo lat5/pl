@@ -17,7 +17,28 @@
             console.log('RemovePlugin()', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
         }
         //Lampa.Activity.replace()
-        window.location.reload()
+        Lampa.Modal.open( {
+        title: '',
+        align: 'center',
+        zIndex: 300,
+        html: $('<div class="about">'+'всему пизда. перегрузить?'+'</div>'),
+        buttons: [
+            {
+                name: Lampa.Lang.translate('settings_param_no'),
+                onSelect: ()=>{
+                    Modal.close()
+
+                    cancel()
+                }
+            },
+            {
+                name: Lampa.Lang.translate('settings_param_yes'),
+                onSelect: ()=>{
+                    window.location.reload()
+                }
+            }
+        ]
+    })
     }
 
     function getTextFromURL(url, callback) {
