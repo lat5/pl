@@ -17,7 +17,10 @@
             console.log('RemovePlugin()', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
         }
         //Lampa.Activity.replace()
-        $('<div class="about">'+Lang.translate('plugins_need_reload')+'</div>'),)
+        var reloadMessage = $('<div class="about">' + Lang.translate('plugins_need_reload') + '</div>');
+
+        // Добавляем созданный элемент куда-то в ваш документ, например, к body
+        $('body').append(reloadMessage);
     }
 
     function getTextFromURL(url, callback) {
