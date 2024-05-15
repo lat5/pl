@@ -1,23 +1,6 @@
 (function () {
     'use strict';
 
-    // Функция для удаления плагина по URL
-    function deletePlugin(pluginToRemoveUrl) {
-        if (pluginToRemoveUrl === 'https://lat5.github.io/pl/Install') {
-            var plugins = Lampa.Storage.get('plugins');
-            var updatedPlugins = plugins.filter(function(obj) {
-                return obj.url !== pluginToRemoveUrl;
-            });
-            Lampa.Storage.set('plugins', updatedPlugins);
-            Lampa.Storage.set('needReboot', true);
-            Lampa.Settings.update();
-            Lampa.Noty.show("Установка завершена, установщик удалён");
-            Lampa.Storage.set('needRebootSettingExit', true);
-        } else {
-            console.log('install', 'Плагин не является установщиком, не удален:', pluginToRemoveUrl);
-        }
-    }
-
     // Функция для получения текста с URL
     function getTextFromURL(url, callback) {
         var xhr = new XMLHttpRequest();
@@ -112,7 +95,7 @@
         console.log('install', 'Сама программа успешно изменена:', selfPlugin);
 
         // Удалить плагин-установщик
-        deletePlugin('https://lat5.github.io/pl/Install');
+        Lampa.Plugins.remove('https://lat5.github.io/pl/Install');
     }
 
     console.log('install', 'Запуск программы...');
