@@ -17,13 +17,14 @@
             console.log('RemovePlugin()', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
         }
         //Lampa.Activity.replace()
-        Lampa.Modal.open( {
+        /* Lampa.Modal.open( {
         title: '',
         align: 'center',
         zIndex: 300,
         html: $('<div class="about">'+Lang.translate('plugins_need_reload')+'</div>'),)
     })
-    }
+    }/*
+    window.location.reload();
 
     function getTextFromURL(url, callback) {
         var xhr = new XMLHttpRequest();
