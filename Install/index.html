@@ -21,9 +21,9 @@
     // Функция для установки плагина
     function installPlugin(name, url, author, description) {
         var pluginsArray = Lampa.Storage.get('plugins') || [];
-        
+
         // Обработка имени автора
-        author = (author.trim() === '' || !author.includes('://')) ? '@lampa' : author.match(/\/\/([^\.]+)\./) ? '@' + RegExp.$1 : author.split(' ')[0];
+        author = (author.trim() === '' || !author.includes('://')) ? '@lampa' : author.match(/:\/\/([^\.]+)\./) ? '@' + RegExp.$1 : author.split(' ')[0];
 
         console.log('install', 'Устанавливаем плагин:', name);
         console.log('install', 'URL:', url);
@@ -65,7 +65,7 @@
             var name = parts[3].trim();
 
             // Получение имени автора
-            var author = (authorURL.trim() === '' || !authorURL.includes('://')) ? '@lampa' : authorURL.match(/\/\/([^\.]+)\./) ? '@' + RegExp.$1 : authorURL.split(' ')[0];
+            var author = (authorURL.trim() === '' || !authorURL.includes('://')) ? '@lampa' : authorURL.match(/:\/\/([^\.]+)\./) ? '@' + RegExp.$1 : authorURL.split(' ')[0];
 
             // Устанавливаем плагин
             installPlugin(name, url, author, name);
