@@ -9,9 +9,9 @@
         
         if (updatedPlugins.length > 0) {
             Lampa.Storage.set('plugins', updatedPlugins);
-            Lampa.Storage.set('needReboot', true);
-            Lampa.Noty.show("Установка завершена, установщик удалён");
-            Lampa.Storage.set('needRebootSettingExit', true);
+            Lampa.Storage.set('needReboot', true); //не помогает
+            Lampa.Noty.show("Установка завершена, установщик удалён\nТребуется перезагрузка");
+            Lampa.Storage.set('needRebootSettingExit', true);  //не помогает
             console.log('RemovePlugin()', 'Плагины с URL', pluginToRemoveUrl, 'удалены');
         } else {
             console.log('RemovePlugin()', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
