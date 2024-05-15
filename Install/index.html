@@ -18,59 +18,62 @@
         console.log('install', 'Запрос текста по URL:', url);
     }
 
-    // Функция для обработки текста и извлечения данных плагина
-    function processFirstLineText(err, text) {
+    // Функция для обработки текста и установки плагинов
+    function processPluginsText(err, text) {
         if (err) {
             console.error('install', err);
             return;
         }
 
-        var lines = text.split('\n');
-
-        // Ищем первую строку, удовлетворяющую формату
-        var firstLine = lines.find(function (line) {
-            return line.trim() !== '' && line.includes('-');
-        });
-
-        if (firstLine) {
-            var parts = firstLine.split(' - ');
-            var id = parts[0].trim();
-            var url = parts[1].trim();
-            var authorURL = parts[2].trim();
-            var name = parts[3].trim();
-
-            // Извлекаем имя автора
-            var author = '@lampa'; // По умолчанию
-
-            if (authorURL.trim() !== '') {
-                var authorMatch = authorURL.match(/\/\/([^\.]+)\./);
-                if (authorMatch) {
-                    author = '@' + authorMatch[1];
-                } else if (!authorURL.includes('://')) {
-                    // Если нет '://' в URL автора, используем первое слово
-                    author = authorURL.split(' ')[0];
-                }
+        var blocks = text.split(/\n\s*\n/); // Разделение текста на блоки
+        blocks.forEach(function (block) {
+            // Игнорируем блоки, начинающиеся с [Тест] и [Install]
+            if (block.startsWith('[Тест]') || block.startsWith('[Install]')) {
+                console.log('install', 'Игнорируем блок:', block);
+                return;
             }
 
-            // Устанавливаем плагин
-            var pluginsArray = Lampa.Storage.get('plugins') || [];
-            pluginsArray.push({
-                author: author,
-                url: url,
-                name: name,
-                status: 1,
-                description: name
-            });
-            Lampa.Storage.set('plugins', pluginsArray);
+            var lines = block.split('\n');
+            lines.forEach(function (line) {
+                if (line.trim() !== '' && line.includes('-')) {
+                    var parts = line.split(' - ');
+                    var id = parts[0].trim();
+                    var url = parts[1].trim();
+                    var authorURL = parts[2].trim();
+                    var name = parts[3].trim();
 
-            console.log('install', 'Плагин установлен:', name);
-        } else {
-            console.error('install', 'Не удалось найти подходящую строку.');
-        }
+                    // Извлекаем имя автора
+                    var author = '@lampa'; // По умолчанию
+
+                    if (authorURL.trim() !== '') {
+                        var authorMatch = authorURL.match(/\/\/([^\.]+)\./);
+                        if (authorMatch) {
+                            author = '@' + authorMatch[1];
+                        } else if (!authorURL.includes('://')) {
+                            // Если нет '://' в URL автора, используем первое слово
+                            author = authorURL.split(' ')[0];
+                        }
+                    }
+
+                    // Устанавливаем плагин
+                    var pluginsArray = Lampa.Storage.get('plugins') || [];
+                    pluginsArray.push({
+                        author: author,
+                        url: url,
+                        name: name,
+                        status: 1,
+                        description: name
+                    });
+                    Lampa.Storage.set('plugins', pluginsArray);
+
+                    console.log('install', 'Плагин установлен:', name);
+                }
+            });
+        });
     }
 
     console.log('install', 'Запуск программы...');
 
     // Загружаем текст со страницы и обрабатываем его
-    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processFirstLineText);
+    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processPluginsText);
 })();
