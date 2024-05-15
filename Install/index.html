@@ -15,10 +15,12 @@
         };
         xhr.open('GET', url, true);
         xhr.send();
+        console.log('Запрос текста по URL:', url);
     }
 
     // Функция для обработки текста и добавления плагинов в список
     function processPluginsText(text) {
+        console.log('Получен текст для обработки:', text);
         var pluginsArray = Lampa.Storage.get('plugins') || [];
         var lines = text.split('\n');
         var sectionRegex = /^\[.*\]$/; // Регулярное выражение для проверки секции
@@ -26,6 +28,7 @@
 
         lines.forEach(function (line) {
             if (sectionRegex.test(line)) {
+                console.log('Обнаружена секция:', line);
                 return; // Пропускаем секции
             }
 
@@ -36,6 +39,7 @@
                 var sourceName = match[3];
                 var description = match[4];
 
+                console.log('Найден плагин:', name);
                 pluginsArray.push({
                     author: 'lat5',
                     url: sourceURL,
@@ -50,6 +54,8 @@
         Lampa.Storage.set('plugins', pluginsArray);
         console.log('Плагины добавлены:', pluginsArray);
     }
+
+    console.log('Запуск плагина...');
 
     // Загружаем текст со страницы и обрабатываем его
     getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processPluginsText);
