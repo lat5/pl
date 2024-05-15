@@ -7,28 +7,36 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    callback(xhr.responseText);
+                    callback(null, xhr.responseText);
                 } else {
-                    console.error('Ошибка загрузки:', xhr.status);
+                    callback('Ошибка загрузки: ' + xhr.status);
                 }
             }
         };
         xhr.open('GET', url, true);
         xhr.send();
-        console.log('Запрос текста по URL:', url);
+        console.log('install', 'Запрос текста по URL:', url);
     }
 
     // Функция для обработки текста и добавления плагинов в список
-    function processPluginsText(text) {
-        console.log('Получен текст для обработки:', text);
-        var pluginsArray = Lampa.Storage.get('plugins') || [];
+    function processPluginsText(err, text) {
+        if (err) {
+            console.error('install', err);
+            return;
+        }
+
         var lines = text.split('\n');
+        lines.forEach(function (line) {
+            console.log('install', 'Получена строка:', line);
+        });
+
+        var pluginsArray = Lampa.Storage.get('plugins') || [];
         var sectionRegex = /^\[.*\]$/; // Регулярное выражение для проверки секции
         var pluginRegex = /^(.*) - (.*) - (.*) - (.*)$/; // Регулярное выражение для извлечения данных о плагине
 
         lines.forEach(function (line) {
             if (sectionRegex.test(line)) {
-                console.log('Обнаружена секция:', line);
+                console.log('install', 'Обнаружена секция:', line);
                 return; // Пропускаем секции
             }
 
@@ -39,7 +47,7 @@
                 var sourceName = match[3];
                 var description = match[4];
 
-                console.log('Найден плагин:', name);
+                console.log('install', 'Найден плагин:', name);
                 pluginsArray.push({
                     author: 'lat5',
                     url: sourceURL,
@@ -52,10 +60,10 @@
         });
 
         Lampa.Storage.set('plugins', pluginsArray);
-        console.log('Плагины добавлены:', pluginsArray);
+        console.log('install', 'Плагины добавлены:', pluginsArray);
     }
 
-    console.log('Запуск плагина...');
+    console.log('install', 'Запуск плагина...');
 
     // Загружаем текст со страницы и обрабатываем его
     getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processPluginsText);
