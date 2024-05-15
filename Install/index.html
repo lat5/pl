@@ -24,47 +24,15 @@
         if (parts.length >= 3) {
             var url = parts[1];
             var authorURL = parts[2];
-            var author = '';
-
-            if (authorURL.trim() === '' || !authorURL.includes('://')) {
-                author = '@lampa';
-            } else {
-                author = '@' + authorURL.split('://')[1].split('.')[0];
-            }
-
+            var author = '@' + authorURL.split('://')[1].split('.')[0];
             return { url: url, author: author };
         } else {
             return null;
         }
     }
 
-    // Функция для установки плагина
-    function installPlugin(name, description, url, author) {
-        var pluginsArray = Lampa.Storage.get('plugins') || [];
-
-        // Проверяем, установлен ли плагин уже
-        var isInstalled = pluginsArray.some(function (plugin) {
-            return plugin.url === url;
-        });
-
-        if (!isInstalled) {
-            console.log('install', 'Устанавливаем плагин:', name);
-            pluginsArray.push({
-                author: author,
-                url: url,
-                name: name,
-                status: 1,
-                description: description
-            });
-            Lampa.Storage.set('plugins', pluginsArray);
-            console.log('install', 'Плагин установлен:', name);
-        } else {
-            console.log('install', 'Плагин уже установлен:', name);
-        }
-    }
-
     // Функция для обработки текста и извлечения URL и имени автора
-    function processTextAndInstallPlugin(text) {
+    function processTextAndExtractURLAndAuthor(text) {
         var lines = text.trim().split('\n');
         var firstLine = lines.find(function(line) {
             return !line.startsWith('[') && line.includes('-');
@@ -72,16 +40,8 @@
 
         if (firstLine) {
             var { url, author } = extractURLAndAuthor(firstLine);
-            var parts = firstLine.split(' - ');
-            var name = parts[0];
-            var description = parts.slice(3).join(' - ');
-
             console.log('install', 'URL:', url);
             console.log('install', 'Автор:', author);
-            console.log('install', 'Имя плагина:', name);
-            console.log('install', 'Описание:', description);
-
-            installPlugin(name, description, url, author);
         } else {
             console.error('install', 'Нет подходящей строки.');
         }
@@ -90,5 +50,5 @@
     console.log('install', 'Запуск программы...');
 
     // Загружаем текст со страницы и обрабатываем его
-    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processTextAndInstallPlugin);
+    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processTextAndExtractURLAndAuthor);
 })();
