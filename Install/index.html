@@ -15,6 +15,10 @@
         } else {
             console.log('install', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
         }
+        Lampa.Storage.set('needReboot', true);
+	    Lampa.Settings.update();
+	    Lampa.Noty.show("Установка завершена, установшик удалён");
+	    Lampa.Storage.set('needRebootSettingExit', true);
     }
 
     // Функция для получения текста с URL
