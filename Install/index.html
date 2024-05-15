@@ -1,79 +1,35 @@
 (function () {
     'use strict';
 
-    // Функция для получения текста с URL
-    function getTextFromURL(url, callback) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    callback(null, xhr.responseText);
-                } else {
-                    callback('Ошибка загрузки: ' + xhr.status);
-                }
-            }
-        };
-        xhr.open('GET', url, true);
-        xhr.send();
-        console.log('install', 'Запрос текста по URL:', url);
-    }
-
-    // Функция для обработки текста и добавления плагинов в список
-    function processPluginsText(err, text) {
-        if (err) {
-            console.error('install', err);
-            return;
-        }
-
-        console.log('install', 'Получен текст для обработки:', text);
-        var blocks = text.split(/\n\s*\n/); // Разделение текста на блоки
-
+    // Функция для установки плагина
+    function installPlugin(pluginURL) {
         var pluginsArray = Lampa.Storage.get('plugins') || [];
-        var pluginRegex = /^(.*) - (.*) - (.*) - (.*)$/; // Регулярное выражение для извлечения данных о плагине
+        var pluginName = 'OriginTitle';
+        var pluginDescription = 'Оригинальное название фильма';
 
-        blocks.forEach(function (block) {
-            // Игнорируем блоки, начинающиеся с [Тест] и [Установка]
-            if (block.startsWith('[Тест]') || block.startsWith('[Установка]')) {
-                console.log('install', 'Игнорируем блок:', block);
-                return;
-            }
-
-            var lines = block.split('\n');
-            lines.forEach(function (line) {
-                var match = pluginRegex.exec(line);
-                if (match) {
-                    var name = match[1];
-                    var sourceURL = match[2];
-                    var sourceName = match[3];
-                    var description = match[4];
-
-                    console.log('install', 'Обрабатываем плагин:', name);
-                    console.log('install', 'Данные плагина:', {
-                        name: name,
-                        sourceURL: sourceURL,
-                        sourceName: sourceName,
-                        description: description
-                    });
-
-                    console.log('install', 'Найден плагин:', name);
-                    pluginsArray.push({
-                        author: 'lat5',
-                        url: sourceURL,
-                        name: name,
-                        status: 1,
-                        description: description,
-                        version: '1.0.0'
-                    });
-                }
-            });
+        // Проверяем, установлен ли плагин уже
+        var isInstalled = pluginsArray.some(function (plugin) {
+            return plugin.url === pluginURL;
         });
 
-        Lampa.Storage.set('plugins', pluginsArray);
-        console.log('install', 'Плагины добавлены:', pluginsArray);
+        if (!isInstalled) {
+            console.log('install', 'Устанавливаем плагин:', pluginName);
+            pluginsArray.push({
+                author: 'lat5',
+                url: pluginURL,
+                name: pluginName,
+                status: 1,
+                description: pluginDescription,
+                version: '1.0.0'
+            });
+            Lampa.Storage.set('plugins', pluginsArray);
+            console.log('install', 'Плагин установлен:', pluginName);
+        } else {
+            console.log('install', 'Плагин уже установлен:', pluginName);
+        }
     }
 
-    console.log('install', 'Запуск плагина...');
-
-    // Загружаем текст со страницы и обрабатываем его
-    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processPluginsText);
+    // Устанавливаем плагин
+    var pluginURL = 'https://lat5.github.io/pl/Base/OriginTitle';
+    installPlugin(pluginURL);
 })();
