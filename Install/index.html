@@ -1,0 +1,56 @@
+(function () {
+    'use strict';
+
+    // Функция для получения текста с URL
+    function getTextFromURL(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    callback(xhr.responseText);
+                } else {
+                    console.error('Ошибка загрузки:', xhr.status);
+                }
+            }
+        };
+        xhr.open('GET', url, true);
+        xhr.send();
+    }
+
+    // Функция для обработки текста и добавления плагинов в список
+    function processPluginsText(text) {
+        var pluginsArray = Lampa.Storage.get('plugins') || [];
+        var lines = text.split('\n');
+        var sectionRegex = /^\[.*\]$/; // Регулярное выражение для проверки секции
+        var pluginRegex = /^(.*) - (.*) - (.*) - (.*)$/; // Регулярное выражение для извлечения данных о плагине
+
+        lines.forEach(function (line) {
+            if (sectionRegex.test(line)) {
+                return; // Пропускаем секции
+            }
+
+            var match = pluginRegex.exec(line);
+            if (match) {
+                var name = match[1];
+                var sourceURL = match[2];
+                var sourceName = match[3];
+                var description = match[4];
+
+                pluginsArray.push({
+                    author: 'lat5',
+                    url: sourceURL,
+                    name: name,
+                    status: 1,
+                    description: description,
+                    version: '1.0.0'
+                });
+            }
+        });
+
+        Lampa.Storage.set('plugins', pluginsArray);
+        console.log('Плагины добавлены:', pluginsArray);
+    }
+
+    // Загружаем текст со страницы и обрабатываем его
+    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processPluginsText);
+})();
