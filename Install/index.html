@@ -44,7 +44,7 @@
 
         var blocks = text.split(/\n\s*\n/);
         blocks.forEach(function (block) {
-            if (block.startsWith('[Тест]') || block.startsWith('[Install]')) {
+            if (block.startsWith('[Тест]') || block.startsWith('[Установщик]')) {
                 console.log('install', 'Игнорируем блок:', block);
                 return;
             }
