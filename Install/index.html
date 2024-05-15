@@ -18,7 +18,32 @@
         console.log('install', 'Запрос текста по URL:', url);
     }
 
-    // Функция для обработки текста и извлечения URL и имени автора
+    // Функция для установки плагина
+    function installPlugin(name, url, author, description) {
+        var pluginsArray = Lampa.Storage.get('plugins') || [];
+        
+        // Обработка имени автора
+        author = (author.trim() === '' || !author.includes('://')) ? '@lampa' : author.match(/\/\/([^\.]+)\./) ? '@' + RegExp.$1 : author.split(' ')[0];
+
+        console.log('install', 'Устанавливаем плагин:', name);
+        console.log('install', 'URL:', url);
+        console.log('install', 'Автор:', author);
+        console.log('install', 'Описание:', description);
+
+        // Добавление плагина
+        pluginsArray.push({
+            author: author,
+            url: url,
+            name: name,
+            status: 1,
+            description: description
+        });
+
+        Lampa.Storage.set('plugins', pluginsArray);
+        console.log('install', 'Плагин установлен:', name);
+    }
+
+    // Функция для обработки текста и извлечения данных
     function processFirstLineText(err, text) {
         if (err) {
             console.error('install', err);
@@ -39,14 +64,11 @@
             var authorURL = parts[2].trim();
             var name = parts[3].trim();
 
-            // Извлекаем имя автора
-            var authorMatch = authorURL.match(/\/\/([^\.]+)\./);
-            var author = '@' + (authorMatch ? authorMatch[1] : 'unknown');
+            // Получение имени автора
+            var author = (authorURL.trim() === '' || !authorURL.includes('://')) ? '@lampa' : authorURL.match(/\/\/([^\.]+)\./) ? '@' + RegExp.$1 : authorURL.split(' ')[0];
 
-            console.log('install', 'ID:', id);
-            console.log('install', 'URL:', url);
-            console.log('install', 'Автор:', author);
-            console.log('install', 'Название:', name);
+            // Устанавливаем плагин
+            installPlugin(name, url, author, name);
         } else {
             console.error('install', 'Не удалось найти подходящую строку.');
         }
