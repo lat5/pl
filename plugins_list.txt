@@ -37,7 +37,7 @@ Stream - https://lat5.github.io/pl/Onl/Stream - http://arkmv.ru/vod - Доп д�
 Showy - https://lat5.github.io/pl/Onl/Showy - http://showy.online/m.js - Онлайн просмотр, есть 4K
 
 [Тест]
-PluginsList - https://lat5.github.io/pl/test/PluginsList - bylampa.github.io/addon.js - Установка плагинов в настройках Lampa
+PluginsList - https://lat5.github.io/pl/test/PluginsList - https://bylampa.github.io/addon.js - Выбор плагинов в настройках Lampa
 StartUnlock - https://lat5.github.io/pl/test/StartUnlock - https://bylampa.github.io/start.js - Обход блокировки контента от START
 
 [Установщик]
