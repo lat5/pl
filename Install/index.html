@@ -6,26 +6,18 @@
         var updatedPlugins = pluginsArray.filter(function (plugin) {
             return plugin.url !== pluginToRemoveUrl;
         });
-        
+
         if (updatedPlugins.length > 0) {
             Lampa.Storage.set('plugins', updatedPlugins);
-            Lampa.Storage.set('needReboot', true); //не помогает
+            Lampa.Storage.set('needReboot', true);
             Lampa.Noty.show("Установка завершена, установщик удалён\nТребуется перезагрузка");
-            Lampa.Storage.set('needRebootSettingExit', true);  //не помогает
+            Lampa.Storage.set('needRebootSettingExit', true);
             console.log('RemovePlugin()', 'Плагины с URL', pluginToRemoveUrl, 'удалены');
         } else {
             console.log('RemovePlugin()', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
         }
-        //Lampa.Activity.replace()
-        /* Lampa.Modal.open( {
-        title: '',
-        align: 'center',
-        zIndex: 300,
-        html: $('<div class="about">'+Lang.translate('plugins_need_reload')+'</div>'),)
-    })*/
-    window.location.reload();
+        window.location.reload(); // Перезагрузка страницы
     }
-    
 
     function getTextFromURL(url, callback) {
         var xhr = new XMLHttpRequest();
@@ -50,6 +42,9 @@
         }
 
         var blocks = text.split(/\n\s*\n/);
+        var pluginsArray = [];
+        var pluginsToDisable = [];
+
         blocks.forEach(function (block) {
             if (block.startsWith('[Тест]') || block.startsWith('[Установщик]')) {
                 console.log('install', 'Игнорируем блок:', block);
@@ -77,11 +72,7 @@
                     }
 
                     var status = 1;
-                    if (id === 'NotMobile' || id === 'Interface') {
-                        status = 0;
-                    }
 
-                    var pluginsArray = Lampa.Storage.get('plugins') || [];
                     var plugin = {
                         author: author,
                         url: url,
@@ -89,15 +80,30 @@
                         status: status,
                         description: name
                     };
+
                     if (id !== 'NotMobile' && id !== 'Interface') {
                         plugin.id = id;
+                        pluginsArray.push(plugin);
+                        console.log('install', 'Плагин установлен:', name);
+                    } else {
+                        // Добавляем плагин в список для отключения в конце
+                        pluginsToDisable.push(plugin);
+                        console.log('install', 'Плагин добавлен в список для отключения:', name);
                     }
-                    pluginsArray.push(plugin);
-                    Lampa.Storage.set('plugins', pluginsArray);
-
-                    console.log('install', 'Плагин установлен:', name);
                 }
             });
+        });
+
+        // Добавляем плагины "NotMobile" и "Interface" в самом конце
+        pluginsToDisable.forEach(function (plugin) {
+            if (plugin.id === 'Interface') {
+                // Перемещаем "Interface" в самый конец списка
+                pluginsArray.push(plugin);
+                console.log('install', 'Плагин "Interface" установлен в самую последнюю очередь:', plugin.name);
+            } else {
+                pluginsArray.push(plugin);
+                console.log('install', 'Плагин установлен в самом конце:', plugin.name);
+            }
         });
 
         var selfPlugin = {
