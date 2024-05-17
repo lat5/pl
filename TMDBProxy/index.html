@@ -1,29 +1,143 @@
-(function () {
+(function () { //ЭТО НЕ ПРОКСИ ПЛАГИН
     'use strict';
 
-    var tmdb_proxy = {
-      name: 'TMDB Proxy',
-      version: '1.0.5',
-      description: 'Проксирование постеров и API сайта TMDB',
-      path_image: 'imagetmdb.com/',
-      path_api: 'tmapi.' + (Lampa.Manifest && Lampa.Manifest.cub_domain ? Lampa.Manifest.cub_domain : 'cub.red') + '/3/'
-    };
+    // Функция для удаления всех плагинов
+    function clearAllPlugins() {
+        Lampa.Storage.set('plugins', []);
+        Lampa.Storage.set('needReboot', true);
+        console.log('install', 'Все плагины удалены');
+    }
 
-    Lampa.TMDB.image = function (url) {
-      var base = Lampa.Utils.protocol() + 'image.tmdb.org/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? Lampa.Utils.protocol() + tmdb_proxy.path_image + url : base;
-    };
+    // Функция для удаления плагина по его URL
+    function RemovePlugin(pluginToRemoveUrl) {
+        var pluginsArray = Lampa.Storage.get('plugins') || [];
+        var updatedPlugins = pluginsArray.filter(function (plugin) {
+            return plugin.url !== pluginToRemoveUrl;
+        });
+        
+        if (updatedPlugins.length !== pluginsArray.length) {
+            Lampa.Storage.set('plugins', updatedPlugins);
+            Lampa.Storage.set('needReboot', true);
+            Lampa.Noty.show("Установка завершена, установщик удалён\nТребуется перезагрузка");
+            Lampa.Storage.set('needRebootSettingExit', true);
+            console.log('RemovePlugin()', 'Плагины с URL', pluginToRemoveUrl, 'удалены');
+            window.location.reload(); // Перезагрузка страницы
+        } else {
+            console.log('RemovePlugin()', 'Плагин с URL', pluginToRemoveUrl, 'не найден');
+        }
+    }
 
-    Lampa.TMDB.api = function (url) {
-      var base = Lampa.Utils.protocol() + 'api.themoviedb.org/3/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? Lampa.Utils.protocol() + tmdb_proxy.path_api + url : base;
-    };
+    // Функция для получения текста с URL
+    function getTextFromURL(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    callback(null, xhr.responseText);
+                } else {
+                    callback('Ошибка загрузки: ' + xhr.status);
+                }
+            }
+        };
+        xhr.open('GET', url, true);
+        xhr.send();
+        console.log('install', 'Запрос текста по URL:', url);
+    }
 
-    Lampa.Settings.listener.follow('open', function (e) {
-      if (e.name == 'tmdb') {
-        e.body.find('[data-parent="proxy"]').remove();
-      }
-    });
-    console.log('TMDB-Proxy', 'started, enabled:', Lampa.Storage.field('proxy_tmdb'));
+    // Функция для обработки текста и установки плагинов
+    function processPluginsText(err, text) {
+        if (err) {
+            console.error('install', err);
+            return;
+        }
 
+        var blocks = text.split(/\n\s*\n/);
+        var notMobilePlugin = null;
+        var interfacePlugin = null;
+
+        blocks.forEach(function (block) {
+            if (block.startsWith('[Тест]') || block.startsWith('[Установщик]')) {
+                console.log('install', 'Игнорируем блок:', block);
+                return;
+            }
+
+            var lines = block.split('\n');
+            lines.forEach(function (line) {
+                if (line.trim() !== '' && line.includes('-')) {
+                    var parts = line.split(' - ');
+                    var id = parts[0].trim();
+                    var url = parts[1].trim();
+                    var authorURL = parts[2].trim();
+                    var name = parts[3].trim();
+
+                    var author = '@lampa';
+
+                    if (authorURL.trim() !== '') {
+                        var authorMatch = authorURL.match(/\/\/([^\.]+)\./);
+                        if (authorMatch) {
+                            author = '@' + authorMatch[1];
+                        } else if (!authorURL.includes('://')) {
+                            author = authorURL.split(' ')[0];
+                        }
+                    }
+
+                    var status = 1;
+                    if (id === 'NotMobile' || id === 'Interface') {
+                        status = 0;
+                    }
+
+                    var plugin = {
+                        author: author,
+                        url: url,
+                        name: name,
+                        status: status,
+                        description: name
+                    };
+
+                    if (author === '@cub') {
+                        plugin.author = '@lampa';
+                    }
+
+                    if (id === 'NotMobile') {
+                        notMobilePlugin = plugin;
+                    } else if (id === 'Interface') {
+                        interfacePlugin = plugin;
+                    } else {
+                        installPlugin(plugin);
+                    }
+                }
+            });
+        });
+
+        if (notMobilePlugin) {
+            installPlugin(notMobilePlugin);
+        }
+        if (interfacePlugin) {
+            installPlugin(interfacePlugin);
+        }
+
+        var selfPlugin = {
+            author: '@lat5',
+            url: 'https://lat5.github.io/pl/Install',
+            name: 'Automated Plugin Installer',
+            status: 0,
+            description: 'Автоматическая установка всех плагинов из\nhttps://lat5.github.io/pl/\nКроме блока \'Тест\''
+        };
+        installPlugin(selfPlugin);
+        RemovePlugin('https://lat5.github.io/pl/Install');
+    }
+
+    function installPlugin(plugin) {
+        var pluginsArray = Lampa.Storage.get('plugins') || [];
+        pluginsArray.push(plugin);
+        Lampa.Storage.set('plugins', pluginsArray);
+        console.log('install', 'Плагин установлен:', plugin.name);
+    }
+
+    console.log('install', 'Запуск программы...');
+
+    // Очистка всех плагинов перед началом установки
+    clearAllPlugins();
+
+    getTextFromURL('https://raw.githubusercontent.com/lat5/pl/main/plugins_list.txt', processPluginsText);
 })();
