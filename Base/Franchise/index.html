@@ -86,7 +86,7 @@
 });
 
     data.forEach((el, index) => {
-      let typeText = $("a", el.children[1]).attr("href")?.split("/")[3] || "";
+     let typeText = Lang.translate($("a", el?.children[1])?.attr("href")?.split("/")[3] || "");
       if (typeText === 'films') {
         typeText = 'Фильм';
       } else if (typeText === 'series') {
