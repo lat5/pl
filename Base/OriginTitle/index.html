@@ -1,28 +1,40 @@
-(function(){
+(function () {
+  // BDVBurik 2024
   "use strict";
 
-  function titleOrigin(card){
+  function titleOrigin(card) {
     var orig = card.original_title || card.original_name;
-    if (orig) {
-      var render = Lampa.Activity.active().activity.render();
-      $(".original_title", render)
-        .find("> div")
-        .eq(0)
-        .after(
-          "<div style='font-size: 0.65em; height: auto; text-align: left;'></div><br><div style='font-size: 1.3em; height: auto; text-align: left;'>Origin: " +
-            orig +
-            "</div><br>"
-        );
+
+    _showEnTitle(orig);
+
+    function _showEnTitle(orig) {
+      if (orig) {
+        var render = Lampa.Activity.active().activity.render();
+
+        $(".original_title", render)
+          .find("> div")
+          .eq(0)
+          .after(
+            `<div id='titleen'>
+              <div>
+                <div style='font-size: 1.3em; height: auto;'> </div>
+                <div style='font-size: 1.3em; height: auto;'>Origin: ${orig}</div>
+                <div style='font-size: 1.3em; height: auto;'> </div>
+              </div>
+            </div>`
+          );
+      }
     }
   }
 
-  if (!window.title_plugin) {
+  function startPlugin() {
     window.title_plugin = true;
     Lampa.Listener.follow("full", function (e) {
       if (e.type == "complite") {
         var render = e.object.activity.render();
+        $(".original_title", render).remove();
         $(".full-start-new__title", render).after(
-          '<div class="original_title" style="  margin-top:-0.8em ; text-align: left;"><div>'
+          '<div class="original_title" style="margin-top:-0.8em; text-align: right;"><div>'
         );
         titleOrigin(e.data.movie);
         $(".full-start-new__rate-line").css("margin-bottom", "0.8em");
@@ -31,4 +43,6 @@
       }
     });
   }
+
+  if (!window.title_plugin) startPlugin();
 })();
