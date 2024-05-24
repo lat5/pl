@@ -82,7 +82,11 @@
       </span><span class="${el.children[1].className}">${typeText}</span><span class="${el.children[2].className}">${el.children[2].innerText}
       </span><span class="${el.children[3].className}"><i class="hd-tooltip tooltipstered">${el.children[3].innerText}</i></span></div>`;
 
-      ew += `$('.collection' ).on('hover:enter','#search${el.children[0].innerText}',()=>{Lampa.Search.open({input:'${el.children[1].innerText}'})});`;
+      // Обработка значения передаваемого в Lampa.Search.open
+      let inputValue = el.children[1].innerText.trim(); // Удаляем пробелы по краям
+      inputValue = inputValue.split('/')[0].trim(); // Берем значение до первого символа '/' и удаляем пробелы по краям
+
+      ew += `$('.collection' ).on('hover:enter','#search${el.children[0].innerText}',()=>{Lampa.Search.open({input:'${inputValue}'})});`;
     });
 
     let collect = $(
