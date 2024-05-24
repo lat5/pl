@@ -66,22 +66,26 @@
   films: {
     ru: 'Фильм',
     uk: 'Фільм',
-    en: 'Film'
+    en: 'Film',
+    be: 'Фільм'
   },
   series: {
     ru: 'Сериал',
     uk: 'Серіал',
-    en: 'Series'
+    en: 'Series',
+    be: 'Серыял'
   },
   cartoons: {
     ru: 'Мультфильм',
     uk: 'Мультфільм',
-    en: 'Cartoon'
+    en: 'Cartoon',
+    be: 'Мультфільм'
   },
-  animation: {
+  anime: {
     ru: 'Аниме',
     uk: 'Аніме',
-    en: 'Anime'
+    en: 'Anime',
+    be: 'Анімэ'
   }
 });
 
@@ -95,7 +99,8 @@
         typeText = 'Мультфильм';
       } else if (typeText === 'anime') {
         typeText = 'Аниме';
-      }        
+      }
+        
 
       www += `<div id="search${el.children[0].innerText}" class="stringhide selector ${el.className}`;
       if (wid + 2 >= index && index >= wid - 2) {
