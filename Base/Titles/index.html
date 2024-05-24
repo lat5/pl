@@ -1,19 +1,17 @@
 (function () {
-  //BDVBurik 2024
+  // BDVBurik 2024
   "use strict";
 
   async function titleOrigin(card) {
     var orig = card.original_title || card.original_name;
-    var params = {
-      id: card.id,
-      url: "https://api.themoviedb.org/3/movie/",
-      urlEnd: "&api_key=4ef0d7355d9ffb5151e987764708ce96",
-    };
+    var apiURL = "https://api.themoviedb.org/3/movie/";
+    var apiKey = "&api_key=4ef0d7355d9ffb5151e987764708ce96";
 
     if (card.first_air_date) {
-      params.url = "https://api.themoviedb.org/3/tv/";
-      params.urlEnd = "&api_key=4ef0d7355d9ffb5151e987764708ce96";
+      apiURL = "https://api.themoviedb.org/3/tv/";
     }
+
+    var kp_prox = "https://worker-patient-dream-26d7.bdvburik.workers.dev/";
 
     var getOptions = {
       method: "GET",
@@ -22,54 +20,39 @@
       },
     };
 
-    async function getEnTitle() {
-      var title;
-      var ftc = await fetch(
-        params.url + params.id + "?language=en-US" + params.urlEnd,
-        getOptions
-      )
-        .then((response) => response.json())
-        .then((e) => (title = e.title || e.name));
-
-      return title;
-    }
-    async function getRuTitle() {
-      var title;
-      var ftc = await fetch(
-        params.url + params.id + "?language=ru-RU" + params.urlEnd,
-        getOptions
-      )
-        .then((response) => response.json())
-        .then((e) => (title = e.title || e.name));
-      return title;
+    async function getTitle(language) {
+      var response = await fetch(kp_prox + apiURL + card.id + "?language=" + language + apiKey, getOptions);
+      var data = await response.json();
+      return data.title || data.name;
     }
 
-    var etEnTitle = await getEnTitle();
-    var etRuTitle = await getRuTitle();
-    _showEnTitle(etEnTitle);
+    var enTitle = await getTitle("en-US");
+    var ruTitle = await getTitle("ru-RU");
 
-    function _showEnTitle(data) {
+    _showEnTitle(enTitle, ruTitle);
+
+    function _showEnTitle(enTitle, ruTitle) {
       let ru = "";
-      if (data) {
+      if (enTitle) {
         var render = Lampa.Activity.active().activity.render();
 
         if (Lampa.Storage.get("language") != "ru") {
-          ru =
-            "<div style='font-size: 1.3em; height: auto;'>Ru:" +
-            etRuTitle +
-            "</div >";
+          ru = "<div style='font-size: 1.3em; height: auto;'>Ru: " + ruTitle + "</div>";
         } else ru = "";
+
+        $(".original_title", render)
+          .find("> div")
+          .eq(0)
+          .after(
+            `<div id='titleen'>
+              <div>
+                <div style='font-size: 1.3em; height: auto;'>En: ${enTitle}</div>
+                ${ru}
+                <div style='font-size: 1.3em; height: auto;'>Orig: ${orig}</div>
+              </div>
+            </div>`
+          );
       }
-      $(".original_title", render)
-        .find("> div")
-        .eq(0)
-        .after(
-          `<div id='titleen'><div><div style='font-size: 1.3em; height: auto; '>En: 
-              ${data} </div>${ru}
-              <div style='font-size: 1.3em; height: auto; '> Orig: 
-                ${card.original_title || card.original_name} 
-              </div></div></div>`
-        );
     }
   }
 
@@ -89,5 +72,6 @@
       }
     });
   }
+
   if (!window.title_plugin) startPlugin();
 })();
