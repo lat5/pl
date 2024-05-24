@@ -87,7 +87,15 @@
 
     data.forEach((el, index) => {
      let typeText = Lang.translate($("a", el?.children[1])?.attr("href")?.split("/")[3] || "");
-        
+      if (typeText === 'films') {
+        typeText = 'Фильм';
+      } else if (typeText === 'series') {
+        typeText = 'Сериал';
+      } else if (typeText === 'cartoons') {
+        typeText = 'Мультфильм';
+      } else if (typeText === 'anime') {
+        typeText = 'Аниме';
+      }        
 
       www += `<div id="search${el.children[0].innerText}" class="stringhide selector ${el.className}`;
       if (wid + 2 >= index && index >= wid - 2) {
