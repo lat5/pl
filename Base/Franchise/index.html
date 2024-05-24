@@ -91,26 +91,23 @@
         "</div>"
     );
 
-$(".collection").remove();
-$(".full-descr__text").after(collect);
+    $(".collection").remove();
+    $(".full-descr__text").after(collect);
 
-$("#collect").ready(function () {
-    $(".hdhd").removeClass("hide");
-    $("#collect").removeClass("collectionfocus selector");
     $(".b-post__partcontent_item").bind("hover:enter", (e) => {
-        let inputValue = e?.currentTarget?.children[1]?.innerText || ""; // Получаем значение для передачи в функцию
-        // Обработка значения
-        inputValue = inputValue.trim(); // Удаляем пробелы по краям
-        if (inputValue.includes("/")) { // Проверяем наличие символа '/'
-            inputValue = inputValue.split("/")[0]; // Берем значение до символа '/'
-        }
-        inputValue = inputValue.trim(); // Удаляем пробелы после обрезки значения
-        Lampa.Search.open({
-            input: inputValue // Передаем обработанное значение в функцию
-        });
+    let inputValue = e?.currentTarget?.children[1]?.innerText || ""; // Получаем значение для передачи в функцию
+    // Обработка значения
+    inputValue = inputValue.trim(); // Удаляем пробелы по краям
+    if (inputValue.includes("/")) { // Проверяем наличие символа '/'
+        inputValue = inputValue.split("/")[0]; // Берем значение до символа '/'
+    }
+    inputValue = inputValue.trim(); // Удаляем пробелы после обрезки значения
+    Lampa.Search.open({
+        input: inputValue // Передаем обработанное значение в функцию
     });
 });
-
+    });
+  };
 
   getEnTitle = async function (id, type) {
     let url;
