@@ -64,19 +64,17 @@
     });
 
     data.forEach((el, index) => {
-       switch: ($("a", el.children[1]).attr("href")?.split("/")[3] || "")
-  case 'films': 
+  let typeText = $("a", el.children[1]).attr("href")?.split("/")[3] || "";
+  if (typeText === 'films') {
     typeText = 'Фильм';
-    case 'series': 
+  } else if (typeText === 'series') {
     typeText = 'Сериал';
-    case 'cartoons': 
+  } else if (typeText === 'cartoons') {
     typeText = 'Мультфильм';
-    case 'animation': 
-    typeText = 'Аниме'
-   
-default: typeText =''; 
+  } else if (typeText === 'animation') {
+    typeText = 'Аниме';
+  }
 });
-      }
         
 
       www += `<div id="search${el.children[0].innerText}" class="stringhide selector ${el.className}`;
