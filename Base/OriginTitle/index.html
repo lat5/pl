@@ -15,15 +15,9 @@
           .find("> div")
           .eq(0)
           .after(
-            `<div id='titleen'>
-              <div>
-                <div style='font-size: 1.3em; height: auto;'> </div>
-                <div style='font-size: 1.3em; height: auto; text-align: left;'> </div>
-                <div style='font-size: 1.3em; height: auto; text-align: left;'>Origin: ${orig}</div>
-                <div style='font-size: 1.3em; height: auto; text-align: left;'> </div>
-                <div style='font-size: 1.3em; height: auto;'> </div>
-              </div>
-            </div>`
+            "<div style='font-size: 0.65em; height: auto; text-align: left;'></div><br><div style='font-size: 1.3em; height: auto; text-align: left;'>Origin: " +
+            orig +
+            "</div><br>"
           );
       }
     }
@@ -36,7 +30,7 @@
         var render = e.object.activity.render();
         $(".original_title", render).remove();
         $(".full-start-new__title", render).after(
-          '<div class="original_title" style="margin-top:-0.8em; text-align: right;"><div>'
+          '<div class="original_title" style="margin-top:-0.8em; text-align: left;"><div>'
         );
         titleOrigin(e.data.movie);
         $(".full-start-new__rate-line").css("margin-bottom", "0.8em");
