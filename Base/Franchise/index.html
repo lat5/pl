@@ -82,6 +82,12 @@
       </span><span class="${el.children[1].className}">${typeText}</span><span class="${el.children[2].className}">${el.children[2].innerText}
       </span><span class="${el.children[3].className}"><i class="hd-tooltip tooltipstered">${el.children[3].innerText}</i></span></div>`;
 
+      // Обработка значения для использования в функции Lampa.Search.open
+      let inputValue = el.children[1].innerText.trim(); // Удаляем начальные и конечные пробелы
+      inputValue = inputValue.split('/')[0].trim(); // Берем значение до первого '/'
+      if (inputValue.endsWith(' ')) { // Удаляем пробел в конце, если он есть
+        inputValue = inputValue.slice(0, -1);}
+
       ew += `$('.collection' ).on('hover:enter','#search${el.children[0].innerText}',()=>{Lampa.Search.open({input:'${el.children[1].innerText}'})});`;
     });
 
@@ -94,18 +100,14 @@
     $(".collection").remove();
     $(".full-descr__text").after(collect);
 
-    $(".b-post__partcontent_item").bind("hover:enter", (e) => {
-    let inputValue = e?.currentTarget?.children[1]?.innerText || ""; // Получаем значение для передачи в функцию
-    // Обработка значения
-    inputValue = inputValue.trim(); // Удаляем пробелы по краям
-    if (inputValue.includes("/")) { // Проверяем наличие символа '/'
-        inputValue = inputValue.split("/")[0]; // Берем значение до символа '/'
-    }
-    inputValue = inputValue.trim(); // Удаляем пробелы после обрезки значения
-    Lampa.Search.open({
-        input: inputValue // Передаем обработанное значение в функцию
-    });
-});
+    $("#collect").ready(function () {
+      $(".hdhd").removeClass("hide");
+      $("#collect").removeClass("collectionfocus selector");
+      $(".b-post__partcontent_item").bind("hover:enter", (e) => {
+        Lampa.Search.open({
+          input: `${e?.currentTarget?.children[1]?.innerText}`,
+        });
+      });
     });
   };
 
