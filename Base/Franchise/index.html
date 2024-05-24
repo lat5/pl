@@ -64,15 +64,18 @@
     });
 
     data.forEach((el, index) => {
-      let typeText = $("a", el.children[1]).attr("href")?.split("/")[3] || "";
-      if (typeText === 'films') {
-        typeText = 'Фильм';
-      } else if (typeText === 'series') {
-        typeText = 'Сериал';
-      } else if (typeText === 'cartoons') {
-        typeText = 'Мультфильм';
-      } else if (typeText === 'anime') {
-        typeText = 'Аниме';
+       switch: ($("a", el.children[1]).attr("href")?.split("/")[3] || "")
+  case 'films': 
+    typeText = 'Фильм';
+    case 'series': 
+    typeText = 'Сериал';
+    case 'cartoons': 
+    typeText = 'Мультфильм';
+    case 'animation': 
+    typeText = 'Аниме'
+   
+default: typeText =''; 
+});
       }
         
 
