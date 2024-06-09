@@ -29,6 +29,7 @@ Etor - https://lat5.github.io/pl/Torr/Etor - http://cub.red/plugin/etor - Тор
 Tracks - https://lat5.github.io/pl/Torr/Tracks - http://cub.red/plugin/tracks - Аудиодорожки в торрентах
 PubParsers - https://lat5.github.io/pl/Torr/PubParsers - https://lampame.github.io/main/pubtorr/pubtorr.js - Отображение публичных парсеров
 TorrentInfo - https://lat5.github.io/pl/Torr/TorrentInfo - https://plugin.rootu.top/ts-preload.js - Информация о торренте при предзагрузке
+TS Local Finder - https://lat5.github.io/pl/Torr/TSFind - http://193.233.134.21/plugins/checker.js - Поиск локального торрсервера
 
 [Онлайн просмотр]
 OnlineMod - https://lat5.github.io/pl/Onl/online_mod - https://nb557.github.io/plugins/online_mod.js - Плагин для просмотра фильмов 
