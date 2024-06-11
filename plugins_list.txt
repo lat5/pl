@@ -19,9 +19,9 @@ NotMobile - https://lat5.github.io/pl/UI/NotMobile - https://nb557.github.io/pli
 Radio - https://lat5.github.io/pl/UI/Radio - https://nemiroff.github.io/lampa/rr.js - Радио Record 320kbps
 
 [Настройки]
-Tricks - https://lat5.github.io/pl/Sets/Tricks - https://andreyurl54.github.io/diesel5/tricks.js - "Приятные мелочи" в настройках
+Tricks - https://lat5.github.io/pl/Sets/Tricks - https://andreyurl54.github.io/diesel5/tricks.js - Доп настройки "Twicks & Tricks"
 Store - https://lat5.github.io/pl/Sets/Store - https://skaztv.online/store.js - Магазин пиратских плагинов
-HotKeys - https://lat5.github.io/pl/Sets/HotKeys - https://nnmdd.github.io/lampa_hotkeys/hotkeys.js - Горячие клавиши 8, 5, 0
+HotKeys - https://lat5.github.io/pl/Sets/HotKeys - https://nnmdd.github.io/lampa_hotkeys/hotkeys.js - Горячие клавиши 8, 5, 0 в плеере
 RemoteType - https://lat5.github.io/pl/Sets/RemoteType - https://nemiroff.github.io/lampa/select_weapon.js - Настройка типа управления
 
 [Торрент]
