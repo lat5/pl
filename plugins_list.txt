@@ -36,6 +36,7 @@ OnlineMod - https://lat5.github.io/pl/Onl/online_mod - https://nb557.github.io/p
 SkazTV - https://lat5.github.io/pl/Onl/SkazTV - https://skaz.tv/tv.js - Телевидение by Skaz
 Stream - https://lat5.github.io/pl/Onl/Stream - http://arkmv.ru/vod - Доп для просмотра фильмов
 Showy - https://lat5.github.io/pl/Onl/Showy - http://showy.online/m.js - Онлайн просмотр, есть 4K
+Timecode - https://lat5.github.io/pl/Onl/TimeCode - https://bylampa.github.io/timecode.js - Синхронизация таймкодов
 
 [Тест]
 PluginsList - https://lat5.github.io/pl/test/PluginsList - https://bylampa.github.io/addon.js - Выбор плагинов в настройках Lampa
