@@ -9,12 +9,13 @@
 
   const tmdbApiUrl = "https://api.themoviedb.org/3/";
   let kp_prox = "https://worker-patient-dream-26d7.bdvburik.workers.dev:8443/";
-  let url = "https://hdrezka.website/ajax/get_comments/?t=1714093694732&news_id=";
+  let url = "https://rezka.ag/ajax/get_comments/?t=1714093694732&news_id=";
 
   // Функция для поиска на сайте hdrezka
   async function searchRezka(name, ye) {
     let fc = await fetch(
-        "https://hdrezka.website/search/?do=search&subaction=search&q=" +
+      kp_prox +
+        "https://hdrezka.ag/search/?do=search&subaction=search&q=" +
         name +
         (ye ? "+" + ye : ""),
       {
@@ -71,11 +72,13 @@
   // Функция для получения комментариев с сайта rezka
   async function comment_rezka(id) {
     console.log(
+      kp_prox +
         url +
         (id ? id : "1") +
         "&cstart=1&type=0&comment_id=0&skin=hdrezka"
     );
     let fc = await fetch(
+      kp_prox +
         url +
         (id ? id : "1") +
         "&cstart=1&type=0&comment_id=0&skin=hdrezka",
