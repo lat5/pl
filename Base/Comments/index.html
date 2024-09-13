@@ -11,38 +11,53 @@
   let kp_prox = "https://worker-patient-dream-26d7.bdvburik.workers.dev:8443/";
   let url = "https://rezka.ag/ajax/get_comments/?t=1714093694732&news_id=";
 
-  // Функция для создания и отображения индикатора загрузки
-  function showLoadingIndicator() {
-    let loadingDiv = document.createElement("div");
-    loadingDiv.id = "loadingIndicator";
-    loadingDiv.style.position = "fixed";
-    loadingDiv.style.top = "0";
-    loadingDiv.style.left = "0";
-    loadingDiv.style.width = "100%";
-    loadingDiv.style.height = "100%";
-    loadingDiv.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-    loadingDiv.style.display = "flex";
-    loadingDiv.style.alignItems = "center";
-    loadingDiv.style.justifyContent = "center";
-    loadingDiv.style.color = "white";
-    loadingDiv.style.fontSize = "20px";
-    loadingDiv.style.zIndex = "9999";
-    loadingDiv.innerText = "Загрузка...";
-    document.body.appendChild(loadingDiv);
+  // Создание элемента визуализации загрузки
+  function createLoader() {
+    const loader = document.createElement("div");
+    loader.id = "loader";
+    loader.innerHTML = `
+      <div class="spinner"></div>
+      <style>
+        #loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.8);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+        }
+        .spinner {
+          border: 16px solid #f3f3f3;
+          border-top: 16px solid #3498db;
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+    `;
+    document.body.appendChild(loader);
   }
 
-  // Функция для скрытия индикатора загрузки
-  function hideLoadingIndicator() {
-    let loadingDiv = document.getElementById("loadingIndicator");
-    if (loadingDiv) {
-      document.body.removeChild(loadingDiv);
+  // Удаление элемента визуализации загрузки
+  function removeLoader() {
+    const loader = document.getElementById("loader");
+    if (loader) {
+      document.body.removeChild(loader);
     }
   }
 
   // Функция для поиска на сайте hdrezka
   async function searchRezka(name, ye) {
-    showLoadingIndicator(); // Показываем индикатор загрузки
-
+    createLoader(); // Показать визуализацию загрузки
     try {
       let fc = await fetch(
         kp_prox +
@@ -64,9 +79,9 @@
 
       comment_rezka(arr[0].dataset.id);
     } catch (error) {
-      console.error("Ошибка поиска на hdrezka:", error);
+      console.error("Error fetching search results:", error);
     } finally {
-      hideLoadingIndicator(); // Скрываем индикатор загрузки
+      removeLoader(); // Скрыть визуализацию загрузки
     }
   }
 
@@ -91,7 +106,7 @@
         .then((e) => (enTitle = e.title || e.name));
       searchRezka(normalizeTitle(enTitle), year);
     } catch (error) {
-      console.error("Ошибка получения английского названия:", error);
+      console.error("Error fetching English title:", error);
     }
   }
 
@@ -112,15 +127,8 @@
 
   // Функция для получения комментариев с сайта rezka
   async function comment_rezka(id) {
-    showLoadingIndicator(); // Показываем индикатор загрузки
-
+    createLoader(); // Показать визуализацию загрузки
     try {
-      console.log(
-        kp_prox +
-          url +
-          (id ? id : "1") +
-          "&cstart=1&type=0&comment_id=0&skin=hdrezka"
-      );
       let fc = await fetch(
         kp_prox +
           url +
@@ -148,6 +156,7 @@
         e.classList.remove("info");
       });
 
+      //console.log("dom", dom);
       let arr = dom.getElementsByClassName("comments-tree-list");
       www = arr[0].outerHTML;
 
@@ -158,7 +167,7 @@
         `<div> <div class="broadcast__text" style="text-align:left;"><div class="comment" style="margin-left: -15px;">` +
           www +
           "</div></div></div>"
-      );
+      ); //.style.color = "blue"
       let styleEl = document.createElement("style");
       styleEl.setAttribute("type", "text/css");
       styleEl.innerHTML = `
@@ -166,39 +175,40 @@
         margin-top: 10px;
       }
       .title_spoiler a {
-    border-radius: 8px;
-    background-color: #5d5b5b;
-    color: #fff;
-    padding: 0 2px 0 5px;
-    position: relative;
-    text-decoration: none;
-    }
-    .text_spoiler {
-    background-color: #353333;
-    }
-    .comments-tree-item {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    }
-    .b-comment .message {
-    float: right;
-    width: 100%;
-    padding-bottom: 10px;
-    }
-    .myinfo {
-    margin-top: 10px;
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.6em;
-    color: #cfc9be;
-    }
-    div.text > div {
-    display: ruby-text;
-    padding-left: 1.2em;
-    }
-    `;
+        border-radius: 8px;
+        background-color: #5d5b5b;
+        color: #fff;
+        padding: 0 2px 0 5px;
+        position: relative;
+        text-decoration: none;
+      }
+      .text_spoiler {
+        background-color: #353333;
+      }
+      .comments-tree-item {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .b-comment .message {
+        float: right;
+        width: 100%;
+        padding-bottom: 10px;
+      }
+      .myinfo {
+        margin-top: 10px;
+        border-top: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.6em;
+        color: #cfc9be;
+      }
+      div.text > div {
+        display: ruby-text;
+
+        padding-left: 1.2em;
+      }
+      `;
       document.head.appendChild(styleEl);
 
       var enabled = Lampa.Controller.enabled().name;
@@ -219,9 +229,9 @@
         `${namemovie}<button class="selector "  tabindex="0" style = "float: right;" type="button"  onclick="$('.modal--large').remove()"  data-dismiss="modal">&times;</button>`
       );
     } catch (error) {
-      console.error("Ошибка получения комментариев:", error);
+      console.error("Error fetching comments:", error);
     } finally {
-      hideLoadingIndicator(); // Скрываем индикатор загрузки
+      removeLoader(); // Скрыть визуализацию загрузки
     }
   }
 
@@ -232,20 +242,29 @@
       if (e.type == "complite") {
         $(".button--comment").remove();
         $(".full-start-new__buttons").append(
-          `<div class="full-start__button selector button--comment"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24"><path d="M21 13h-2v-6h2v6zm-3-6h-2v6h2v-6zm-3 0h-2v6h2v-6zm-3 0h-2v6h2v-6zm-3 0h-2v6h2v-6zm6 10h2v-6h-2v6zm-3 0h2v-6h-2v6zm-3 0h2v-6h-2v6zm-3 0h2v-6h-2v6z"/></svg> Комментарии</div>`
+          `<div class="full-start__button selector button--comment"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 48 48"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M44,28c-1.1,0-2.1-0.4-2.9-1.1L33,21.5l-6.4,6.4c-1.6,1.6-4.1,1.8-5.9,0.5c-1.6-1.6-1.8-4.1-0.5-5.9l8.3-8.3c-0.1-0.2-0.2-0.3-0.3-0.5c-0.4-0.6-0.7-1.1-1.2-1.5L17.3,3.6c-1.6-1.6-4.1-1.8-5.9-0.5c-1.6,1.6-1.8,4.1-0.5,5.9l8.3,8.3c-0.1,0.2-0.2,0.3-0.3,0.5c-0.4,0.6-0.7,1.1-1.2,1.5L5.5,23.4C4.1,24.8,3.9,27.3,5.5,28.9c1.6,1.6,4.1,1.8,5.9,0.5l8.4-8.4c0.2-0.2,0.3-0.5,0.5-0.8l7.1,7.1c0.5,0.5,1,1,1.6,1.4c0.7,0.5,1.4,0.8,2.3,0.8c1.1,0,2.1-0.4,2.9-1.1l8.3-8.3c1.6-1.6,1.8-4.1,0.5-5.9C46.1,28.3,45.1,28,44,28z"></path></g></svg><span style="margin-left: 10px;">Comments</span></div>`
         );
+        $(".full-start__button").on("click", async function () {
+          const current_id = $(".full-start__title").data("id");
+          const full_start_name = $(".full-start__title").text();
+          year = $(".full-start__description").text().match(/(\d{4})/);
+          year = year ? year[0] : "";
 
-        $(".full-start__button.button--comment").on("click", function () {
-          let title = document.querySelector("h1.full-start__title").innerText;
-          let year = (document.querySelector(".full-start__meta") || {}).innerText.split(" ")[1];
-          namemovie = normalizeTitle(title);
-          year = year;
-          searchRezka(namemovie, year);
+          let imdb_id = Lampa.Utils.imdb_id(current_id);
+          let kp_id = Lampa.Utils.kp_id(current_id);
+
+          if (kp_id) {
+            getEnTitle(kp_id, "movie");
+          } else if (imdb_id) {
+            getEnTitle(imdb_id, "movie");
+          } else {
+            searchRezka(normalizeTitle(full_start_name), year);
+          }
         });
       }
     });
   }
 
   // Запуск плагина после загрузки страницы
-  document.addEventListener("DOMContentLoaded", startPlugin);
+  Lampa.Controller.add("comment_plugin", startPlugin);
 })();
