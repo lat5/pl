@@ -265,6 +265,6 @@
     });
   }
 
-  // Запуск плагина после загрузки страницы
-  Lampa.Controller.add("comment_plugin", startPlugin);
+  // Запуск плагина только если он еще не был запущен
+  if (!window.comment_plugin) startPlugin();
 })();
